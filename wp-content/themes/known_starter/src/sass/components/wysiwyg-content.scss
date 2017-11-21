@@ -1,0 +1,24 @@
+.wysiwyg-content {
+  margin: 10rem auto $margin-vertical-base auto;
+  padding: 0 $padding-horizontal-base;
+  max-width: 70rem;
+
+  .intro {
+    font-size: 3rem;
+    line-height: 4rem;
+    color: $gold;
+
+    &:after {
+      content: '';
+      display: block;
+      width: 3.5rem;
+      height: .6rem;
+      margin: 3rem auto;
+      background: $text-color;
+    }
+  }
+
+  p {
+    font-family: $font-family-sans;
+  }
+}

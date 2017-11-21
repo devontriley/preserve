@@ -1,0 +1,84 @@
+.hero {
+  height: 100vh;
+  text-align: center;
+  background: #eee;
+  padding: 3rem $padding-horizontal-base;
+  background-size: cover;
+  background-position: center center;
+  @include flexbox();
+  @include justify-content(center);
+  @include align-items(center);
+
+  &.overlay_box .content {
+    background: #fff;
+    border: .4rem solid $gold;
+    padding: 7rem;
+    color: $text-color;
+  }
+
+  &.dark-text .content {
+    color: $text-color;
+  }
+
+  .content {
+    color: #fff;
+
+    h1 {
+      margin-top: 0;
+      text-transform: uppercase;
+    }
+
+    p.preheader {
+      font-family: $font-family-base;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      letter-spacing: .1rem;
+    }
+
+    p {
+      font-family: $font-family-sans;
+      margin: 0 auto;
+      max-width: 45rem;
+    }
+
+    .btn {
+      margin-top: 3rem;
+      border-color: #fff;
+      color: #fff;
+      &:hover {
+        color: $text-color;
+      }
+      &:after {
+        background-color: #fff;
+      }
+    }
+  }
+
+  &.sm {
+    height: auto;
+    margin-top: 6rem;
+
+    @media(min-width: 768px) {
+      margin-top: 9rem;
+    }
+
+    &.overlay_box .content {
+      padding: 3rem;
+      @media(min-width: 768px) {
+        padding: 7rem;
+      }
+    }
+
+    .content {
+      padding: 15rem 0 7rem 0;
+    }
+  }
+
+  &.md {
+    height: auto;
+
+    .content {
+      padding: 20rem 10rem;
+    }
+  }
+}

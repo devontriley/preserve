@@ -1,0 +1,1 @@
+[04-Jul-2017 14:15:44 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/devontriley/public_html/preserve/wp-content/themes/html5blank/src/index.php on line 1

@@ -1,0 +1,61 @@
+.next-collection {
+  margin: $margin-vertical-base auto;
+
+  .content-image-group + & {
+    margin-top: 0;
+  }
+
+  .col.cta {
+    padding: 2rem;
+    background-image: url(img/bg-pattern.png);
+    background-size: cover;
+    background-position: center center;
+    padding: 10vw 3rem;
+  }
+
+  @media(max-width: 767px) {
+    .col {
+      padding: 2rem;
+    }
+  }
+
+  h3 {
+    font-size: 2.4rem;
+    line-height: 1.3em;
+    margin: 0 0 .5rem 0;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    @media(min-width: 768px) {
+      font-size: 3.6rem;
+    }
+  }
+
+  .image {
+    padding: 0 3rem;
+    text-align: center;
+
+    img {
+      max-width: 50vw;
+      @media(min-width: 768px) {
+        max-width: none;
+        max-height: 23vw;
+      }
+    }
+  }
+
+  @media(min-width: 768px) {
+    & {
+      @include flexbox();
+      @include align-items(center);
+    }
+
+    .col {
+      @include flexbox();
+      @include flex-direction(column);
+      @include justify-content(center);
+      @include align-items(center);
+      @include flex(0 0 50%);
+    }
+  }
+}

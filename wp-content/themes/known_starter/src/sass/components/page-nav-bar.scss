@@ -1,0 +1,54 @@
+.page-nav-bar {
+  background-image: url(img/bg-pattern.png);
+  background-size: cover;
+  background-position: center center;
+  padding: 6rem 0;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  line-height: 1em;
+  text-align: center;
+
+  @media(min-width: 768px) {
+    @include flexbox();
+    @include justify-content(center);
+    @include align-items(center);
+  }
+
+  header {
+    font-weight: 700;
+    margin: 0 3rem 3rem 3rem;
+    @media(min-width: 768px) {
+      margin: 0 3rem;
+    }
+  }
+
+  a {
+    display: inline-block;
+    margin: 0 3rem 3rem 3rem;
+    position: relative;
+    @media(min-width: 768px) {
+      margin: 0 3rem;
+    }
+
+    &.active {
+      color: $gold;
+      @media(min-width: 768px) {
+        &:after {
+          content: '';
+          position: absolute;
+          left: 50%;
+          bottom: -2rem;
+          display: block;
+          width: 4rem;
+          height: .5rem;
+          background: $text-color;
+          @include transform(translateX(-50%));
+        }
+      }
+    }
+  }
+
+  div:last-child a {
+    margin-bottom: 0;
+  }
+}

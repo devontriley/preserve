@@ -1,0 +1,48 @@
+.logo-grid {
+  text-align: center;
+  padding: 5rem $margin-horizontal-base;
+  background-size: auto 80%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #fafafa;
+  @include flexbox();
+  @include justify-content(center);
+  @include align-items(center);
+  @media(min-width: 768px) {
+    padding: 10rem $margin-horizontal-base;
+  }
+  @media(min-width: 1440px) {
+    padding: 15rem $margin-horizontal-base;
+  }
+
+  .page-id-239 &,
+  .page-id-14 & {
+    background-image: url(img/bg-flower.png);
+  }
+
+  .logos {
+    max-width: 90rem;
+    margin: 0 auto;
+    @include flexbox();
+    @include flex-wrap(wrap);
+    @include align-items(center);
+
+    .logo {
+      padding: 2rem;
+      @include flex(0 0 100%);
+
+      @media(min-width: 768px) {
+        padding: 5rem;
+        @include flex(0 0 33.33%);
+      }
+
+      img {
+        max-height: 11rem;
+      }
+    }
+  }
+
+  .btn {
+    margin-top: 3rem;
+  }
+}

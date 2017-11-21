@@ -1,0 +1,42 @@
+.logo-grid {
+  text-align: center;
+  padding-top: $padding-vertical-base;
+  padding-bottom: $padding-vertical-base;
+  padding-left: $padding-horizontal-base;
+  padding-right: $padding-horizontal-base;
+  background-size: cover;
+  background-position: center center;
+  @include flexbox();
+  @include justify-content(center);
+  @include align-items(center);
+
+  .page-id-239 &,
+  .page-id-14 & {
+    background-image: url(img/bg-pattern.png);
+  }
+
+  .logos {
+    max-width: $wrapper-width;
+    margin: 0 auto;
+    @include flexbox();
+    @include flex-wrap(wrap);
+    @include align-items(center);
+
+    .logo {
+      padding: 3rem;
+      @include flex(0 0 100%);
+
+      @media(min-width: 768px) {
+        @include flex(0 0 33.33%);
+      }
+
+      img {
+        max-height: 11rem;
+      }
+    }
+  }
+
+  .btn {
+    margin-top: 3rem;
+  }
+}
