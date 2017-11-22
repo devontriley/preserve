@@ -1,0 +1,17 @@
+@media (min-width: 992px) {
+  .full-width-image {
+    height: calc(100vh - 9rem);
+    width: 100%;
+    height: calc(100vh - 6rem);
+    background-size: cover;
+    background-attachment: fixed;
+    -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.08) inset;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.08) inset; } }
+
+.full-width-image img {
+  width: 100%;
+  height: auto;
+  display: block; }
+  @media (min-width: 992px) {
+    .full-width-image img {
+      display: none; } }
