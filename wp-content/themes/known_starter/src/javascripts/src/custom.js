@@ -1,1 +1,1 @@
-console.log('GOODBYE WORLD >:0)!!');
+console.log('GOODBYE WORLD >:())!!');
