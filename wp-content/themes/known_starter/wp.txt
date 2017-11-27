@@ -1,0 +1,18 @@
+//////////////////////////////////////////////////////
+
+PLUGINS USED:
+
+A = active
+I = inactive
+
+Advanced Custom Fields Pro (A)
+Custom Post Type UI (A)
+Easy WP SMTP (I)
+Gravity Forms (A)
+iThemes Security (A)
+New User Approve (A)
+Post Type Switcher (A)
+Simple Page Ordering (A)
+W3 Total Cache (A)
+
+///////////////////////////////////////////////////////

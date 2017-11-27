@@ -41,64 +41,7 @@ if (function_exists('add_theme_support'))
     Functions
 \*------------------------------------*/
 
-/*
- *
- * Redirect login on fail
- *
-*/
-/*
-add_filter( 'authenticate', 'custom_authenticate_username_password', 30, 3);
-function custom_authenticate_username_password( $user, $username, $password )
-{
-    if (is_a($user, 'WP_User'))
-    {
-      return $user;
-    }
 
-    if (empty($username) || empty($password))
-    {
-        $error = new WP_Error();
-        $user  = new WP_Error('authentication_failed', __('<strong>ERROR</strong>: Invalid username or incorrect password.'));
-        return $error;
-    }
-}
-
-add_action( 'wp_login_failed', 'my_front_end_login_fail' );
-function my_front_end_login_fail( $username )
-{
-  $referrer = (isset($_SERVER['HTTP_REFERER'])) ? $_SERVER['HTTP_REFERER'] : $_SERVER['PHP_SELF'];
-  $referrer = add_query_arg('result', 'failed', $referrer);
-  if(!empty($referrer) && !strstr($referrer, 'wp-login') && !strstr($referrer, 'wp-admin'))
-  {
-    wp_redirect($referrer);
-    exit;
-  }
-}
-*/
-
-/*
- *
- * Redirect non-logged in users from Collections, Categories
- *
-*/
-/*
-add_action('template_redirect', restrict_collections);
-function restrict_collections()
-{
-  if((is_singular('collections') || is_page(array(76, 239))) && !is_user_logged_in())
-  {
-		$url = get_bloginfo('url').'/?p=49&login=true';
-    wp_redirect($url);
-    exit();
-  }
-	if(is_user_logged_in() && is_page(14))
-	{
-		$url = get_bloginfo('url').'/?p=239';
-		wp_redirect($url);
-		exit();
-	}
-}
-*/
 
 /*
  *
@@ -278,7 +221,7 @@ function html5blank_conditional_scripts()
 }
 */
 
-// Load HTML5 Blank styles
+Load HTML5 Blank styles
 
 function html5blank_styles()
 {
