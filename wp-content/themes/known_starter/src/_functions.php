@@ -17,9 +17,13 @@ require_once "modules/is-debug.php";
     Theme Support
 \*------------------------------------*/
 
+//OURS
+
 if( function_exists('acf_add_options_page') ) {
 	acf_add_options_page();
 }
+
+//OURS
 
 if (function_exists('add_theme_support'))
 {
@@ -41,13 +45,73 @@ if (function_exists('add_theme_support'))
     Functions
 \*------------------------------------*/
 
+/*
+ *
+ * Redirect login on fail
+ *
+*/
+/*
+add_filter( 'authenticate', 'custom_authenticate_username_password', 30, 3);
+function custom_authenticate_username_password( $user, $username, $password )
+{
+    if (is_a($user, 'WP_User'))
+    {
+      return $user;
+    }
 
+    if (empty($username) || empty($password))
+    {
+        $error = new WP_Error();
+        $user  = new WP_Error('authentication_failed', __('<strong>ERROR</strong>: Invalid username or incorrect password.'));
+        return $error;
+    }
+}
+
+add_action( 'wp_login_failed', 'my_front_end_login_fail' );
+function my_front_end_login_fail( $username )
+{
+  $referrer = (isset($_SERVER['HTTP_REFERER'])) ? $_SERVER['HTTP_REFERER'] : $_SERVER['PHP_SELF'];
+  $referrer = add_query_arg('result', 'failed', $referrer);
+  if(!empty($referrer) && !strstr($referrer, 'wp-login') && !strstr($referrer, 'wp-admin'))
+  {
+    wp_redirect($referrer);
+    exit;
+  }
+}
+*/
+
+/*
+ *
+ * Redirect non-logged in users from Collections, Categories
+ *
+*/
+/*
+add_action('template_redirect', restrict_collections);
+function restrict_collections()
+{
+  if((is_singular('collections') || is_page(array(76, 239))) && !is_user_logged_in())
+  {
+		$url = get_bloginfo('url').'/?p=49&login=true';
+    wp_redirect($url);
+    exit();
+  }
+	if(is_user_logged_in() && is_page(14))
+	{
+		$url = get_bloginfo('url').'/?p=239';
+		wp_redirect($url);
+		exit();
+	}
+}
+*/
 
 /*
  *
  * Button function
  *
 */
+
+//OURS
+
 function button($text, $url, $border = null, $echo = true) {
   if($text && $url) {
 		if($echo) {
@@ -73,6 +137,8 @@ function button($text, $url, $border = null, $echo = true) {
  * Button shortcode
  *
 */
+
+//OURS
 function button_shortcode($atts) {
   $a = shortcode_atts(array(
     'text' => '',
@@ -93,6 +159,7 @@ add_shortcode('button', 'button_shortcode');
  * Register navigation menus
  *
 */
+//OURS
 register_nav_menus(array(
   'primary-nav' => 'Primary Nav',
 	'mobile-nav' => 'Mobile Nav',
@@ -107,6 +174,8 @@ register_nav_menus(array(
  * Deregister jQuery in <head>, so it can be loaded in the footer or before the
  * first Gravity Form on the page.
  */
+
+ //OURS
 function gc_deregister_default_jquery()
 {
 	wp_deregister_script('jquery');
@@ -168,9 +237,10 @@ function enqueue_jquery()
 		add_filter( 'script_loader_tag', 'gc_remove_fake_jquery_script' );
 	}
 
+//if the location here is wrong it can cause problems
 	wp_register_script('bxslider', get_template_directory_uri().'/bower_components/bxslider-4/dist/jquery.bxslider.min.js', null, 4.0);
 	wp_enqueue_script('bxslider');
-	wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', null, '1.0.0');
+	wp_register_script('html5blankscripts', get_template_directory_uri() . '/javascripts/dist/all.js', null, '1.0.0');
 	wp_enqueue_script('html5blankscripts');
 
 }
@@ -221,9 +291,9 @@ function html5blank_conditional_scripts()
 }
 */
 
-Load HTML5 Blank styles
+//Load HTML5 Blank styles
 
-function html5blank_styles()
+/* function html5blank_styles()
 {
     if (HTML5_DEBUG) {
         // normalize-css
@@ -241,6 +311,7 @@ function html5blank_styles()
         wp_enqueue_style('html5blankcssmin');
     }
 }
+*/
 
 // Remove the <div> surrounding the dynamic navigation to cleanup markup
 function my_wp_nav_menu_args($args = '')
@@ -384,49 +455,7 @@ function enable_threaded_comments()
     }
 }
 
-// Custom Comments Callback
-function html5blankcomments($comment, $args, $depth)
-{
-    $GLOBALS['comment'] = $comment;
-    extract($args, EXTR_SKIP);
 
-    if ( 'div' == $args['style'] ) {
-        $tag = 'div';
-        $add_below = 'comment';
-    } else {
-        $tag = 'li';
-        $add_below = 'div-comment';
-    }
-?>
-    <!-- heads up: starting < for the html tag (li or div) in the next line: -->
-    <<?php echo $tag ?> <?php comment_class(empty( $args['has_children'] ) ? '' : 'parent') ?> id="comment-<?php comment_ID() ?>">
-    <?php if ( 'div' != $args['style'] ) : ?>
-    <div id="div-comment-<?php comment_ID() ?>" class="comment-body">
-    <?php endif; ?>
-    <div class="comment-author vcard">
-    <?php if ($args['avatar_size'] != 0) echo get_avatar( $comment, $args['avatar_size'] ); ?>
-    <?php printf(__('<cite class="fn">%s</cite> <span class="says">says:</span>'), get_comment_author_link()) ?>
-    </div>
-<?php if ($comment->comment_approved == '0') : ?>
-    <em class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.') ?></em>
-    <br />
-<?php endif; ?>
-
-    <div class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>">
-        <?php
-            printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)'),'  ','' );
-        ?>
-    </div>
-
-    <?php comment_text() ?>
-
-    <div class="reply">
-    <?php comment_reply_link(array_merge( $args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-    </div>
-    <?php if ( 'div' != $args['style'] ) : ?>
-    </div>
-    <?php endif; ?>
-<?php }
 
 /*------------------------------------*\
     Actions + Filters + ShortCodes
@@ -436,7 +465,7 @@ function html5blankcomments($comment, $args, $depth)
 //add_action('init', 'html5blank_header_scripts'); // Add Custom Scripts to wp_head
 //add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditional Page Scripts
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
-add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
+//add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
 
