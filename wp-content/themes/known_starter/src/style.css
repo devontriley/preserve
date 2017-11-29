@@ -3,10 +3,6 @@
  * ---
  * Main `sass` file. Import here `sass` files
  */
-@import url("//hello.myfonts.net/count/341eda");
-body {
-  background-color: red; }
-
 /**
  * modules/variables
  * ---
@@ -24,6 +20,7 @@ body {
  * modules/mixins
  * ---
  */
+@import url("//hello.myfonts.net/count/341eda");
 @font-face {
   font-family: 'Termina';
   font-weight: 700;
