@@ -1,0 +1,40 @@
+/******************************************************************************
+
+BLOG NAV
+
+******************************************************************************/
+
+#blog-nav {
+  .inner {
+    padding: 20px;
+    width: 100%;
+    max-width: 1865px;
+    display: flex;
+
+    #category-list {
+      list-style: none;
+      display: inline;
+
+      li {
+        display: inline;
+        padding: 20px 4rem;
+        margin: auto;
+      }
+    }
+
+    #blog-nav-search{
+      display: inline;
+      border-left: 2px solid #f8f8f8;
+      padding: 20px 3rem;
+      margin: auto;
+    }
+  }
+
+}
+
+
+/******************************************************************************
+
+BLOG GRID
+
+******************************************************************************/

@@ -1,11 +1,11 @@
 <?php
-$header = get_sub_field('header');
-$paragraph = get_sub_field('paragraph');
-$image = get_sub_field('image');
-$image_src = wp_get_attachment_image_src($image, 'full');
-$image_first = get_sub_field('image_first');
-$image_cornered = get_sub_field('image_cornered_position');
-$is_icon = get_sub_field('is_icon');
+  $header = get_sub_field('header');
+  $paragraph = get_sub_field('paragraph');
+  $image = get_sub_field('image');
+  $image_src = wp_get_attachment_image_src($image, 'full');
+  $image_first = get_sub_field('image_first');
+  $image_cornered = get_sub_field('image_cornered_position');
+  $is_icon = get_sub_field('is_icon');
 ?>
 
 <div class="content-image-column <?php if($image_first){ echo 'image-first'; } ?> <?php if($image_cornered){ echo 'cornered'; } ?>">

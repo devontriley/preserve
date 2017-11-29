@@ -15,7 +15,7 @@ gulp.task('sass', function () {
   return gulp.src('./../sass/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
-    .pipe(gulp.dest('./../sass/dist'));
+    .pipe(gulp.dest('./../'));
 });
 
 //watch for the changes, tells us where to watch

@@ -20,11 +20,12 @@ if(is_404()) {
   $header = get_the_title($featured);
   $description = 'Excerpt from here somehow';
 } elseif(is_singular('post')) {
-  $header = get_the_title();
+  $image = get_field('cover_photo'); 
 } else {
   $header = get_sub_field('header');
   $description = get_sub_field('description');
 }
+
 
 if(!$header){ $header = get_field('header'); }
 if(!$description){ $description = get_field('description'); }

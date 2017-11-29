@@ -3,6 +3,10 @@
  * ---
  * Main `sass` file. Import here `sass` files
  */
+@import url("//hello.myfonts.net/count/341eda");
+body {
+  background-color: red; }
+
 /**
  * modules/variables
  * ---
@@ -20,7 +24,6 @@
  * modules/mixins
  * ---
  */
-@import url("//hello.myfonts.net/count/341eda");
 @font-face {
   font-family: 'Termina';
   font-weight: 700;
@@ -1537,3 +1540,34 @@ input[type="search"] {
           transform: translateX(-50%); } }
   .page-nav-bar div:last-child a {
     margin-bottom: 0; }
+
+/******************************************************************************
+
+BLOG NAV
+
+******************************************************************************/
+#blog-nav .inner {
+  padding: 20px;
+  width: 100%;
+  max-width: 1865px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  #blog-nav .inner #category-list {
+    list-style: none;
+    display: inline; }
+    #blog-nav .inner #category-list li {
+      display: inline;
+      padding: 20px 4rem;
+      margin: auto; }
+  #blog-nav .inner #blog-nav-search {
+    display: inline;
+    border-left: 2px solid #f8f8f8;
+    padding: 20px 3rem;
+    margin: auto; }
+
+/******************************************************************************
+
+BLOG GRID
+
+******************************************************************************/

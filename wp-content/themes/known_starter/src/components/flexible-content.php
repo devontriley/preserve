@@ -1,16 +1,34 @@
 <?php
-$headerGraphic = get_sub_field('header_graphic');
-$header = get_sub_field('header');
-$bodyCopy = get_sub_field('body_copy');
-$fixedImage = get_sub_field('fixed_background_image');
-$Format5050 = get_sub_field('5050_format');
-$greyBG = get_sub_field('grey_background');
-$displayProcess = get_sub_field('display_paper_process');
-$imageSlider = get_sub_field('auto_image_slider');
-if($imageSlider){
-$images = get_sub_field('images');
+
+if(is_page('blog')){
+  $headerGraphic = get_field('blog_hero_header_graphic');
+  $header = get_field('blog_hero_header');
+  $bodyCopy = get_field('blog_hero_body_copy');
+  $fixedImage = get_field('blog_hero_fixed_background_image');
+  $Format5050 = get_field('blog_hero_5050_format');
+  $greyBG = get_field('blog_hero_grey_background');
+  $displayProcess = get_field('blog_hero_display_paper_process');
+  $imageSlider = get_field('blog_hero_auto_image_slider');
+  if($imageSlider){
+  $images = get_field('blog_hero_images');
+  }
+}
+
+else {
+  $headerGraphic = get_sub_field('header_graphic');
+  $header = get_sub_field('header');
+  $bodyCopy = get_sub_field('body_copy');
+  $fixedImage = get_sub_field('fixed_background_image');
+  $Format5050 = get_sub_field('5050_format');
+  $greyBG = get_sub_field('grey_background');
+  $displayProcess = get_sub_field('display_paper_process');
+  $imageSlider = get_sub_field('auto_image_slider');
+  if($imageSlider){
+  $images = get_sub_field('images');
+  }
 }
 ?>
+
 
 <div class="flexible-content <?php if($imageSlider){ echo 'has-image-slider'; } if($fixedImage){ echo ' has-fixed-image'; } if($Format5050){ echo ' format-5050'; } if($greyBG){ echo ' grey-bg'; } ?>" <?php if($fixedImage){ echo 'style="background-image: url('.$fixedImage.');"'; } ?>>
   <div class="content">
