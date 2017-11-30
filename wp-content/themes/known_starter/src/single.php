@@ -1,26 +1,7 @@
-<style>
-
-.post-title {
-	text-transform: none;
-	margin: 0px;
-	letter-spacing: 0;
-}
-
-.byline:after {
-	content: "";
-  display: block;
-  margin: 2rem 0 0 0;
-  width: 15rem;
-  border-top: 1px solid #b99656;
-}
-
-</style>
 
 <?php get_header(); ?>
 
-<?php include('components/hero.php'); ?>
-
-<!-- add cover photo here -->
+<img class="blog-hero" src="<?php the_field('cover_photo'); ?>" />
 
 <?php include('components/blog-nav.php'); ?>
 
@@ -33,27 +14,26 @@
 		<h2 class="post-title">
 				<?php the_title(); ?>
 		</h2> <!-- .post-title -->
-
 		<p class="byline">
 			By <?php the_field('post_author');?> | <?php the_date('m/d/Y'); ?>
 		</p>
 
-		<?php the_content(); ?>
-
-		<?php include("components/share.php"); ?>
+		<div class="content-wrapper">
+			<?php the_content(); ?>
+		</div> <!-- .content-wrapper -->
 
 	<?php endwhile; ?>
 
 	<?php else : ?>
 
-	<p>
-		There is nothing to display.
-	</p>
-
 <?php endif; ?>
 
 </div> <!-- .wysiwyg-content -->
 
-<?php include("components/blog-grid.php"); ?>
+<div>
+	<!-- put in preserve seal here, decide whether pic or css --> 
+</div>
+
+<?php include('components/blog-grid.php'); ?>
 
 <?php get_footer(); ?>
