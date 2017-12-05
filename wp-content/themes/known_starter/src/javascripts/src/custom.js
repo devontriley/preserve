@@ -45,7 +45,7 @@ class ajaxPostLoader {
         },
         success : function(data, status, xhr){
           console.log(this.postLoadCounter, this.currentPage, this.totalPosts);
-           if(this.postLoadCounter * this.currentPage > this.totalPosts){
+           if(this.postLoadCounter * this.currentPage >= this.totalPosts){
              this.btn.style.display = "none";
            }
           this.currentPage = this.currentPage + 1;
