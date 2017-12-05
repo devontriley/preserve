@@ -2,6 +2,8 @@
 <div id="blog-grid">
     <?php
 
+    $excludePages = null;
+
      if(is_page('Blog')){
       echo '<div id="featured-posts">';
 
@@ -48,12 +50,12 @@
             echo '</div> <!-- addit-feat-wrapper -->';
           };
         endforeach;
+        $excludePages = $featuredPostIds;
         echo '</ul>';
       };
 
       echo '</div> <!-- #featured-posts -->';
     }
-
 
     //query for chronological posts that aren't featured OR related by category (single)
 
@@ -102,7 +104,7 @@
               }
           }
 
-          echo '<div id="chron-grid" data-page="1"  data-offset="'. $pageOffset .'" data-category="'. $currentPostCats[0] .'" data-total="'. $query->found_posts .'">'; // data attribute
+          echo '<div id="chron-grid" data-page="1" data-exclude="'. $excludePages .'" data-offset="'. $pageOffset .'" data-category="'. $currentPostCats[0] .'" data-total="'. $query->found_posts .'">'; // data attribute
 
          if(is_single()){
             echo '<h2>Related Articles</h2>';
