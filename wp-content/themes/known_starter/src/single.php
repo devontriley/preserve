@@ -30,9 +30,21 @@
 
 </div> <!-- .wysiwyg-content -->
 
-<div>
-	<!-- put in preserve seal here, decide whether pic or css --> 
-</div>
+<div id="author-about">
+	<img id="about-logo" alt="preserve seal" src="<?bloginfo('template_directory');?>/img/blog/about-logo.png" />
+
+
+	<div id="author-about-text-wrapper">
+		<p id="author-about-title">
+			By Preserve Brands
+		</p>
+
+		<p id="author-about-content">
+			Bespoke specialty handmade paper products for everyday and seasonal gift packaging, parties and weddings, workspace organization, home decor and more!
+		</p>
+	</div> <!-- #author-about-text-wrapper -->
+
+</div> <!-- author-about -->
 
 <?php include('components/blog-grid.php'); ?>
 

@@ -1,19 +1,13 @@
+<?php /* TEMPLATE NAME: CATEGORY */ ?>
+
 <?php get_header(); ?>
 
-	<main role="main" aria-label="Content">
-		<!-- section -->
-		<section>
+<?php include('components/flexible-content.php'); ?>
 
-			<h1><?php _e( 'Category: ', 'html5blank' ); single_cat_title(); ?></h1>
+<?php include('components/blog-nav.php'); ?>
 
-			<?php get_template_part('loop'); ?>
-
-			<?php get_template_part('pagination'); ?>
-
-		</section>
-		<!-- /section -->
-	</main>
-
-<?php get_sidebar(); ?>
+<div class="cat-grid-wrapper">
+  <?php include('components/blog-grid.php'); ?>
+</div> <!-- .cat-grid-wrapper --> 
 
 <?php get_footer(); ?>

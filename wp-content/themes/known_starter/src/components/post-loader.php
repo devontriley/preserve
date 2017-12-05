@@ -1,26 +1,20 @@
 <?php
-/**
- * Plugin Name: AJAX Post Loader
- */
 
- function pbd_alp_init() {
- 	global $wp_query;
+$currentPage = $_GET['zarah'];
 
- 	// Add code to index pages.
- 	if( is_singular() || is_page('Blog') ) {	
- 		// Queue JS and CSS
- 		wp_enqueue_script(
- 			'pbd-alp-load-posts',
- 			plugin_dir_url( __FILE__ ) . 'js/load-posts.js',
- 			array('jquery'),
- 			'1.0',
- 			true
- 		);
+$args = array(
+  'paged' => $currentPage + 1,
+  'posts_per_page' => 1
+);
 
- 		wp_enqueue_style(
- 			'pbd-alp-style',
- 			plugin_dir_url( __FILE__ ) . 'css/style.css',
- 			false,
- 			'1.0',
- 			'all'
- 		);
+$query = new WP_Query($args);
+
+if($query->have_posts()){
+  while($query->have_posts()){
+
+    $query->the_post();
+    echo get_the_title();
+  }
+}
+
+?>

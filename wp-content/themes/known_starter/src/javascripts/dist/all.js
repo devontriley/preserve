@@ -1,6 +1,67 @@
 /*! Conditionizr v4.3.0 | (c) 2014 @toddmotto, @markgdyr | MIT license | conditionizr.com */
 !function(a,b){"function"==typeof define&&define.amd?define([],b):"object"==typeof exports?module.exports=b:a.conditionizr=b()}(this,function(){"use strict";var a,b={},c=document.head||document.getElementsByTagName("head")[0],d=function(b,d,e){var f=e?b:a+b+("style"===d?".css":".js");switch(d){case"script":var g=document.createElement("script");g.src=f,c.appendChild(g);break;case"style":var h=document.createElement("link");h.href=f,h.rel="stylesheet",c.appendChild(h);break;case"class":document.documentElement.className+=" "+b}};return b.config=function(c){var e=c||{},f=e.tests;a=e.assets||"";for(var g in f){var h=g.toLowerCase();if(b[h])for(var i=f[g],j=i.length;j--;)d(h,i[j])}},b.add=function(a,c,e){var f=a.toLowerCase();if(b[f]=e(),b[f])for(var g=c.length;g--;)d(f,c[g])},b.on=function(a,c){var d=/^\!/;(b[a.toLowerCase()]||d.test(a)&&!b[a.replace(d,"")])&&c()},b.load=b.polyfill=function(a,c){for(var e=/\.js$/.test(a)?"script":"style",f=c.length;f--;)b[c[f].toLowerCase()]&&d(a,e,!0)},b});
 
+// SEARCH BAR
+
+var $searchBox = $('#blog-nav-search');
+var $searchBar = $('.search-field');
+
+$searchBar.click(function(){
+  $searchBox.toggleClass('search-active');
+});
+
+
+// POST LOAD ANIMATION
+
+
+// AJAX POST LOADER
+
+class ajaxPostLoader {
+  constructor(){ //what runs as soon as class set up
+    this.btn = document.getElementById('load-btn');
+    this.wrapper = document.getElementById('chron-grid');
+    this.currentPage = parseInt(this.wrapper.dataset.page) + 1;
+    this.loader = document.getElementById('loader-gif');
+    this.postLoadCounter = 3;
+    this.totalPosts = this.wrapper.dataset.total;
+
+     this.btn.addEventListener('click', function(e){
+       e.preventDefault();
+       this.clickHandler();
+     }.bind(this)); //changes reference of this to up one level (constructor) otherwise will default to nameless function
+  }
+
+  clickHandler(){
+    this.loader.classList.add('active');
+    $.ajax(
+      {
+        method : 'post', //declares type we are using, sending data to php file
+        url : ajaxurl,
+        data : {
+          'action' : 'load_more_posts',
+          'wrapper' : this.currentPage //name and value
+        },
+        dataType : 'html',
+        error : function(xhr, status, error){
+          console.log(xhr, status, error);
+        },
+        success : function(data, status, xhr){
+          console.log(this.postLoadCounter, this.currentPage, this.totalPosts);
+           if(this.postLoadCounter * this.currentPage > this.totalPosts){
+             this.btn.style.display = "none";
+           }
+          this.currentPage = this.currentPage + 1;
+          this.loader.classList.remove('active'); //remove loader
+          $('#grid-wrapper').append(data);
+        }.bind(this)
+      }
+    );
+  }
+}
+
+if(document.getElementById('load-btn')){
+  var postLoader = new ajaxPostLoader;
+}
 
 /*
  *

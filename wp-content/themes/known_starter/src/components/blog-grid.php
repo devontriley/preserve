@@ -25,7 +25,7 @@
           echo '<li>';
           echo '<a href="'. get_permalink($p->ID) .'">';
           if($image){
-            echo '<img src="'. get_field('cover_photo', $p->ID) .'" />';
+            echo '<img alt="blog post cover photo" src="'. get_field('cover_photo', $p->ID) .'" />';
           };
           echo '<div class="text-wrapper">';
           echo '<h2>'. get_the_title($p->ID) .'</h2>';
@@ -55,25 +55,37 @@
     }
 
 
-    //query for chronological posts that aren't featured
+    //query for chronological posts that aren't featured OR related by category (single)
 
-      echo '<div id="chron-grid">';
+    $currentPostCats = wp_get_post_categories($post->ID);
 
-      if(is_single()){
-        echo '<h2>Related Articles</h2>';
-      }
-
-      $args = array(
+     $args = array(
         'orderby' => 'date',
         'order' => 'DESC',
+        'posts_per_page' => 3,
         'post__not_in' => $featuredPostIds
-      );
+     );
+
+     if(is_single()){
+          $args['category__in'] = $currentPostCats;
+          $args['post__not_in'] = array($post->ID);
+      }
+
+      if(is_category()){
+          $args['posts_per_page'] = 6;
+          $args['category__in'] = $currentPostCats;
+      }
 
       $query = new WP_Query( $args );
 
       if ( $query->have_posts() ) {
-        echo '<div class="row">';
+          echo '<div id="chron-grid" data-page="1" data-total="'. $query->found_posts .'">'; // data attribute
 
+         if(is_single()){
+            echo '<h2>Related Articles</h2>';
+         }
+
+        echo '<div id="grid-wrapper">';
         $i = 0;
 
           while ( $query->have_posts() ) {
@@ -84,12 +96,12 @@
               echo '<div class="article-wrapper">';
               echo '<a href="'. get_permalink() .'">';
               if($image){
-                echo '<img src="'. get_field('cover_photo') .'" />';
+                echo '<img alt="blog post cover photo" src="'. get_field('cover_photo') .'" />';
               };
               echo '<div class="text-wrapper">';
               echo '<h2>'. get_the_title() .'</h2>';
               if($author){
-                echo '<p class="subtitle">By '. get_field('post_author') .'</p>';
+                echo '<p class="subtitle">By '. get_field('post_author') .'  </p>';
               };
               echo '<p class="subtitle">'
                 . get_the_date("m/d/y").
@@ -100,13 +112,19 @@
               $i++;
 
               if($i===3){
-                echo '</div> <!-- .row -->';
                 break;
               };
           }; //end while
-        echo '</div> <!-- .row -->';
-        include('components/post-loader.php');
+          echo '</div> <!-- #grid-wrapper -->';
       }; //end if
     ?>
+
+    <img id="loader-gif" alt="loading" src="<?php bloginfo('template_directory');?>/img/blog/loading_spinner.gif"/>
+
+    <?php
+
+    if(is_page('blog')){
+        echo '<div id="load-btn">Load More</div>';
+    } ?>
 
 </div> <!-- #blog-grid -->

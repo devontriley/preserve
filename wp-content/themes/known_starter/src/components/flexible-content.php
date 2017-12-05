@@ -1,5 +1,7 @@
 <?php
 
+$currentPostCats = wp_get_post_categories($post->ID);
+
 if(is_page('blog')){
   $headerGraphic = get_field('blog_hero_header_graphic');
   $header = get_field('blog_hero_header');
@@ -11,6 +13,20 @@ if(is_page('blog')){
   $imageSlider = get_field('blog_hero_auto_image_slider');
   if($imageSlider){
   $images = get_field('blog_hero_images');
+  }
+}
+
+elseif (is_category()) {
+  $headerGraphic = get_field('header_graphic', 'category_' . $currentPostCats[0]);
+  $header = get_field('header', 'category_' . $currentPostCats[0]);
+  $bodyCopy = get_field('body_copy', 'category_' . $currentPostCats[0]);
+  $fixedImage = get_field('fixed_background_image', 'category_' . $currentPostCats[0]);
+  $Format5050 = get_field('5050_format', 'category_' . $currentPostCats[0]);
+  $greyBG = get_field('grey_background', 'category_' . $currentPostCats[0]);
+  $displayProcess = get_field('display_paper_process', 'category_' . $currentPostCats[0]);
+  $imageSlider = get_field('auto_image_slider', 'category_' . $currentPostCats[0]);
+  if($imageSlider){
+  $images = get_field('images', 'category_' . $currentPostCats[0]);
   }
 }
 

@@ -1,5 +1,7 @@
 <?php
 
+//// ACF
+
 if( function_exists('acf_add_options_page') ) {
 	acf_add_options_page();
 }
@@ -305,4 +307,59 @@ add_filter('image_send_to_editor', 'remove_width_attribute', 10 ); // Remove wid
 // Remove Filters
 remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether
 
-?>
+// Wordpress Ajax
+function wordpress_ajaxurl() { ?>
+
+    <script type="text/javascript">
+    var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
+    </script>
+
+<?php } //asign ajax wp file so that the function is pointing the right way
+
+add_action('wp_head','wordpress_ajaxurl'); //run this first rather than in the footer
+
+// Load More Posts Ajax
+
+function load_more_posts(){
+
+	$currentPage = $_POST['wrapper'];
+
+	$args = array(
+		'posts_per_page' => 3,
+		'paged' => $currentPage
+	);
+
+    $ajax_query = new WP_Query( $args );
+
+    if( $ajax_query->have_posts() ):
+        while( $ajax_query->have_posts() ): $ajax_query->the_post();
+
+							$image = get_field('cover_photo');
+							$author = get_field('post_author');
+
+							echo '<div class="article-wrapper">';
+							 echo '<a href="'. get_permalink() .'">';
+							 if($image){
+								 echo '<img src="'. get_field('cover_photo') .'" />';
+							 };
+							 echo '<div class="text-wrapper">';
+							 echo '<h2>'. get_the_title() .'</h2>';
+							 if($author){
+								 echo '<p class="subtitle">By '. get_field('post_author') .'</p>';
+							 };
+							 echo '<p class="subtitle">'
+								 . get_the_date("m/d/y").
+								 ' | Category Here</p>';
+							 echo '</div> <!-- .text-wrapper -->';
+							 echo '</a>';
+							 echo '</div> <!-- .article-wrapper -->';
+
+        endwhile;
+    endif;
+
+    exit;
+
+}
+
+add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
+add_action('wp_ajax_load_more_posts', 'load_more_posts'); ?>
