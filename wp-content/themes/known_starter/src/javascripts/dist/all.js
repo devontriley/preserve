@@ -50,14 +50,18 @@ class ajaxPostLoader {
           console.log(xhr, status, error);
         },
         success : function(data, status, xhr){
-           if((parseInt(data.offset) + parseInt(this.pageOffset)) == this.totalPosts){
-             this.btn.style.display = "none";
-           }
-          this.currentPage = this.currentPage + 1;
-          this.loader.classList.remove('active'); //remove loader
           this.pageOffset = parseInt(this.pageOffset) + parseInt(data.offset);
-          console.log(this.pageOffset);
+          console.log(this.pageOffset, this.totalPosts);
+          this.currentPage = this.currentPage + 1;
+
+          if(this.pageOffset >= parseInt(this.totalPosts)){
+            this.btn.style.display = "none";
+          }
+
+          this.loader.classList.remove('active'); //remove loader
+
           $('#grid-wrapper').append(data.html);
+
         }.bind(this)
       }
     );

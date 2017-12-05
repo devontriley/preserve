@@ -328,7 +328,8 @@ function load_more_posts(){
 
 	$args = array(
 		'posts_per_page' => 3,
-		'offset' => $currentOffset
+		'offset' => $currentOffset,
+		'post_status' => 'publish'
 	);
 
 	if($currentCategory){

@@ -62,8 +62,9 @@
      $args = array(
         'orderby' => 'date',
         'order' => 'DESC',
-        'posts_per_page' => 3, 
-        'post__not_in' => $featuredPostIds
+        'posts_per_page' => 3,
+        'post__not_in' => $featuredPostIds,
+        'post_status' => 'publish'
      );
 
      if(is_single()){
