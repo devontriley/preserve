@@ -62,7 +62,7 @@
      $args = array(
         'orderby' => 'date',
         'order' => 'DESC',
-        'posts_per_page' => 3,
+        'posts_per_page' => 3, 
         'post__not_in' => $featuredPostIds
      );
 
