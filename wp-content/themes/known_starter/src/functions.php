@@ -325,12 +325,17 @@ function load_more_posts(){
 	$currentPage = $_POST['wrapper'];
 	$currentCategory = $_POST['category'];
 	$currentOffset = $_POST['offset'];
+	$excludePages = $_POST['exclude'];
 
 	$args = array(
 		'posts_per_page' => 3,
 		'offset' => $currentOffset,
 		'post_status' => 'publish'
 	);
+
+	if($excludePages){
+		$args['post__not_in'] = $excludePages;
+	}
 
 	if($currentCategory){
 		$args['category__in'] = $currentCategory;

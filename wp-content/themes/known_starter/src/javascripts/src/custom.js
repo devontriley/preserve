@@ -24,6 +24,7 @@ class ajaxPostLoader {
     this.postLoadCounter = 3;
     this.totalPosts = this.wrapper.dataset.total;
     this.pageOffset = this.wrapper.dataset.offset;
+    this.excludePages = this.wrapper.dataset.exclude;
 
      this.btn.addEventListener('click', function(e){
        e.preventDefault();
@@ -41,7 +42,8 @@ class ajaxPostLoader {
           'action' : 'load_more_posts',
           'wrapper' : this.currentPage, //name and value
           'category' : this.currentCategory,
-          'offset' : this.pageOffset
+          'offset' : this.pageOffset,
+          'exclude' : this.excludePages
         },
         dataType : 'JSON',
         error : function(xhr, status, error){
