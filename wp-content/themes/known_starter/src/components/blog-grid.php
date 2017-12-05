@@ -72,7 +72,7 @@
       }
 
       if(is_category()){
-          $args['posts_per_page'] = 6;
+          $args['posts_per_page'] = 9;
           $args['category__in'] = $currentPostCats;
       }
 
@@ -86,7 +86,6 @@
          }
 
         echo '<div id="grid-wrapper">';
-        $i = 0;
 
           while ( $query->have_posts() ) {
               $query->the_post();
@@ -109,11 +108,7 @@
               echo '</div> <!-- .text-wrapper -->';
               echo '</a>';
               echo '</div> <!-- .article-wrapper -->';
-              $i++;
 
-              if($i===3){
-                break;
-              };
           }; //end while
           echo '</div> <!-- #grid-wrapper -->';
       }; //end if
