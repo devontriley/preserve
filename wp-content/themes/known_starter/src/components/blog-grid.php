@@ -76,12 +76,16 @@
           $args['category__in'] = $currentPostCats;
       }
 
+      $foundPosts;
+
       $query = new WP_Query( $args );
 
       if ( $query->have_posts() ) {
           $initialPosts = ($query->found_posts);
 
+
           if($initialPosts){
+              $foundPosts = $initialPosts;
               if(is_category()){
                   $pageOffset = 4;
                   if($initialPosts < 4) {
@@ -136,8 +140,13 @@
 
     <?php
 
-    if(is_page('blog') || is_category()){
+    if(is_page('blog') && $foundPosts > 3) {
         echo '<div id="load-btn">Load More</div>';
-    } ?>
+    }
+
+    if(is_category() && $foundPosts > 4) {
+        echo '<div id="load-btn">Load More</div>';
+    }
+ ?>
 
 </div> <!-- #blog-grid -->

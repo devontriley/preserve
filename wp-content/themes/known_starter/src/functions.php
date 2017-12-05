@@ -338,12 +338,13 @@ function load_more_posts(){
     $ajax_query = new WP_Query( $args );
 
     if( $ajax_query->have_posts() ):
+			$output;
         while( $ajax_query->have_posts() ): $ajax_query->the_post();
 
 				$image = get_field('cover_photo');
 				$author = get_field('post_author');
 
-				$output = '<div class="article-wrapper">';
+				$output .= '<div class="article-wrapper">';
 				$output .= '<a href="'. get_permalink() .'">';
 				if($image){
 					$output .= '<img src="'. get_field('cover_photo') .'" />';

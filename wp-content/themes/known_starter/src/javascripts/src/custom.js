@@ -43,22 +43,19 @@ class ajaxPostLoader {
           'category' : this.currentCategory,
           'offset' : this.pageOffset
         },
-        dataType : 'html',
+        dataType : 'JSON',
         error : function(xhr, status, error){
           console.log(xhr, status, error);
         },
         success : function(data, status, xhr){
-          $.getJSON(data, function(data){
-            console.log(data.offset);
-            console.log(data.html);
-          });
-          console.log(this.postLoadCounter, this.currentPage, this.totalPosts);
-           if(this.postLoadCounter * this.currentPage >= this.totalPosts){
+           if((parseInt(data.offset) + parseInt(this.pageOffset)) == this.totalPosts){
              this.btn.style.display = "none";
            }
           this.currentPage = this.currentPage + 1;
           this.loader.classList.remove('active'); //remove loader
-          $('#grid-wrapper').append(data);
+          this.pageOffset = parseInt(this.pageOffset) + parseInt(data.offset);
+          console.log(this.pageOffset);
+          $('#grid-wrapper').append(data.html);
         }.bind(this)
       }
     );
