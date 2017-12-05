@@ -340,31 +340,30 @@ function load_more_posts(){
     if( $ajax_query->have_posts() ):
         while( $ajax_query->have_posts() ): $ajax_query->the_post();
 
-							$image = get_field('cover_photo');
-							$author = get_field('post_author');
+				$image = get_field('cover_photo');
+				$author = get_field('post_author');
 
-							echo '<div class="article-wrapper">';
-							 echo '<a href="'. get_permalink() .'">';
-							 if($image){
-								 echo '<img src="'. get_field('cover_photo') .'" />';
-							 };
-							 echo '<div class="text-wrapper">';
-							 echo '<h2>'. get_the_title() .'</h2>';
-							 if($author){
-								 echo '<p class="subtitle">By '. get_field('post_author') .'</p>';
-							 };
-							 echo '<p class="subtitle">'
-								 . get_the_date("m/d/y").
-								 ' | Category Here</p>';
-							 echo '</div> <!-- .text-wrapper -->';
-							 echo '</a>';
-							 echo '</div> <!-- .article-wrapper -->';
+				$output = '<div class="article-wrapper">';
+				$output .= '<a href="'. get_permalink() .'">';
+				if($image){
+					$output .= '<img src="'. get_field('cover_photo') .'" />';
+				};
+				$output .= '<div class="text-wrapper">';
+				$output .= '<h2>'. get_the_title() .'</h2>';
+				if($author){
+					$output .= '<p class="subtitle">By '. get_field('post_author') .'</p>';
+				};
+				$output .= '<p class="subtitle">'. get_the_date("m/d/y").' | Category Here</p>';
+				$output .= '</div> <!-- .text-wrapper -->';
+				$output .= '</a>';
+				$output .= '</div> <!-- .article-wrapper -->';
 
         endwhile;
     endif;
 
-    exit;
+		echo json_encode(array('offset' => $ajax_query->post_count, 'html' => $output));
 
+    exit;
 }
 
 add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');

@@ -48,6 +48,10 @@ class ajaxPostLoader {
           console.log(xhr, status, error);
         },
         success : function(data, status, xhr){
+          $.getJSON(data, function(data){
+            console.log(data.offset);
+            console.log(data.html);
+          });
           console.log(this.postLoadCounter, this.currentPage, this.totalPosts);
            if(this.postLoadCounter * this.currentPage >= this.totalPosts){
              this.btn.style.display = "none";
