@@ -104,7 +104,7 @@
               }
           }
 
-          echo '<div id="chron-grid" data-page="1" data-exclude="'. $excludePages .'" data-offset="'. $pageOffset .'" data-category="'. $currentPostCats[0] .'" data-total="'. $query->found_posts .'">'; // data attribute
+          echo '<div id="chron-grid" data-page="1" data-exclude="'. json_encode($excludePages) .'" data-offset="'. $pageOffset .'" data-category="'. $currentPostCats[0] .'" data-total="'. $query->found_posts .'">'; // data attribute
 
          if(is_single()){
             echo '<h2>Related Articles</h2>';
