@@ -72,14 +72,32 @@
       }
 
       if(is_category()){
-          $args['posts_per_page'] = 9;
+          $args['posts_per_page'] = 4;
           $args['category__in'] = $currentPostCats;
       }
 
       $query = new WP_Query( $args );
 
       if ( $query->have_posts() ) {
-          echo '<div id="chron-grid" data-page="1" data-total="'. $query->found_posts .'">'; // data attribute
+          $initialPosts = ($query->found_posts);
+
+          if($initialPosts){
+              if(is_category()){
+                  $pageOffset = 4;
+                  if($initialPosts < 4) {
+                      $pageOffset = $initialPosts;
+                  }
+              }
+
+              if(is_page('blog')){
+                  $pageOffset = 3;
+                  if($initialPosts < 3){
+                      $pageOffset = $initialPosts;
+                  }
+              }
+          }
+
+          echo '<div id="chron-grid" data-page="1"  data-offset="'. $pageOffset .'" data-category="'. $currentPostCats[0] .'" data-total="'. $query->found_posts .'">'; // data attribute
 
          if(is_single()){
             echo '<h2>Related Articles</h2>';
@@ -118,7 +136,7 @@
 
     <?php
 
-    if(is_page('blog')){
+    if(is_page('blog') || is_category()){
         echo '<div id="load-btn">Load More</div>';
     } ?>
 

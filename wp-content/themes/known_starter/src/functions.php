@@ -323,11 +323,17 @@ add_action('wp_head','wordpress_ajaxurl'); //run this first rather than in the f
 function load_more_posts(){
 
 	$currentPage = $_POST['wrapper'];
+	$currentCategory = $_POST['category'];
+	$currentOffset = $_POST['offset'];
 
 	$args = array(
 		'posts_per_page' => 3,
-		'paged' => $currentPage
+		'offset' => $currentOffset
 	);
+
+	if($currentCategory){
+		$args['category__in'] = $currentCategory;
+	}
 
     $ajax_query = new WP_Query( $args );
 

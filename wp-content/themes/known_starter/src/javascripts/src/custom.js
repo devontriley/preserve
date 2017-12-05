@@ -19,9 +19,11 @@ class ajaxPostLoader {
     this.btn = document.getElementById('load-btn');
     this.wrapper = document.getElementById('chron-grid');
     this.currentPage = parseInt(this.wrapper.dataset.page) + 1;
+    this.currentCategory = this.wrapper.dataset.category;
     this.loader = document.getElementById('loader-gif');
     this.postLoadCounter = 3;
     this.totalPosts = this.wrapper.dataset.total;
+    this.pageOffset = this.wrapper.dataset.offset;
 
      this.btn.addEventListener('click', function(e){
        e.preventDefault();
@@ -37,7 +39,9 @@ class ajaxPostLoader {
         url : ajaxurl,
         data : {
           'action' : 'load_more_posts',
-          'wrapper' : this.currentPage //name and value
+          'wrapper' : this.currentPage, //name and value
+          'category' : this.currentCategory,
+          'offset' : this.pageOffset
         },
         dataType : 'html',
         error : function(xhr, status, error){
