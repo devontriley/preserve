@@ -3,10 +3,22 @@
 
 var $searchBox = $('#blog-nav-search');
 var $searchBar = $('.search-field');
+var $body = $('body');
+
 
 $searchBar.click(function(){
-  $searchBox.toggleClass('search-active');
+  $searchBox.addClass('search-active');
+  $body.on('click', function(event){
+    var classList = event.target.classList;
+    console.log(classList);
+    if(classList.value.indexOf('search-field') !== -1){ //if index not -1 then you are clicking it
+      //$searchBox.removeClass('search-active');
+      console.log(event.target.classList);
+    }
+  });
 });
+
+
 
 
 // POST LOAD ANIMATION
@@ -25,6 +37,8 @@ class ajaxPostLoader {
     this.totalPosts = this.wrapper.dataset.total;
     this.pageOffset = this.wrapper.dataset.offset;
     this.excludePages = this.wrapper.dataset.exclude;
+
+    console.log(this.excludePages);
 
      this.btn.addEventListener('click', function(e){
        e.preventDefault();

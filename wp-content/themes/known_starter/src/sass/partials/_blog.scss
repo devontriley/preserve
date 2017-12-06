@@ -11,7 +11,7 @@ BLOG NAV
   box-shadow: 0 1rem .4rem -.4rem rgba(0,0,0,.2);
 
   @media screen and (max-width: 650px){
-    height: auto; 
+    height: auto;
   }
 }
 
@@ -69,7 +69,7 @@ BLOG NAV
 
 .search-active {
   position: absolute;
-  width: 90% !important;
+  width: 95% !important;
   right: 3rem;
   border-left: 0;
   top: 0;
@@ -120,6 +120,7 @@ BLOG NAV
       font-size: 1.4rem;
       text-transform: uppercase;
       border: none;
+      padding-left: 1rem;
 
       &:focus {
         outline: none;

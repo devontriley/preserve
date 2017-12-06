@@ -334,7 +334,7 @@ function load_more_posts(){
 	);
 
 	if($excludePages){
-		$args['post__not_in'] = $excludePages;
+		$args['post__not_in'] = json_decode($excludePages);
 	}
 
 	if($currentCategory){

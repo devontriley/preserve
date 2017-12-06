@@ -75,7 +75,7 @@
       }
 
       if(is_category()){
-          $args['posts_per_page'] = 4;
+          $args['posts_per_page'] = 9;
           $args['category__in'] = $currentPostCats;
       }
 
@@ -90,8 +90,8 @@
           if($initialPosts){
               $foundPosts = $initialPosts;
               if(is_category()){
-                  $pageOffset = 4;
-                  if($initialPosts < 4) {
+                  $pageOffset = 9;
+                  if($initialPosts < 9) {
                       $pageOffset = $initialPosts;
                   }
               }
@@ -104,7 +104,7 @@
               }
           }
 
-          echo '<div id="chron-grid" data-page="1" data-exclude="'. $excludePages .'" data-offset="'. $pageOffset .'" data-category="'. $currentPostCats[0] .'" data-total="'. $query->found_posts .'">'; // data attribute
+          echo '<div id="chron-grid" data-page="1" data-exclude="'. json_encode($excludePages) .'" data-offset="'. $pageOffset .'" data-category="'. $currentPostCats[0] .'" data-total="'. $query->found_posts .'">'; // data attribute
 
          if(is_single()){
             echo '<h2>Related Articles</h2>';
@@ -147,7 +147,7 @@
         echo '<div id="load-btn">Load More</div>';
     }
 
-    if(is_category() && $foundPosts > 4) {
+    if(is_category() && $foundPosts > 9) {
         echo '<div id="load-btn">Load More</div>';
     }
  ?>
