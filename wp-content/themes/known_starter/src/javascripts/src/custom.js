@@ -1,21 +1,25 @@
 
 // SEARCH BAR
 
-var $searchBox = $('#blog-nav-search');
-var $searchBar = $('.search-field');
-var $body = $('body');
+var searchBarActive = false,
+    searchBox = document.getElementById('#blog-nav-search'),
+    searchBar = document.querySelector('.search-field');
 
-
-$searchBar.click(function(){
-  $searchBox.addClass('search-active');
-  $body.on('click', function(event){
+// body click event
+document.body.addEventListener('click', function(e){
+  if(searchBarActive){
     var classList = event.target.classList;
-    console.log(classList);
     if(classList.value.indexOf('search-field') !== -1){ //if index not -1 then you are clicking it
-      //$searchBox.removeClass('search-active');
-      console.log(event.target.classList);
+      searchBox.removeClass('search-active');
+      searchBarActive = false;
     }
-  });
+  }
+});
+
+// search bar click
+$searchBar.addEventListener('click', function(e){
+  searchBarActive = true;
+  searchBox.classList.add('search-active');
 });
 
 
