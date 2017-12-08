@@ -1,5 +1,16 @@
 <?php
 
+//SEARCH QUERY
+
+ add_action( 'pre_get_posts', 'searchPosts' );
+
+ function searchPosts($query){
+	 if($query->is_search()){
+		 $query->set('post_type', 'post');
+	 }
+ }
+
+
 //// ACF
 
 if( function_exists('acf_add_options_page') ) {
@@ -158,6 +169,8 @@ function my_wp_nav_menu_args($args = '')
 }
 
 // Add page slug to body class, love this - Credit: Starkers Wordpress Theme
+
+
 function add_slug_to_body_class($classes)
 {
     global $post;

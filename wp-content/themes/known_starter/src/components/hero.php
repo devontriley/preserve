@@ -16,9 +16,6 @@ if(is_404()) {
   $header = '404';
   $description = 'It seems that link doesn\'t exist';
   $image = get_bloginfo('template_directory').'/img/tees-not-trees/tees_not_trees_hero.jpg';
-} elseif(is_search()) { // Search Results
-  $header = 'Search';
-  $image = get_bloginfo('template_directory').'/img/tees-not-trees/tees_not_trees_hero.jpg';
 } elseif(is_singular('post')) {
   $image = get_field('cover_photo');
 } else {

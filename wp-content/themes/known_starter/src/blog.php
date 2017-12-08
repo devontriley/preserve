@@ -4,7 +4,7 @@
 
 <?php include('components/flexible-content.php'); ?>
 
-<?php include('components/blog-nav.php'); ?>
+<?php include('components/blav.php'); ?>
 
 <?php include('components/blog-grid.php'); ?>
 

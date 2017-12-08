@@ -24,7 +24,7 @@
   </script>
 </head>
 
-	<body>
+	<body <?php body_class(); ?>>
 
 		<?php include('inc/master-svg.php'); ?>
 		<?php include('components/mobile-nav.php'); ?>

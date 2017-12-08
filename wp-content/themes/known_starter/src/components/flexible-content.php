@@ -2,7 +2,7 @@
 
 $currentPostCats = wp_get_post_categories($post->ID);
 
-if(is_page('blog')){
+if(is_page('Inspiration')){
   $headerGraphic = get_field('blog_hero_header_graphic');
   $header = get_field('blog_hero_header');
   $bodyCopy = get_field('blog_hero_body_copy');

@@ -4,7 +4,7 @@
 
     $excludePages = null;
 
-     if(is_page('Blog')){
+     if(is_page('Inspiration')){
       echo '<div id="featured-posts">';
 
       $featuredPosts = get_field('featured_posts');
@@ -17,6 +17,8 @@
           $featuredPostIds[] = $p->ID;
           $image = get_field('cover_photo', $p->ID);
           $author = get_field('post_author', $p->ID);
+          $category = get_the_category($p->ID);
+
 
           if($i===0){
             echo '<div id="main-feat-wrapper">';
@@ -32,11 +34,11 @@
           echo '<div class="text-wrapper">';
           echo '<h2>'. get_the_title($p->ID) .'</h2>';
           if($author){
-            echo '<p class="subtitle">By '. get_field('post_author', $p->ID) .'</p>';
+            echo '<p class="subtitle">By '. get_field('post_author', $p->ID) .'  </p>';
           };
           echo '<p class="subtitle">'
             . get_the_date("m/d/y").
-            ' | Category Here
+            ' | '. $category[0]->cat_name .'
           </p>';
           echo '</div> <!-- .text-wrapper -->';
           echo '</a>';
@@ -96,7 +98,7 @@
                   }
               }
 
-              if(is_page('blog')){
+              if(is_page('Inspiration')){
                   $pageOffset = 3;
                   if($initialPosts < 3){
                       $pageOffset = $initialPosts;
@@ -107,7 +109,7 @@
           echo '<div id="chron-grid" data-page="1" data-exclude="'. json_encode($excludePages) .'" data-offset="'. $pageOffset .'" data-category="'. $currentPostCats[0] .'" data-total="'. $query->found_posts .'">'; // data attribute
 
          if(is_single()){
-            echo '<h2>Related Articles</h2>';
+            echo '<h2 class="related-header">Related Articles</h2>';
          }
 
         echo '<div id="grid-wrapper">';
@@ -143,8 +145,10 @@
 
     <?php
 
-    if(is_page('blog') && $foundPosts > 3) {
-        echo '<div id="load-btn">Load More</div>';
+    if(is_page('Inspiration') && $foundPosts > 3) {
+        echo '<div id="load-btn">';
+        echo '<p>Load More</p>';
+        echo '</div>';
     }
 
     if(is_category() && $foundPosts > 9) {

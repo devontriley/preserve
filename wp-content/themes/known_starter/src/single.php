@@ -3,7 +3,7 @@
 
 <img class="blog-hero" src="<?php the_field('cover_photo'); ?>" />
 
-<?php include('components/blog-nav.php'); ?>
+<?php include('components/blav.php'); ?>
 
 <div class="wysiwyg-content">
 

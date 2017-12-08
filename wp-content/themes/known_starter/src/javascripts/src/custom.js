@@ -1,26 +1,49 @@
+// CATEGORIES BAR
+
+var catBarActive = false,
+    catButton = document.querySelector('.cat-btn'),
+    catList = document.getElementById('category-list');
+
+catButton.addEventListener('click', function(e){
+    catList.classList.add('cat-active');
+
+    if(catBarActive == true){
+        catList.classList.remove('cat-active');
+        catBarActive = false;
+      } else {
+        catBarActive = true;
+      }
+  });
+
+
+
 
 // SEARCH BAR
 
 var searchBarActive = false,
-    searchBox = document.getElementById('#blog-nav-search'),
+    searchBox = document.getElementById('search-form'),
     searchBar = document.querySelector('.search-field');
 
 // body click event
 document.body.addEventListener('click', function(e){
   if(searchBarActive){
     var classList = event.target.classList;
-    if(classList.value.indexOf('search-field') !== -1){ //if index not -1 then you are clicking it
-      searchBox.removeClass('search-active');
+    if(classList.value.indexOf('search-field') == -1){ //if index not -1 then you are clicking it
+      searchBox.classList.remove('search-active');
       searchBarActive = false;
     }
   }
 });
 
 // search bar click
-$searchBar.addEventListener('click', function(e){
-  searchBarActive = true;
-  searchBox.classList.add('search-active');
-});
+if(searchBar){
+  searchBar.addEventListener('click', function(e){
+    e.stopPropagation();
+    searchBarActive = true;
+    searchBox.classList.add('search-active');
+  });
+}
+
 
 
 

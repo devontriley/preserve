@@ -1,24 +1,51 @@
 /*! Conditionizr v4.3.0 | (c) 2014 @toddmotto, @markgdyr | MIT license | conditionizr.com */
 !function(a,b){"function"==typeof define&&define.amd?define([],b):"object"==typeof exports?module.exports=b:a.conditionizr=b()}(this,function(){"use strict";var a,b={},c=document.head||document.getElementsByTagName("head")[0],d=function(b,d,e){var f=e?b:a+b+("style"===d?".css":".js");switch(d){case"script":var g=document.createElement("script");g.src=f,c.appendChild(g);break;case"style":var h=document.createElement("link");h.href=f,h.rel="stylesheet",c.appendChild(h);break;case"class":document.documentElement.className+=" "+b}};return b.config=function(c){var e=c||{},f=e.tests;a=e.assets||"";for(var g in f){var h=g.toLowerCase();if(b[h])for(var i=f[g],j=i.length;j--;)d(h,i[j])}},b.add=function(a,c,e){var f=a.toLowerCase();if(b[f]=e(),b[f])for(var g=c.length;g--;)d(f,c[g])},b.on=function(a,c){var d=/^\!/;(b[a.toLowerCase()]||d.test(a)&&!b[a.replace(d,"")])&&c()},b.load=b.polyfill=function(a,c){for(var e=/\.js$/.test(a)?"script":"style",f=c.length;f--;)b[c[f].toLowerCase()]&&d(a,e,!0)},b});
+// CATEGORIES BAR
+
+var catBarActive = false,
+    catButton = document.querySelector('.cat-btn'),
+    catList = document.getElementById('category-list');
+
+catButton.addEventListener('click', function(e){
+    catList.classList.add('cat-active');
+
+    if(catBarActive == true){
+        catList.classList.remove('cat-active');
+        catBarActive = false;
+      } else {
+        catBarActive = true;
+      }
+  });
+
+
+
 
 // SEARCH BAR
 
-var $searchBox = $('#blog-nav-search');
-var $searchBar = $('.search-field');
-var $body = $('body');
+var searchBarActive = false,
+    searchBox = document.getElementById('search-form'),
+    searchBar = document.querySelector('.search-field');
 
-
-$searchBar.click(function(){
-  $searchBox.addClass('search-active');
-  $body.on('click', function(event){
+// body click event
+document.body.addEventListener('click', function(e){
+  if(searchBarActive){
     var classList = event.target.classList;
-    console.log(classList);
-    if(classList.value.indexOf('search-field') !== -1){ //if index not -1 then you are clicking it
-      //$searchBox.removeClass('search-active');
-      console.log(event.target.classList);
+    if(classList.value.indexOf('search-field') == -1){ //if index not -1 then you are clicking it
+      searchBox.classList.remove('search-active');
+      searchBarActive = false;
     }
-  });
+  }
 });
+
+// search bar click
+if(searchBar){
+  searchBar.addEventListener('click', function(e){
+    e.stopPropagation();
+    searchBarActive = true;
+    searchBox.classList.add('search-active');
+  });
+}
+
 
 
 
