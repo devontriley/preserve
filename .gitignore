@@ -84,8 +84,14 @@ Thumbs.db
 *.tar
 *.zip
 
-wp-content/*
-!wp-content/themes/
+wp-content/cache
+wp-content/plugins
+wp-content/upgrade
+wp-content/w3tc-config
+wp-content/advanced-cache.php
+wp-content/index.php
+
+!wp-content/themes
 
 # ignore these plugins
 wp-content/plugins/hello.php
@@ -97,7 +103,7 @@ wp-content/themes/twenty*/
 node_modules/
 
 # track uploads file
-!wp-content/uploads/**/*
+!wp-content/uploads/*
 
 #track database file
-!wp-content/databases/**/*
+!wp-content/databases/*
