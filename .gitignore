@@ -97,7 +97,7 @@ wp-content/themes/twenty*/
 node_modules/
 
 # track uploads file
-!wp-content/uploads/*
+!wp-content/uploads/**/*
 
 #track database file
-!wp-content/databases/*
+!wp-content/databases/**/*
