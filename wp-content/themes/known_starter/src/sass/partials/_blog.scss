@@ -18,7 +18,8 @@ BLOG NAV
 }
 
 .single .blog-hero {
-  
+  z-index: 77;
+  position: relative; 
 }
 
 
@@ -630,15 +631,15 @@ BLOG SINGLE
       font-size: 1.1rem;
 
       @media screen and (min-width: 768px){
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         text-align: center;
+        letter-spacing: .2rem;
       }
     }
   }
 
 
   blockquote {
-    font-size: 1.8rem;
     color: #B99656;
     text-align: center;
     padding: 3rem 1rem;
@@ -655,6 +656,10 @@ BLOG SINGLE
 
     *:last-child {
       margin-bottom: 0;
+    }
+
+    p {
+      font-size: 1.8rem;
     }
 
 

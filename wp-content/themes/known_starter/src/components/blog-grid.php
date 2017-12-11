@@ -118,6 +118,7 @@
               $query->the_post();
               $image = get_field('cover_photo');
               $author = get_field('post_author');
+              $category = get_the_category($p->ID);
 
               echo '<div class="article-wrapper">';
               echo '<a href="'. get_permalink() .'">';
@@ -131,7 +132,7 @@
               };
               echo '<p class="subtitle">'
                 . get_the_date("m/d/y").
-                ' | Category Here</p>';
+                ' | '. $category[0]->cat_name .'</p>';
               echo '</div> <!-- .text-wrapper -->';
               echo '</a>';
               echo '</div> <!-- .article-wrapper -->';

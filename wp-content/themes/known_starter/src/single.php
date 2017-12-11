@@ -9,13 +9,15 @@
 
 <?php if(have_posts()) : ?>
 
-	<?php while(have_posts()) : the_post(); ?>
+	<?php while(have_posts()) : the_post();
+				$category = get_the_category();
+	?>
 
 		<h2 class="post-title">
 				<?php the_title(); ?>
 		</h2> <!-- .post-title -->
 		<p class="byline">
-			By <?php the_field('post_author');?> | <?php the_date('m/d/Y'); ?>
+			By <?php the_field('post_author');?> | <?php the_date('m/d/Y'); ?> | <?php echo $category[0]->cat_name ?>
 		</p>
 
 		<div class="content-wrapper">

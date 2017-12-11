@@ -362,6 +362,7 @@ function load_more_posts(){
 
 				$image = get_field('cover_photo');
 				$author = get_field('post_author');
+        $category = get_the_category($p->ID);
 
 				$output .= '<div class="article-wrapper">';
 				$output .= '<a href="'. get_permalink() .'">';
@@ -373,7 +374,7 @@ function load_more_posts(){
 				if($author){
 					$output .= '<p class="subtitle">By '. get_field('post_author') .'</p>';
 				};
-				$output .= '<p class="subtitle">'. get_the_date("m/d/y").' | Category Here</p>';
+				$output .= '<p class="subtitle">'. get_the_date("m/d/y").' | '. $category[0]->cat_name .'</p>';
 				$output .= '</div> <!-- .text-wrapper -->';
 				$output .= '</a>';
 				$output .= '</div> <!-- .article-wrapper -->';
