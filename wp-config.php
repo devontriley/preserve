@@ -8,6 +8,8 @@ define( 'DISALLOW_FILE_EDIT', true ); // Disable File Editor - Security > Settin
 /** Enable W3 Total Cache */
 define('WP_CACHE', true); // Added by W3 Total Cache
 
+define('WP_MEMORY_LIMIT', '64M');
+
 /**
  * The base configuration for WordPress
  *
