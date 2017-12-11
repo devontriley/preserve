@@ -1,3 +1,9 @@
+// add class to body if mobile detected
+
+if(mobileDetected){
+	document.body.classList.add('is-mobile');
+}
+
 /*
  *
  * Mobile Nav Toggle

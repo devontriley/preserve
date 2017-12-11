@@ -24,26 +24,57 @@ catButton.addEventListener('click', function(e){
 
 var searchBarActive = false,
     searchBox = document.getElementById('search-form'),
-    searchBar = document.querySelector('.search-field');
+    searchBar = document.querySelector('.search-field'),
+    barInner = document.querySelector('.bar-inner'),
+    catList = document.getElementById('category-list'),
+    searchButton = searchBox.querySelector('.submit-button');
+
+// when page loads
+if(window.matchMedia('(min-width: 768px)').matches){
+  catList.style.paddingRight = barInner.offsetWidth + "px";
+}
+
+// button click event
+searchButton.addEventListener('click', function(e){
+  e.preventDefault();
+  if(window.matchMedia('(min-width: 768px)').matches){
+    //console.log('desktop');
+    searchBox.submit();
+  } else {
+    //console.log('mobile');
+    openSearchbar();
+  }
+});
 
 // body click event
 document.body.addEventListener('click', function(e){
   if(searchBarActive){
     var classList = event.target.classList;
-    if(classList.value.indexOf('search-field') == -1){ //if index not -1 then you are clicking it
-      searchBox.classList.remove('search-active');
-      searchBarActive = false;
+    if(!$(e.target).parents('.search-field').length && !$(e.target).parents('.submit-button').length && !$(e.target).hasClass('search-field') && !$(e.target).hasClass('submit-button')){
+      closeSearchbar();
     }
   }
 });
 
 // search bar click
+
 if(searchBar){
   searchBar.addEventListener('click', function(e){
+    openSearchbar();
     e.stopPropagation();
-    searchBarActive = true;
-    searchBox.classList.add('search-active');
   });
+}
+
+function openSearchbar(){
+  searchBarActive = true;
+  searchBox.classList.add('search-active');
+  console.log('search open');
+}
+
+function closeSearchbar(){
+  searchBox.classList.remove('search-active');
+  searchBarActive = false;
+  console.log('close');
 }
 
 
@@ -113,6 +144,12 @@ class ajaxPostLoader {
 
 if(document.getElementById('load-btn')){
   var postLoader = new ajaxPostLoader;
+}
+
+// add class to body if mobile detected
+
+if(mobileDetected){
+	document.body.classList.add('is-mobile');
 }
 
 /*
