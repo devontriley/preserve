@@ -525,6 +525,7 @@ BLOG GRID
 
 #load-btn {
   width: 20rem;
+  height: 4.5rem;
   line-height: 4rem;
   margin: 7rem auto;
   text-align: center;
@@ -537,7 +538,7 @@ BLOG GRID
     color: #b99656;
   }
   @media screen and (max-width: 450px){
-    width: 15rem;
+    width: 20rem;
     font-size: 1.2rem;
     margin: 4rem auto;
   }
@@ -550,11 +551,11 @@ BLOG GRID
 
 #loader-gif {
   display: none;
-  position: absolute;
+  position: relative;
   opacity: .5;
-  width: 10rem;
-  left: 50%;
-  top: 50%;
+  width: 2rem;
+  left: 90%;
+  bottom: 2rem;
   transform: translate(-50%, -50%);
 
   &.active {

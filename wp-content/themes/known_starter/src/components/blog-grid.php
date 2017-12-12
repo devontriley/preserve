@@ -144,14 +144,15 @@
       }; //end if
     ?>
 
-    <img id="loader-gif" alt="loading" src="<?php bloginfo('template_directory');?>/img/blog/loading_spinner.gif"/>
+    
 
     <?php
 
     if(is_page('Inspiration') && $foundPosts > 3) {
         echo '<div id="load-btn">';
-        echo '<p>Load More</p>';
-        echo '</div>';
+        echo '<p>Load More</p>'; ?>
+        <img id="loader-gif" alt="loading" src="<?php bloginfo('template_directory');?>/img/blog/loading_spinner.gif"/>
+        <?php echo '</div>';
     }
 
     if(is_category() && $foundPosts > 9) {
