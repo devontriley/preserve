@@ -19,12 +19,14 @@
 						//while loop
 						 while ( have_posts() ) : the_post();
 						 $image = get_field('cover_photo');
+						 $srcset = wp_get_attachment_image_srcset(get_field('cover_photo', $p->ID));
 			       $author = get_field('post_author');
+						 $category = get_the_category($p->ID);
 
 						 echo '<div class="article-wrapper">';
 						 echo '<a href="'. get_permalink() .'">';
 						 if($image){
-			                echo '<img alt="blog post cover photo" src="'. get_field('cover_photo') .'" />';
+			                echo '<img alt="blog post cover photo" srcset="'. $srcset .'" />';
 			              };
 						 echo '<div class="text-wrapper">';
 						 echo '<h2>'. get_the_title() .'</h2>';
@@ -33,7 +35,7 @@
 			              };
 			              echo '<p class="subtitle">'
 			                . get_the_date("m/d/y").
-			                ' | Category Here</p>';
+			                ' | '. $category[0]->cat_name .'</p>';
 						 echo '</div> <!-- .text-wrapper -->';
 						 echo '</a>';
 						 echo '</div> <!-- .article-wrapper -->';

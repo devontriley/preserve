@@ -19,7 +19,7 @@ BLOG NAV
 
 .single .blog-hero {
   z-index: 77;
-  position: relative; 
+  position: relative;
 }
 
 
@@ -61,6 +61,8 @@ BLOG NAV
             display: none;
             list-style: none;
             -webkit-tap-highlight-color: rgba(0,0,0,0);
+            border: none;
+            background-color: #fff;
             &:focus {
               outline: none;
             }

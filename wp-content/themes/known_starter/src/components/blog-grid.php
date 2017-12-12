@@ -16,6 +16,7 @@
         foreach ($featuredPosts as $p):
           $featuredPostIds[] = $p->ID;
           $image = get_field('cover_photo', $p->ID);
+          $srcset = wp_get_attachment_image_srcset(get_field('cover_photo', $p->ID));
           $author = get_field('post_author', $p->ID);
           $category = get_the_category($p->ID);
 
@@ -29,7 +30,7 @@
           echo '<li>';
           echo '<a href="'. get_permalink($p->ID) .'">';
           if($image){
-            echo '<img alt="blog post cover photo" src="'. get_field('cover_photo', $p->ID) .'" />';
+            echo '<img alt="blog post cover photo" srcset="'. $srcset .'"/>';
           };
           echo '<div class="text-wrapper">';
           echo '<h2>'. get_the_title($p->ID) .'</h2>';
@@ -37,7 +38,7 @@
             echo '<p class="subtitle">By '. get_field('post_author', $p->ID) .'  </p>';
           };
           echo '<p class="subtitle">'
-            . get_the_date("m/d/y").
+            . get_the_date("m/d/y", $p->ID).
             ' | '. $category[0]->cat_name .'
           </p>';
           echo '</div> <!-- .text-wrapper -->';
@@ -117,13 +118,14 @@
           while ( $query->have_posts() ) {
               $query->the_post();
               $image = get_field('cover_photo');
+              $srcset = wp_get_attachment_image_srcset(get_field('cover_photo'));
               $author = get_field('post_author');
-              $category = get_the_category($p->ID);
+              $category = get_the_category();
 
               echo '<div class="article-wrapper">';
               echo '<a href="'. get_permalink() .'">';
               if($image){
-                echo '<img alt="blog post cover photo" src="'. get_field('cover_photo') .'" />';
+                echo '<img alt="blog post cover photo" srcset="'. $srcset .'" />';
               };
               echo '<div class="text-wrapper">';
               echo '<h2>'. get_the_title() .'</h2>';

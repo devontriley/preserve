@@ -1,7 +1,11 @@
 
-<?php get_header(); ?>
+<?php get_header();
 
-<img class="blog-hero" src="<?php the_field('cover_photo'); ?>" />
+$srcset = wp_get_attachment_image_srcset(get_field('cover_photo'));
+
+ ?>
+
+<img class="blog-hero" srcset="<?php echo esc_attr($srcset); ?>" src="<?php the_field('cover_photo'); ?>" />
 
 <?php include('components/blav.php'); ?>
 

@@ -1597,7 +1597,9 @@ BLOG NAV
       #blog-nav .inner .bar-inner .cat-btn {
         display: none;
         list-style: none;
-        -webkit-tap-highlight-color: transparent; }
+        -webkit-tap-highlight-color: transparent;
+        border: none;
+        background-color: #fff; }
         #blog-nav .inner .bar-inner .cat-btn:focus {
           outline: none; }
         @media screen and (max-width: 767px) {

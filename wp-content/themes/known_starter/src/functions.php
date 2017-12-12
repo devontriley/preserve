@@ -361,13 +361,14 @@ function load_more_posts(){
         while( $ajax_query->have_posts() ): $ajax_query->the_post();
 
 				$image = get_field('cover_photo');
+				$srcset = wp_get_attachment_image_srcset(get_field('cover_photo', $p->ID));
 				$author = get_field('post_author');
         $category = get_the_category($p->ID);
 
 				$output .= '<div class="article-wrapper">';
 				$output .= '<a href="'. get_permalink() .'">';
 				if($image){
-					$output .= '<img src="'. get_field('cover_photo') .'" />';
+					$output .= '<img srcset="'. $srcset .'"/>';
 				};
 				$output .= '<div class="text-wrapper">';
 				$output .= '<h2>'. get_the_title() .'</h2>';
