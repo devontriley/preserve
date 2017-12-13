@@ -99,6 +99,7 @@ function closeSearchbar(){
 class ajaxPostLoader {
   constructor(){ //what runs as soon as class set up
     this.btn = document.getElementById('load-btn');
+    this.btnText = document.getElementById('load-text');
     this.wrapper = document.getElementById('chron-grid');
     this.currentPage = parseInt(this.wrapper.dataset.page) + 1;
     this.currentCategory = this.wrapper.dataset.category;
@@ -118,6 +119,7 @@ class ajaxPostLoader {
 
   clickHandler(){
     this.loader.classList.add('active');
+    this.btnText.classList.add('off');
     $.ajax(
       {
         method : 'post', //declares type we are using, sending data to php file
@@ -143,6 +145,7 @@ class ajaxPostLoader {
           }
 
           this.loader.classList.remove('active'); //remove loader
+          this.btnText.classList.remove('off'); 
 
           $('#grid-wrapper').append(data.html);
 

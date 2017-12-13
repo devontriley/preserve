@@ -28,7 +28,8 @@
            echo '<div id="addit-feat-wrapper">';
           };
           echo '<li>';
-          echo '<a href="'. get_permalink($p->ID) .'">';
+          echo '<a href="'. get_permalink($p->ID) .'"></a>';
+          echo '<div class="image-wrapper">';
           if($image){
             echo '<img alt="blog post cover photo" srcset="'. $srcset .'"/>';
           };
@@ -42,7 +43,7 @@
             ' | '. $category[0]->cat_name .'
           </p>';
           echo '</div> <!-- .text-wrapper -->';
-          echo '</a>';
+          echo '</div> <!-- .image-wrapper -->';
           echo '</li>';
           $i++;
 
@@ -150,13 +151,16 @@
 
     if(is_page('Inspiration') && $foundPosts > 3) {
         echo '<div id="load-btn">';
-        echo '<p>Load More</p>'; ?>
+        echo '<p id="load-text">Load More</p>'; ?>
         <img id="loader-gif" alt="loading" src="<?php bloginfo('template_directory');?>/img/blog/loading_spinner.gif"/>
         <?php echo '</div>';
     }
 
     if(is_category() && $foundPosts > 9) {
-        echo '<div id="load-btn">Load More</div>';
+        echo '<div id="load-btn">';
+        echo '<p id="load-text">Load More</p>'; ?>
+        <img id="loader-gif" alt="loading" src="<?php bloginfo('template_directory');?>/img/blog/loading_spinner.gif"/>
+        <?php echo '</div>';
     }
  ?>
 

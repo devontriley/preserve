@@ -1576,7 +1576,7 @@ BLOG NAV
       position: relative;
       padding: 0 3.5rem; } }
   #blog-nav .inner {
-    max-width: 130rem;
+    max-width: 100rem;
     position: relative;
     margin: 0 auto;
     background-color: #fff; }
@@ -1612,7 +1612,6 @@ BLOG NAV
         position: absolute;
         right: 0;
         top: 0;
-        padding: 0 2rem;
         -webkit-box-sizing: border-box;
                 box-sizing: border-box; }
         @media screen and (min-width: 768px) {
@@ -1722,7 +1721,11 @@ BLOG NAV
           padding: 0;
           position: static; } }
       #blog-nav .inner #category-list #back-button {
-        display: none; }
+        display: none;
+        padding: 0;
+        line-height: 1;
+        height: 100%;
+        vertical-align: middle; }
         @media screen and (min-width: 768px) {
           #blog-nav .inner #category-list #back-button {
             display: inline-block; } }
@@ -1739,14 +1742,11 @@ BLOG NAV
         text-transform: uppercase;
         display: block;
         margin-right: 1rem; }
-        @media screen and (min-width: 650px) {
-          #blog-nav .inner #category-list li {
-            margin-right: 1px; } }
         @media screen and (min-width: 768px) {
           #blog-nav .inner #category-list li {
             padding: 2rem 0;
             display: inline-block;
-            margin-right: 3rem; }
+            margin-right: 1rem; }
             #blog-nav .inner #category-list li:after {
               content: '';
               display: block;
@@ -1757,6 +1757,9 @@ BLOG NAV
               transition: width 300ms ease 100ms; }
             #blog-nav .inner #category-list li:hover:after {
               width: 100%; } }
+        @media screen and (min-width: 992px) {
+          #blog-nav .inner #category-list li {
+            margin-right: 3rem; } }
 
 /******************************************************************************
 
@@ -1791,8 +1794,7 @@ BLOG GRID
         margin-right: 0; } }
 
 #main-feat-wrapper {
-  width: 50%;
-  height: 100%; }
+  width: 50%; }
   @media screen and (max-width: 768px) {
     #main-feat-wrapper {
       width: auto; } }
@@ -1801,7 +1803,7 @@ BLOG GRID
             transform: scale(1.05); }
   #main-feat-wrapper li {
     position: relative;
-    height: 60rem;
+    height: 100%;
     padding: 1rem; }
     @media screen and (max-width: 768px) {
       #main-feat-wrapper li {
@@ -1825,18 +1827,24 @@ BLOG GRID
       display: inline-block;
       width: 100%;
       height: 100%;
-      position: relative;
+      position: absolute;
+      overflow: hidden;
+      z-index: 999; }
+    #main-feat-wrapper li .image-wrapper {
+      width: 100%;
+      height: 100%;
       overflow: hidden; }
-      #main-feat-wrapper li a img {
+      #main-feat-wrapper li .image-wrapper img {
         -o-object-fit: cover;
            object-fit: cover;
         -o-object-position: 50% 50%;
            object-position: 50% 50%;
         height: 100%;
+        width: 100%;
         -webkit-transition: all ease 1s;
         transition: all ease 1s; }
         @media screen and (max-width: 768px) {
-          #main-feat-wrapper li a img {
+          #main-feat-wrapper li .image-wrapper img {
             width: 100%; } }
 
 .text-wrapper {
@@ -1888,7 +1896,10 @@ BLOG GRID
   #addit-feat-wrapper li {
     height: 30rem;
     position: relative;
-    padding: 1rem; }
+    padding: 1rem;
+    overflow: hidden;
+    -webkit-transition: all ease 1s;
+    transition: all ease 1s; }
     @media screen and (max-width: 768px) {
       #addit-feat-wrapper li {
         padding: .5rem 1rem;
@@ -1915,15 +1926,22 @@ BLOG GRID
       display: inline-block;
       width: 100%;
       height: 100%;
-      position: relative;
+      position: absolute;
+      overflow: hidden;
+      z-index: 999; }
+    #addit-feat-wrapper li .image-wrapper {
+      width: 100%;
+      height: 100%;
       overflow: hidden; }
-      #addit-feat-wrapper li a img {
+      #addit-feat-wrapper li .image-wrapper img {
         -o-object-fit: cover;
            object-fit: cover;
         -o-object-position: 50% 50%;
            object-position: 50% 50%;
         height: 100%;
         width: 100%;
+        display: inline-block;
+        position: relative;
         -webkit-transition: all ease 1s;
         transition: all ease 1s; }
 
@@ -2031,6 +2049,10 @@ BLOG GRID
       margin: 4rem auto; } }
   #load-btn p {
     margin: 0 auto; }
+  #load-btn #load-text {
+    display: block; }
+    #load-btn #load-text.off {
+      display: none; }
 
 #loader-gif {
   display: none;
