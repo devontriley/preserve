@@ -1934,7 +1934,8 @@ BLOG GRID
     #addit-feat-wrapper li .image-wrapper {
       width: 100%;
       height: 100%;
-      overflow: hidden; }
+      overflow: hidden;
+      position: relative; }
       #addit-feat-wrapper li .image-wrapper img {
         -o-object-fit: cover;
            object-fit: cover;
