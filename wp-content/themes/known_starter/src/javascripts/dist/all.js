@@ -4,13 +4,16 @@
 
 var catBarActive = false,
     catButton = document.querySelector('.cat-btn'),
-    catList = document.getElementById('category-list');
+    catList = document.getElementById('category-list'),
+    catArrow = document.querySelector('.down-arrow');
 
 if(catButton){
   catButton.addEventListener('click', function(e){
       catList.classList.add('cat-active');
+      catArrow.style.transform = "rotate(180deg)";
 
       if(catBarActive == true){
+          catArrow.style.transform = "rotate(0deg)";
           catList.classList.remove('cat-active');
           catBarActive = false;
         } else {

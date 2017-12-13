@@ -35,9 +35,9 @@
           echo '<div class="text-wrapper">';
           echo '<h2>'. get_the_title($p->ID) .'</h2>';
           if($author){
-            echo '<p class="subtitle">By '. get_field('post_author', $p->ID) .'  </p>';
+            echo '<p class="subtitle">By '. get_field('post_author', $p->ID) .'  | </p>';
           };
-          echo '<p class="subtitle">'
+          echo '<p class="subtitle">  '
             . get_the_date("m/d/y", $p->ID).
             ' | '. $category[0]->cat_name .'
           </p>';
@@ -130,9 +130,9 @@
               echo '<div class="text-wrapper">';
               echo '<h2>'. get_the_title() .'</h2>';
               if($author){
-                echo '<p class="subtitle">By '. get_field('post_author') .'  </p>';
+                echo '<p class="subtitle">By '. get_field('post_author') .' | </p>';
               };
-              echo '<p class="subtitle">'
+              echo '<p class="subtitle"> '
                 . get_the_date("m/d/y").
                 ' | '. $category[0]->cat_name .'</p>';
               echo '</div> <!-- .text-wrapper -->';
@@ -144,7 +144,7 @@
       }; //end if
     ?>
 
-    
+
 
     <?php
 

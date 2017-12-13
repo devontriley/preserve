@@ -373,7 +373,7 @@ function load_more_posts(){
 				$output .= '<div class="text-wrapper">';
 				$output .= '<h2>'. get_the_title() .'</h2>';
 				if($author){
-					$output .= '<p class="subtitle">By '. get_field('post_author') .'</p>';
+					$output .= '<p class="subtitle">By '. get_field('post_author') .' | </p>';
 				};
 				$output .= '<p class="subtitle">'. get_the_date("m/d/y").' | '. $category[0]->cat_name .'</p>';
 				$output .= '</div> <!-- .text-wrapper -->';

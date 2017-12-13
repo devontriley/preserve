@@ -32,9 +32,7 @@ BLOG NAV
   position: relative;
   padding: 0;
   @media screen and (min-width: 768px){
-    width: calc(100% + 7rem);
     position: relative;
-    left: -3rem;
     padding: 0 3.5rem;
   }
 
@@ -125,7 +123,7 @@ BLOG NAV
         display: inline-block;
         vertical-align: top;
         @media screen and (min-width: 768px){
-          padding-left: 2rem;
+          padding-left: 0rem;
           margin-left: 0;
           padding-right: 0;
           padding-top: 0;
@@ -204,13 +202,30 @@ BLOG NAV
         position: static;
       }
 
+      #back-button {
+        display: none;
+        @media screen and (min-width: 768px){
+          display: inline-block;
+        }
+        svg {
+          fill: #6D5E67;;
+        }
+        &:hover path {
+          fill: $gold;
+          transition: all ease .3s;
+        }
+      }
+
       li {
         padding: 1rem 0;
-        color: #6D5E67;
+        color: $text-color;
         font-size: 1.2rem;
         text-transform: uppercase;
         display: block;
-
+        margin-right: 1rem;
+        @media screen and (min-width: 650px){
+          margin-right: 1px;
+        }
         @media screen and (min-width: 768px){
           padding: 2rem 0;
           display: inline-block;
@@ -220,7 +235,7 @@ BLOG NAV
             display: block;
             margin: 0 auto;
             width: 0;
-            border-top: 1px solid #b99656;
+            border-top: 1px solid $gold;
             transition: width 300ms ease 100ms;
           }
           &:hover:after {
@@ -267,11 +282,10 @@ BLOG GRID
 
 #main-feat-wrapper {
   width: 50%;
-  height: 77rem;
+  height: 100%;
 
   @media screen and (max-width: 768px){
     width: auto;
-    height: calc((100vw * 0.3) + 100px);
   }
 
   &:hover img {
@@ -280,11 +294,12 @@ BLOG GRID
 
   li {
     position: relative;
-    height: 100%;
+    height: 60rem;
     padding: 1rem;
 
     @media screen and (max-width: 768px){
       padding: .5rem 1rem;
+      height: 20rem;
     }
 
     &:before {
@@ -352,7 +367,7 @@ BLOG GRID
       display: block;
       margin: 2rem 0 0 0;
       width: 50%;
-      border-top: 1px solid #b99656;
+      border-top: 1px solid $gold;
 
       @media screen and (max-width: 768px){
         display: none;
@@ -365,15 +380,13 @@ BLOG GRID
   font-size: 1.4rem;
   color: #fff;
   line-height: .5rem;
-  font-family: "MillerText-Roman", "Times New Roman";
-  @media screen and (max-width: 768px){
-    display: inline;
-  }
+  font-family: $font-family-sans;
+  display: inline; 
 }
 
 #addit-feat-wrapper {
   width: 50%;
-  height: 770px;
+  height: 100%;
   @media screen and (max-width: 768px){
     width: auto;
     padding: 0;
@@ -381,12 +394,12 @@ BLOG GRID
   }
 
   li {
-    height: 50%;
+    height: 30rem;
     position: relative;
     padding: 1rem;
     @media screen and (max-width: 768px){
       padding: .5rem 1rem;
-      height: calc((100vw * 0.3) + 100px);
+      height: 20rem;
     }
 
     &:hover img {
@@ -440,7 +453,7 @@ BLOG GRID
     display: block;
     margin: 1rem auto;
     width: 25%;
-    border-top: 1px solid #B99656;}
+    border-top: 1px solid $gold;}
 
   }
 
@@ -534,8 +547,8 @@ BLOG GRID
   transition: all ease .3s;
 
   &:hover {
-    border: 2px solid #b99656;
-    color: #b99656;
+    border: 2px solid $gold;
+    color: $gold;
   }
   @media screen and (max-width: 450px){
     width: 20rem;
@@ -591,7 +604,7 @@ BLOG SINGLE
   display: block;
   margin: 2rem 0 0 0;
   width: 15rem;
-  border-top: 1px solid #B99656;
+  border-top: 1px solid $gold;
 }
 
 .content-wrapper {
@@ -634,7 +647,7 @@ BLOG SINGLE
       font-size: 1.1rem;
 
       @media screen and (min-width: 768px){
-        font-size: 1.4rem;
+        font-size: 1.5rem;
         text-align: center;
         letter-spacing: .2rem;
       }
@@ -643,7 +656,7 @@ BLOG SINGLE
 
 
   blockquote {
-    color: #B99656;
+    color: $gold;
     text-align: center;
     padding: 3rem 1rem;
     border-bottom: 1px solid #eee;
@@ -709,7 +722,7 @@ BLOG SINGLE
     margin: 0 auto 1rem;
 
     @media screen and (min-width: 425px){
-      width: 15rem;
+      width: auto;
       height: 12rem;
       display: inline-block;
     }
@@ -718,7 +731,7 @@ BLOG SINGLE
   #author-about-text-wrapper {
     display: inline-block;
     padding: 0 2.5rem;
-    font-family: "MillerText-Roman", "Times New Roman";
+    font-family: $font-family-sans;
 
     @media screen and (max-width: 425px){
       text-align: center;
@@ -776,7 +789,11 @@ SEARCH
 
 .search-result-content {
   text-align: center;
-  padding: 3rem 0;
+  padding: 3rem 1rem;
+
+  .query-term {
+    color: $gold;
+  }
 
   .btn {
     svg {

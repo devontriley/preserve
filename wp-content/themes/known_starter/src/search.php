@@ -31,7 +31,7 @@
 						 echo '<div class="text-wrapper">';
 						 echo '<h2>'. get_the_title() .'</h2>';
 						 if($author){
-			                echo '<p class="subtitle">By '. get_field('post_author') .'  </p>';
+			                echo '<p class="subtitle">By '. get_field('post_author') .' | </p>';
 			              };
 			              echo '<p class="subtitle">'
 			                . get_the_date("m/d/y").
@@ -43,7 +43,7 @@
 					echo '</div> <!-- .grid-wrapper -->';
 					}
 					else {
-						echo '<h2>No results for \''.get_search_query() .'\'</h2>';
+						echo '<h2>No results for \'<span class="query-term">'.get_search_query() .'</span>\'</h2>';
 					}?>
 
 					<a href="<?php echo get_permalink(82) ?>" class="btn" target>
