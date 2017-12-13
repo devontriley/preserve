@@ -1652,7 +1652,7 @@ BLOG NAV
           vertical-align: top; }
           @media screen and (min-width: 768px) {
             #blog-nav .inner .bar-inner .search-form .submit-button {
-              padding-left: 0rem;
+              padding-left: 1rem;
               margin-left: 0;
               padding-right: 0;
               padding-top: 0;
@@ -1862,18 +1862,15 @@ BLOG GRID
     font-weight: lighter;
     letter-spacing: 0;
     text-transform: none;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     line-height: 1.4em; }
-    @media screen and (min-width: 450px) {
+    @media screen and (min-width: 992px) {
       .text-wrapper h2 {
         font-size: 2rem; } }
-    @media screen and (min-width: 768px) {
-      .text-wrapper h2 {
-        margin-bottom: 3rem; } }
     .text-wrapper h2:after {
       content: "";
       display: block;
-      margin: 2rem 0 0 0;
+      margin: 1.5rem 0 0 0;
       width: 50%;
       border-top: 1px solid #b99656; }
       @media screen and (max-width: 768px) {
@@ -2053,7 +2050,9 @@ BLOG GRID
   #load-btn p {
     margin: 0 auto; }
   #load-btn #load-text {
-    display: block; }
+    display: block;
+    -webkit-transition: all ease .3s;
+    transition: all ease .3s; }
     #load-btn #load-text.off {
       display: none; }
 
@@ -2061,11 +2060,13 @@ BLOG GRID
   display: none;
   position: relative;
   opacity: .5;
-  width: 2rem;
-  left: 90%;
-  bottom: 2rem;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%); }
+  width: 3rem;
+  left: 50%;
+  bottom: -15%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: all ease .3s;
+  transition: all ease .3s; }
   #loader-gif.active {
     display: block; }
 
@@ -2113,9 +2114,12 @@ BLOG SINGLE
     max-width: 900px !important;
     display: block;
     margin: 0 auto;
-    width: 120%;
-    padding: 4rem 0 3rem;
-    margin-left: -10%; }
+    width: 100%;
+    padding: 4rem 0 3rem; }
+    @media screen and (min-width: 992px) {
+      .content-wrapper figure {
+        width: 120%;
+        margin-left: -10%; } }
     .content-wrapper figure img {
       width: 100%;
       height: inherit; }
@@ -2225,10 +2229,6 @@ BLOG SINGLE
 CATEGORY PAGES
 
 ******************************************************************************/
-@media screen and (min-width: 768px) {
-  .cat-grid-wrapper {
-    padding: 5rem 0; } }
-
 /******************************************************************************
 
 SEARCH

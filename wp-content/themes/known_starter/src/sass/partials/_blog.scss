@@ -122,7 +122,7 @@ BLOG NAV
         display: inline-block;
         vertical-align: top;
         @media screen and (min-width: 768px){
-          padding-left: 0rem;
+          padding-left: 1rem;
           margin-left: 0;
           padding-right: 0;
           padding-top: 0;
@@ -363,24 +363,18 @@ BLOG GRID
     font-weight: lighter;
     letter-spacing: 0;
     text-transform: none;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     line-height: 1.4em;
-
-    @media screen and (min-width: 450px){
+    @media screen and (min-width: 992px){
       font-size: 2rem;
-    }
-
-    @media screen and (min-width: 768px){
-      margin-bottom: 3rem;
     }
 
     &:after {
       content: "";
       display: block;
-      margin: 2rem 0 0 0;
+      margin: 1.5rem 0 0 0;
       width: 50%;
       border-top: 1px solid $gold;
-
       @media screen and (max-width: 768px){
         display: none;
       }
@@ -586,6 +580,7 @@ BLOG GRID
 
   #load-text {
     display: block;
+    transition: all ease .3s;
 
     &.off {
       display: none;
@@ -598,10 +593,11 @@ BLOG GRID
   display: none;
   position: relative;
   opacity: .5;
-  width: 2rem;
-  left: 90%;
-  bottom: 2rem;
-  transform: translate(-50%, -50%);
+  width: 3rem;
+  left: 50%;
+  bottom: -15%;
+  transform: translateX(-50%);
+  transition: all ease .3s;
 
   &.active {
     display: block;
@@ -650,7 +646,6 @@ BLOG SINGLE
     border-bottom: 1px solid #eee;
     height: 5rem;
     margin-left: -10%;
-
     @media screen and (min-width: 800px){
       display: block;
     }
@@ -660,9 +655,12 @@ BLOG SINGLE
     max-width: 900px !important;
     display: block;
     margin: 0 auto;
-    width: 120%;
+    width: 100%;
     padding: 4rem 0 3rem;
-    margin-left: -10%;
+    @media screen and (min-width: 992px){
+      width: 120%;
+      margin-left: -10%;
+    }
 
     img {
       width: 100%;
@@ -799,11 +797,11 @@ CATEGORY PAGES
 
 ******************************************************************************/
 
-.cat-grid-wrapper {
-  @media screen and (min-width: 768px){
-    padding: 5rem 0;
-  }
-}
+// .cat-grid-wrapper {
+//   @media screen and (min-width: 768px){
+//     padding: 5rem 0;
+//   }
+// }
 
 
 
