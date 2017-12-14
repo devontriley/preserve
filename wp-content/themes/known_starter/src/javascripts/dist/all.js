@@ -50,7 +50,11 @@ if(searchButton){
       searchBox.submit();
     } else {
       //console.log('mobile');
-      openSearchbar();
+      if(searchBarActive){
+        searchBox.submit();
+      } else {
+        openSearchbar();
+      }
     }
   });
 }
