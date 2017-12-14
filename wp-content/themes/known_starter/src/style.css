@@ -1729,8 +1729,6 @@ BLOG NAV
         @media screen and (min-width: 768px) {
           #blog-nav .inner #category-list #home-button {
             display: inline-block; } }
-        #blog-nav .inner #category-list #home-button.active svg path {
-          fill: #b99656; }
         #blog-nav .inner #category-list #home-button svg {
           fill: #6D5E67; }
         #blog-nav .inner #category-list #home-button:hover path {
