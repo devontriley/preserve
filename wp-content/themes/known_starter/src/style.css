@@ -1831,7 +1831,7 @@ BLOG GRID
           bottom: .5rem; } }
     #main-feat-wrapper li a {
       display: inline-block;
-      width: 100%;
+      width: 95%;
       height: 100%;
       position: absolute;
       overflow: hidden;
@@ -1929,7 +1929,7 @@ BLOG GRID
           bottom: .5rem; } }
     #addit-feat-wrapper li a {
       display: inline-block;
-      width: 100%;
+      width: 95%;
       height: 100%;
       position: absolute;
       overflow: hidden;
