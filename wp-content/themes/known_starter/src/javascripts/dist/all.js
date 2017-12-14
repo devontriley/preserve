@@ -37,8 +37,10 @@ var searchBarActive = false,
     }
 
 // when page loads
-if(window.matchMedia('(min-width: 768px)').matches){
-  catList.style.paddingRight = barInner.offsetWidth + "px";
+if(catList){
+  if(window.matchMedia('(min-width: 768px)').matches){
+    catList.style.paddingRight = barInner.offsetWidth + "px";
+  }
 }
 
 // button click event
