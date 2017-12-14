@@ -192,7 +192,7 @@ BLOG NAV
       order: 2;
       margin: 0;
       padding: 2rem;
-      top: 4rem;
+      top: 5rem;
       left: 0;
       @media screen and (min-width: 768px){
         order: 1;
@@ -202,7 +202,7 @@ BLOG NAV
       }
 
       #home-button {
-        display: none;
+        display: block;
         padding: 0;
         line-height: 1;
         height: 100%;
@@ -756,13 +756,11 @@ BLOG SINGLE
 
 
   #about-logo {
-    width: 10rem;
     display: block;
     margin: 0 auto 1rem;
 
     @media screen and (min-width: 425px){
       width: auto;
-      height: 12rem;
       display: inline-block;
     }
   }

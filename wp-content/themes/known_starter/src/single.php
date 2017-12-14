@@ -37,7 +37,7 @@ $srcset = wp_get_attachment_image_srcset(get_field('cover_photo'));
 </div> <!-- .wysiwyg-content -->
 
 <div id="author-about">
-	<img id="about-logo" alt="preserve seal" src="<?bloginfo('template_directory');?>/img/blog/about-logo.png" />
+	<img id="about-logo" alt="preserve seal" src="<?bloginfo('template_directory');?>/img/blog/about-logo.jpg" />
 
 
 	<div id="author-about-text-wrapper">

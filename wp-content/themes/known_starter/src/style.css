@@ -1709,7 +1709,7 @@ BLOG NAV
               order: 2;
       margin: 0;
       padding: 2rem;
-      top: 4rem;
+      top: 5rem;
       left: 0; }
       @media screen and (min-width: 768px) {
         #blog-nav .inner #category-list {
@@ -1721,7 +1721,7 @@ BLOG NAV
           padding: 0;
           position: static; } }
       #blog-nav .inner #category-list #home-button {
-        display: none;
+        display: block;
         padding: 0;
         line-height: 1;
         height: 100%;
@@ -2199,13 +2199,11 @@ BLOG SINGLE
               flex-direction: column;
       margin-bottom: 5rem; } }
   #author-about #about-logo {
-    width: 10rem;
     display: block;
     margin: 0 auto 1rem; }
     @media screen and (min-width: 425px) {
       #author-about #about-logo {
         width: auto;
-        height: 12rem;
         display: inline-block; } }
   #author-about #author-about-text-wrapper {
     display: inline-block;
