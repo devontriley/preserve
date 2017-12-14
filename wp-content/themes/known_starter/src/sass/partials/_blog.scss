@@ -201,7 +201,7 @@ BLOG NAV
         position: static;
       }
 
-      #back-button {
+      #home-button {
         display: none;
         padding: 0;
         line-height: 1;
@@ -209,6 +209,9 @@ BLOG NAV
         vertical-align: middle;
         @media screen and (min-width: 768px){
           display: inline-block;
+        }
+        &.active svg path {
+          fill: $gold;
         }
         svg {
           fill: #6D5E67;;
@@ -239,6 +242,12 @@ BLOG NAV
             transition: width 300ms ease 100ms;
           }
           &:hover:after {
+            width: 100%;
+          }
+          &.active a {
+            color: $gold;
+          }
+          &.active:after {
             width: 100%;
           }
         }

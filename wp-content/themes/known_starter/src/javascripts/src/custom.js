@@ -143,7 +143,7 @@ class ajaxPostLoader {
           }
 
           this.loader.classList.remove('active'); //remove loader
-          this.btnText.classList.remove('off'); 
+          this.btnText.classList.remove('off');
 
           $('#grid-wrapper').append(data.html);
 
