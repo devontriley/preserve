@@ -16,6 +16,13 @@ if(is_page('Inspiration')){
   }
 }
 
+elseif(is_shop() || is_product_category()){
+  $headerGraphic = get_field('header_graphic', 752);
+  $header = get_field('header', 752);
+  $bodyCopy = get_field('body_copy', 752);
+  $greyBG = get_field('grey_background', 752);
+}
+
 elseif (is_category()) {
   $headerGraphic = get_field('header_graphic', 'category_' . $currentPostCats[0]);
   $header = get_field('header', 'category_' . $currentPostCats[0]);

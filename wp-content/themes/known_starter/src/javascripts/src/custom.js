@@ -1,3 +1,48 @@
+// Woocommerce
+
+var shopCategories = document.querySelector('#woocommerce-main .page-nav-bar');
+var productGrid = document.querySelector('#woocommerce-main ul.products');
+var loader = document.getElementById('loader-gif');
+
+if(shopCategories) {
+  shopCategories.addEventListener('click', function(e){
+    e.preventDefault();
+    if(e.target.tagName === 'A' && !e.target.classList.contains('active')) {
+      var catID = e.target.dataset.cat;
+      var cats = shopCategories.querySelectorAll('a');
+
+      productGrid.innerHTML = '';
+
+      loader.style.display = 'block';
+
+      for(var i = 0; i < cats.length; i++) {
+        cats[i].classList.remove('active');
+      }
+
+      e.target.classList.add('active');
+
+      $.ajax(
+        {
+          method : 'post',
+          url : ajaxurl,
+          data : {
+            'action' : 'load_more_products',
+            'catID' : catID
+          },
+          dataType : 'HTML',
+          error : function(xhr, status, error){
+            console.log(xhr, status, error);
+          },
+          success : function(data, status, xhr){
+            productGrid.innerHTML = data;
+            loader.style.display = 'none';
+          }
+        }
+      );
+    }
+  });
+}
+
 // CATEGORIES BAR
 
 var catBarActive = false,

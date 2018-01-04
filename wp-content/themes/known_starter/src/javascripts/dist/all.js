@@ -1,5 +1,50 @@
 /*! Conditionizr v4.3.0 | (c) 2014 @toddmotto, @markgdyr | MIT license | conditionizr.com */
 !function(a,b){"function"==typeof define&&define.amd?define([],b):"object"==typeof exports?module.exports=b:a.conditionizr=b()}(this,function(){"use strict";var a,b={},c=document.head||document.getElementsByTagName("head")[0],d=function(b,d,e){var f=e?b:a+b+("style"===d?".css":".js");switch(d){case"script":var g=document.createElement("script");g.src=f,c.appendChild(g);break;case"style":var h=document.createElement("link");h.href=f,h.rel="stylesheet",c.appendChild(h);break;case"class":document.documentElement.className+=" "+b}};return b.config=function(c){var e=c||{},f=e.tests;a=e.assets||"";for(var g in f){var h=g.toLowerCase();if(b[h])for(var i=f[g],j=i.length;j--;)d(h,i[j])}},b.add=function(a,c,e){var f=a.toLowerCase();if(b[f]=e(),b[f])for(var g=c.length;g--;)d(f,c[g])},b.on=function(a,c){var d=/^\!/;(b[a.toLowerCase()]||d.test(a)&&!b[a.replace(d,"")])&&c()},b.load=b.polyfill=function(a,c){for(var e=/\.js$/.test(a)?"script":"style",f=c.length;f--;)b[c[f].toLowerCase()]&&d(a,e,!0)},b});
+// Woocommerce
+
+var shopCategories = document.querySelector('#woocommerce-main .page-nav-bar');
+var productGrid = document.querySelector('#woocommerce-main ul.products');
+var loader = document.getElementById('loader-gif');
+
+if(shopCategories) {
+  shopCategories.addEventListener('click', function(e){
+    e.preventDefault();
+    if(e.target.tagName === 'A' && !e.target.classList.contains('active')) {
+      var catID = e.target.dataset.cat;
+      var cats = shopCategories.querySelectorAll('a');
+
+      productGrid.innerHTML = '';
+
+      loader.style.display = 'block';
+
+      for(var i = 0; i < cats.length; i++) {
+        cats[i].classList.remove('active');
+      }
+
+      e.target.classList.add('active');
+
+      $.ajax(
+        {
+          method : 'post',
+          url : ajaxurl,
+          data : {
+            'action' : 'load_more_products',
+            'catID' : catID
+          },
+          dataType : 'HTML',
+          error : function(xhr, status, error){
+            console.log(xhr, status, error);
+          },
+          success : function(data, status, xhr){
+            productGrid.innerHTML = data;
+            loader.style.display = 'none';
+          }
+        }
+      );
+    }
+  });
+}
+
 // CATEGORIES BAR
 
 var catBarActive = false,

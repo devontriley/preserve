@@ -11,6 +11,133 @@
  }
 
 
+//// WOOCOMMERCE
+
+// woocommerce theme support
+add_action( 'after_setup_theme', 'woocommerce_support' );
+function woocommerce_support() {
+    add_theme_support( 'woocommerce' );
+}
+
+// Unhook Woocommerce wrappers
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+
+// shop hero
+add_action( 'woocommerce_before_main_content', 'shop_hero');
+function shop_hero() {
+  if( is_shop() || is_product_category() ) {
+    include('components/flexible-content.php');
+  }
+}
+
+// remove shop results count
+add_action( 'woocommerce_before_shop_loop', 'remove_shop_results');
+function remove_shop_results() {
+  if( !is_product() ) {
+    remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+  }
+}
+
+// remove sale tag
+remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
+
+// remove sorting dropdown
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
+
+// remove add to cart from grid
+add_action( 'woocommerce_after_shop_loop_item_title', 'remove_add_to_cart' );
+function remove_add_to_cart() {
+  remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+}
+
+// remove sidebar for woocommerce pages
+add_action( 'woocommerce_before_main_content', 'remove_sidebar' );
+function remove_sidebar() {
+  if ( is_shop() || is_product_category() ) {
+    remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+  }
+}
+
+// remove breadcrumbs
+add_action( 'woocommerce_before_main_content', 'remove_breadcrumbs');
+function remove_breadcrumbs() {
+  if( is_shop() || is_product_category() ) {
+    remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+  }
+}
+
+// woocommerce open wrapper
+add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
+function my_theme_wrapper_start() {
+  echo '<section id="woocommerce-main">';
+}
+
+// woocommerce close wrapper
+add_action('woocommerce_after_main_content', 'my_theme_wrapper_end', 10);
+function my_theme_wrapper_end() {
+  echo '</section>';
+}
+
+// add shop category nav
+add_action('woocommerce_before_main_content', 'shop_categories');
+function shop_categories() {
+  if(is_shop() || is_product_category()){
+    include('components/shop-categories.php');
+  }
+}
+
+// add back to shop on product single
+add_action( 'woocommerce_before_main_content', 'back_to_shop' );
+function back_to_shop() {
+  include('components/back-to-shop.php');
+}
+
+// add product loader gif
+add_action( 'woocommerce_after_shop_loop', 'products_loader' );
+function products_loader() {
+  echo '<img id="loader-gif" alt="loading" src="'. get_bloginfo('template_directory') .'/img/blog/loading_spinner.gif"/>';
+}
+
+// include woocommerce ajax function
+function load_more_products() {
+  $catID = $_POST['catID'];
+
+  $args = array(
+    'post_type' => 'product',
+    'posts_per_page' => -1,
+  );
+
+  if($catID > 0) {
+
+    $args['tax_query'] = array(
+      array(
+        'taxonomy' => 'product_cat',
+        'field' => 'id',
+        'terms' => $catID
+      )
+    );
+
+  }
+
+  $productsQuery = new WP_Query( $args );
+
+  if($productsQuery->have_posts()) :
+    while($productsQuery->have_posts()) : $productsQuery->the_post();
+
+      wc_get_template_part( 'content', 'product' );
+
+    endwhile;
+  endif;
+
+  exit();
+}
+add_action('wp_ajax_nopriv_load_more_products', 'load_more_products');
+add_action('wp_ajax_load_more_products', 'load_more_products');
+
+
+
 //// ACF
 
 if( function_exists('acf_add_options_page') ) {
@@ -389,4 +516,6 @@ function load_more_posts(){
 }
 
 add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
-add_action('wp_ajax_load_more_posts', 'load_more_posts'); ?>
+add_action('wp_ajax_load_more_posts', 'load_more_posts');
+
+?>
