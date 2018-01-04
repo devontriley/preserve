@@ -30,7 +30,7 @@
 #
 # -----------------------------------------------------------------
 
-preserve.sql
+!preserve.sql
 
 # ignore everything in the root except the "wp-content" directory.
 /*
