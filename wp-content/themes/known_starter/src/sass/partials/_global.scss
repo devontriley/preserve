@@ -94,22 +94,22 @@ p {
     fill: $gold;
     margin-left: .5rem;
   }
-  
+
   &.no-border {
     border: none;
     padding: 0;
     overflow: visible;
     letter-spacing: .4rem;
-  
+
     &:hover {
       color: $gold;
       background: none;
     }
-  
+
     &:after {
       display: none;
     }
-  
+
     span {
       &:after {
         content: '';
@@ -126,6 +126,44 @@ p {
         opacity: 1;
       }
     }
+  }
+}
+
+.plus-minus-input {
+  align-items: center;
+  font-size: 0;
+
+  .input-group-button,
+  .input-group-field {
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    float: none;
+    font-size: 1.4rem;
+    height: 4rem;
+
+    button {
+      height: 100%;
+      border: none;
+      border-radius: 0;
+      box-sizing: border-box;
+      font-size: 1rem;
+      width: 4rem;
+
+      &:focus,
+      &:active {
+        outline: none;
+      }
+    }
+
+    &::-webkit-inner-spin-button,
+    ::-webkit-outer-spin-button {
+      appearance: none;
+    }
+  }
+
+  input.input-group-field {
+    border: .1rem solid #ccc;
   }
 }
 
