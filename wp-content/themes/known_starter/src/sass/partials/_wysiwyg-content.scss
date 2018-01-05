@@ -1,0 +1,28 @@
+.wysiwyg-content {
+  margin: 4rem auto 0 auto;
+  padding: 0 $padding-horizontal-base;
+  max-width: 70rem;
+
+  @media screen and (min-width: 768px){
+    margin: 8rem auto 0 auto;
+  }
+
+  .intro {
+    font-size: 3rem;
+    line-height: 4rem;
+    color: $gold;
+
+    &:after {
+      content: '';
+      display: block;
+      width: 3.5rem;
+      height: .6rem;
+      margin: 3rem auto;
+      background: $text-color;
+    }
+  }
+
+  p {
+    font-family: $font-family-sans;
+  }
+}

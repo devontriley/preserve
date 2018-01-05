@@ -1,0 +1,131 @@
+.woocommerce {
+
+  table.shop_table {
+  border: none;
+  font-size: 1.4rem;
+
+    thead {
+      background: #f7f7f7;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    th {
+      padding: 2.5rem 1.2rem;
+    }
+
+    tr.cart_item:nth-child(odd) {
+      background: #fafafa;
+    }
+
+    td {
+      padding: 2.5rem 1.2rem;
+      border: none;
+    }
+
+    a.remove {
+      width: 2rem;
+      height: 2rem;
+      line-height: 1.8rem;
+      background-color: #e2624e;
+      color: #fff !important;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+  }
+
+  .cart_totals {
+    font-size: 1.4rem;
+
+    h2 {
+      font-weight: 700;
+      font-size: 1.6rem;
+    }
+
+    tr:nth-child(odd) {
+      background: #fafafa;
+    }
+
+    td, th {
+      border: none !important;
+    }
+
+    a.checkout-button {
+      border-radius: 0;
+      font-size: 1.2rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: .1rem;
+      background: $text-color;
+      height: 4rem;
+      line-height: 4rem;
+      padding: 0;
+      transition: all 300ms ease;
+
+      &:hover {
+        background-color: $gold;
+      }
+    }
+  }
+}
+
+#add_payment_method table.cart td.actions .coupon .input-text,
+.woocommerce-cart table.cart td.actions .coupon .input-text,
+.woocommerce-checkout table.cart td.actions .coupon .input-text {
+  font-family: $font-family-base;
+  font-size: 1.4rem;
+  width: 18rem;
+  height: 4rem;
+  padding: 0 1rem;
+  margin: 0 1rem 0 0;
+}
+
+.woocommerce #respond input#submit.disabled,
+.woocommerce #respond input#submit:disabled,
+.woocommerce #respond input#submit:disabled[disabled],
+.woocommerce a.button.disabled,
+.woocommerce a.button:disabled,
+.woocommerce a.button:disabled[disabled],
+.woocommerce button.button.disabled,
+.woocommerce button.button:disabled,
+.woocommerce button.button:disabled[disabled],
+.woocommerce input.button.disabled,
+.woocommerce input.button:disabled,
+.woocommerce input.button:disabled[disabled] {
+  color: #fff;
+}
+
+.woocommerce #respond input#submit.disabled:hover,
+.woocommerce #respond input#submit:disabled:hover,
+.woocommerce #respond input#submit:disabled[disabled]:hover,
+.woocommerce a.button.disabled:hover,
+.woocommerce a.button:disabled:hover,
+.woocommerce a.button:disabled[disabled]:hover,
+.woocommerce button.button.disabled:hover,
+.woocommerce button.button:disabled:hover, .woocommerce button.button:disabled[disabled]:hover,
+.woocommerce input.button.disabled:hover,
+.woocommerce input.button:disabled:hover,
+.woocommerce input.button:disabled[disabled]:hover {
+  background: #6d5e67;
+  color: #fff;
+}
+
+.woocommerce .cart input.button {
+  height: 4rem;
+  padding: 0;
+  background: $text-color;
+  color: #fff;
+  border-radius: 0;
+  outline: none;
+  border: none;
+  padding: 0 3rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  transition: all 300ms ease;
+
+  &:hover {
+    background: $gold;
+  }
+}
