@@ -1,0 +1,228 @@
+.woocommerce {
+
+  #cart-wrapper {
+    max-width: 110rem;
+    margin: 0 auto;
+    @media(min-width: 992px) {
+      margin: 8rem auto 0 auto;
+    }
+  }
+
+  table.shop_table {
+  border: none;
+  font-size: 1.4rem;
+
+    thead {
+      background: #f7f7f7;
+      font-weight: 700;
+      font-size: 1.4rem;
+    }
+
+    th {
+      padding: 2.5rem 1.5rem;
+    }
+
+    tr.cart_item:nth-child(odd) {
+      background: #fafafa;
+    }
+
+    td {
+      padding: 2.5rem 1.5rem;
+      border: none;
+    }
+
+    a.remove {
+      width: 2rem;
+      height: 2rem;
+      line-height: 1.8rem;
+      background-color: #e2624e;
+      color: #fff !important;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+  }
+
+  .cart_totals {
+    font-size: 1.4rem;
+
+    h2 {
+      font-weight: 700;
+      font-size: 1.6rem;
+    }
+
+    tr:nth-child(odd) {
+      background: #fafafa;
+    }
+
+    td, th {
+      border: none !important;
+    }
+
+    a.checkout-button {
+      border-radius: 0;
+      font-size: 1.2rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: .1rem;
+      background: $text-color;
+      height: 4rem;
+      line-height: 4rem;
+      padding: 0;
+      transition: all 300ms ease;
+
+      &:hover {
+        background-color: $gold;
+      }
+    }
+  }
+} // .woocommerce
+
+.woocommerce .cart-collaterals,
+.woocommerce-page .cart-collaterals {
+  padding: 0 2rem;
+}
+
+.woocommerce #content table.cart td.actions .coupon,
+.woocommerce table.cart td.actions .coupon,
+.woocommerce-page #content table.cart td.actions .coupon,
+.woocommerce-page table.cart td.actions .coupon {
+  text-align: center;
+  margin-bottom: 3rem;
+  @media(min-width: 768px) {
+    text-align: left;
+    margin-bottom: 0;
+  }
+}
+
+#add_payment_method table.cart td.actions .coupon .input-text,
+.woocommerce-cart table.cart td.actions .coupon .input-text,
+.woocommerce-checkout table.cart td.actions .coupon .input-text {
+  font-family: $font-family-base;
+  font-size: 1.4rem;
+  width: 18rem;
+  height: 4rem;
+  padding: 0 1rem;
+  margin: 0 0 1rem 0;
+  display: inline-block;
+  float: none;
+  @media(min-width: 768px) {
+    margin: 0 1rem 0 0;
+    float: left;
+  }
+}
+
+.woocommerce #content table.cart td.actions .coupon .button.alt, .woocommerce #content table.cart td.actions .coupon .input-text+.button, .woocommerce table.cart td.actions .coupon .button.alt, .woocommerce table.cart td.actions .coupon .input-text+.button, .woocommerce-page #content table.cart td.actions .coupon .button.alt, .woocommerce-page #content table.cart td.actions .coupon .input-text+.button, .woocommerce-page table.cart td.actions .coupon .button.alt, .woocommerce-page table.cart td.actions .coupon .input-text+.button {
+  float: none;
+  width: auto;
+  display: inline-block;
+  @media(min-width: 768px) {
+    float: right;
+  }
+}
+
+.woocommerce #respond input#submit.disabled,
+.woocommerce #respond input#submit:disabled,
+.woocommerce #respond input#submit:disabled[disabled],
+.woocommerce a.button.disabled,
+.woocommerce a.button:disabled,
+.woocommerce a.button:disabled[disabled],
+.woocommerce button.button.disabled,
+.woocommerce button.button:disabled,
+.woocommerce button.button:disabled[disabled],
+.woocommerce input.button.disabled,
+.woocommerce input.button:disabled,
+.woocommerce input.button:disabled[disabled] {
+  color: #fff;
+}
+
+.woocommerce #respond input#submit.disabled:hover,
+.woocommerce #respond input#submit:disabled:hover,
+.woocommerce #respond input#submit:disabled[disabled]:hover,
+.woocommerce a.button.disabled:hover,
+.woocommerce a.button:disabled:hover,
+.woocommerce a.button:disabled[disabled]:hover,
+.woocommerce button.button.disabled:hover,
+.woocommerce button.button:disabled:hover, .woocommerce button.button:disabled[disabled]:hover,
+.woocommerce input.button.disabled:hover,
+.woocommerce input.button:disabled:hover,
+.woocommerce input.button:disabled[disabled]:hover {
+  background: #6d5e67;
+  color: #fff;
+}
+
+.woocommerce .cart input.button {
+  height: 4rem;
+  padding: 0;
+  background: $text-color;
+  color: #fff;
+  border-radius: 0;
+  outline: none;
+  border: none;
+  padding: 0 3rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  transition: all 300ms ease;
+
+  &:hover {
+    background: $gold;
+  }
+}
+
+#cart-footer {
+  background: $text-color;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  @media(min-width: 768px) {
+    margin-top: 5rem;
+  }
+
+  .inner {
+    padding: 0 2rem;
+    @media(min-width: 768px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .logo {
+    margin-bottom: 2rem;
+    @media(min-width: 768px) {
+      margin: 0;
+    }
+
+    svg {
+      fill: #fff;
+      width: 15rem;
+    }
+  }
+
+  .cards {
+    margin-bottom: 2rem;
+    @media(min-width: 768px) {
+      margin: 0;
+    }
+
+    img {
+      margin: 0 1rem;
+      vertical-align: middle;
+    }
+  }
+
+  .contact {
+    letter-spacing: .1rem;
+    font-size: 1.4rem;
+
+    a {
+      color: #fff;
+      transition: all 300ms ease;
+
+      &:hover {
+        color: $gold;
+      }
+    }
+  }
+}

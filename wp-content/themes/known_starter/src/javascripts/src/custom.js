@@ -43,6 +43,52 @@ if(shopCategories) {
   });
 }
 
+// Custom quantity input
+jQuery(document).ready(function(){
+    $('[data-quantity="plus"]').click(function(e){
+        e.preventDefault();
+        fieldName = $(this).attr('data-field');
+        var currentVal = parseInt($('input[name='+fieldName+']').val());
+        if (!isNaN(currentVal)) {
+            $('input[name='+fieldName+']').val(currentVal + 1).change();
+        } else {
+            $('input[name='+fieldName+']').val(0);
+        }
+    });
+
+    $('[data-quantity="minus"]').click(function(e) {
+        e.preventDefault();
+        fieldName = $(this).attr('data-field');
+        var currentVal = parseInt($('input[name='+fieldName+']').val());
+        if (!isNaN(currentVal) && currentVal > 0) {
+            $('input[name='+fieldName+']').val(currentVal - 1).change();
+        } else {
+            $('input[name='+fieldName+']').val(0);
+        }
+    });
+});
+
+// Product Image Gallery
+// class productImageGallery {
+//   constructor() {
+//     var gallery = $('.woocommerce-product-gallery__wrapper'),
+//         thumbnails = $('.thumbnails-wrapper .woocommerce-product-gallery__image');
+//
+//     thumbnails.on('click', function(e){
+//       e.preventDefault();
+//
+//       var image = $(this).find('img'),
+//           imgPath = image..attr('data-')
+//     });
+//   }
+// }
+
+if($('.woocommerce-product-gallery__wrapper').length){
+  var prodGallery = new productImageGallery;
+}
+
+
+
 // CATEGORIES BAR
 
 var catBarActive = false,

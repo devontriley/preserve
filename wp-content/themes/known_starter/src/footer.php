@@ -1,3 +1,24 @@
+<?php if( is_cart() || is_checkout() ) { ?>
+
+	<div id="cart-footer">
+		<div class="inner">
+			<div class="logo">
+				<svg viewBox="0 0 101 29">
+  				<use xlink:href="#logo-horiz"></use>
+  			</svg>
+			</div>
+			<div class="cards">
+				<img src="<?php bloginfo('template_directory'); ?>/img/shop/preserve_brands-cart-visa.jpg" alt="Visa"/>
+				<img src="<?php bloginfo('template_directory'); ?>/img/shop/preserve_brands-cart-mastercard.jpg" alt="Mastercard"/>
+			</div>
+			<div class="contact">
+				<a href="<?php bloginfo('url'); ?>/contact">CONTACT US</a>
+			</div>
+		</div>
+	</div>
+
+<?php } else { ?>
+
 <?php include('components/newsletter-signup.php'); ?>
 
 <div id="primary-footer">
@@ -36,11 +57,7 @@
 	</p>
 </div>
 
-<!--
-<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/bower_components/jquery/dist/jquery.min.js" /></script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/bower_components/bxslider-4/dist/jquery.bxslider.min.js" /></script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/scripts.js" /></script>
--->
+<?php } ?>
 
 <?php wp_footer(); ?>
 

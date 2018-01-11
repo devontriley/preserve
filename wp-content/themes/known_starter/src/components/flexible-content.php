@@ -2,7 +2,13 @@
 
 $currentPostCats = wp_get_post_categories($post->ID);
 
-if(is_page('Inspiration')){
+if($teesNotTrees) {
+  $header = 'All Preserve Products Are Made With Tees Not Trees&trade;';
+  $bodyCopy = '<p>Born out of a desire to celebrate planet earth, art, ideation, and creation, Preserve’s mission is to promote environmentally safe specialty paper products. We source 100% tee shirt remnants from the apparel industry that would otherwise end up in landfills, turning them into objects of inspiration and impact. Every product we create balances elegance and sustainability, place and purpose—helping provide a healthier, more beautiful world.</p>';
+  $fixedImage = get_bloginfo('template_directory').'/img/home/tees_not_trees.jpg';
+}
+
+elseif(is_page('Inspiration')){
   $headerGraphic = get_field('blog_hero_header_graphic');
   $header = get_field('blog_hero_header');
   $bodyCopy = get_field('blog_hero_body_copy');
@@ -12,7 +18,7 @@ if(is_page('Inspiration')){
   $displayProcess = get_field('blog_hero_display_paper_process');
   $imageSlider = get_field('blog_hero_auto_image_slider');
   if($imageSlider){
-  $images = get_field('blog_hero_images');
+    $images = get_field('blog_hero_images');
   }
 }
 
@@ -56,11 +62,13 @@ else {
 <div class="flexible-content <?php if($imageSlider){ echo 'has-image-slider'; } if($fixedImage){ echo ' has-fixed-image'; } if($Format5050){ echo ' format-5050'; } if($greyBG){ echo ' grey-bg'; } ?>" <?php if($fixedImage){ echo 'style="background-image: url('.$fixedImage.');"'; } ?>>
   <div class="content">
     <div class="inner">
+
       <?php if($headerGraphic){ ?>
         <div class="image">
           <img src="<?php echo $headerGraphic; ?>" />
         </div>
       <?php } ?>
+
       <div class="inner-content">
         <?php if($header){ ?>
             <h2 class="module-header"><?php echo $header; ?></h2>
@@ -68,9 +76,12 @@ else {
         <?php if($bodyCopy) { ?>
           <?php echo $bodyCopy; ?>
         <?php } ?>
+        <?php if( is_product() ) { button( 'Learn More', get_bloginfo('url').'/tees-not-trees' ); } ?>
       </div>
+
     </div>
   </div>
+
   <?php if($images) { ?>
     <div class="auto-image-slider">
       <ul>
@@ -80,6 +91,7 @@ else {
       </ul>
     </div>
   <?php } ?>
+
   <?php if($displayProcess){ ?>
     <div class="paper-process">
       <div>
@@ -104,6 +116,7 @@ else {
       </div>
     </div>
   <?php } ?>
+
 </div>
 
 <?php $headerGraphic = $header = $bodyCopy = $fixedImage = $Format5050 = $imageSlider = $images = null; ?>
