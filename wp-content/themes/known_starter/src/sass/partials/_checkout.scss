@@ -1,0 +1,14 @@
+form.woocommerce-checkout {
+  max-width: 110rem;
+  margin: 5rem auto;
+  padding: 0 2rem;
+  @media(min-width: 992px) {
+    margin: 8rem auto;
+  }
+
+  #customer_details {
+    border-bottom: .1rem solid #eee;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+  }
+}

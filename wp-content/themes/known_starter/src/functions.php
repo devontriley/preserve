@@ -68,6 +68,7 @@ function remove_details_tab() {
 
 // add breadcrumbs wrapper
 add_action( 'woocommerce_before_cart', 'woocommerce_breadcrumb', 10 );
+add_action( 'woocommerce_before_checkout_form', 'woocommerce_breadcrumb', 10 );
 add_filter( 'woocommerce_breadcrumb_defaults', 'custom_breadcrumbs');
 function custom_breadcrumbs($args) {
   $args['wrap_before'] = '<div class="woocommerce-breadcrumb"><div class="inner">';
@@ -87,6 +88,12 @@ function cart_open_container() {
 add_action( 'woocommerce_after_cart', 'cart_close_container', 20 );
 function cart_close_container() {
   echo '</div>';
+}
+
+// Add title to checkout page
+add_action( 'woocommerce_checkout_before_customer_details', 'checkout_page_title' );
+function checkout_page_title() {
+  echo '<h1>Checkout</h1>';
 }
 
 // remove breadbrumbs
@@ -200,7 +207,7 @@ function load_more_products() {
 add_action('wp_ajax_nopriv_load_more_products', 'load_more_products');
 add_action('wp_ajax_load_more_products', 'load_more_products');
 
-// Single Product sale
+// Single Product sale text
 add_action( 'woocommerce_single_product_summary', 'check_product_on_sale', 1 );
 function check_product_on_sale() {
   if( is_product() ) {
