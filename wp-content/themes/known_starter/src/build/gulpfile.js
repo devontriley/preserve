@@ -16,10 +16,9 @@ gulp.task('sass', function () {
     var sassStream,
         cssStream;
 
-    sassStream = gulp.src('./../sass/partials/*.scss')
-      .pipe(sass({
-          errLogToConsole: true
-        }));
+    sassStream = gulp.src('./../sass/**/*.scss')
+      .pipe(sass({errLogToConsole: true}))
+      .pipe(autoprefixer());
 
     cssStream = gulp.src('./../sass/font-awesome.css');
 
@@ -27,6 +26,7 @@ gulp.task('sass', function () {
       .pipe(concat('style.css'))
       .pipe(gulp.dest('./../'));
 });
+
 
 //watch for the changes, tells us where to watch
 gulp.task('default', function () {
