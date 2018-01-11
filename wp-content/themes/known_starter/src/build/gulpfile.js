@@ -16,11 +16,10 @@ gulp.task('sass', function () {
     var sassStream,
         cssStream;
 
-    sassStream = gulp.src('./../sass/**/*.scss')
+    sassStream = gulp.src('./../sass/partials/*.scss')
       .pipe(sass({
           errLogToConsole: true
-        }))
-        .pipe(autoprefixer());
+        }));
 
     cssStream = gulp.src('./../sass/font-awesome.css');
 
