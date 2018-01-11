@@ -124,7 +124,8 @@
               $category = get_the_category();
 
               echo '<div class="article-wrapper">';
-              echo '<a href="'. get_permalink() .'">';
+              echo '<a href="'. get_permalink() .'"></a>';
+              echo '<div class="article-inner">';
               if($image){
                 echo '<img alt="blog post cover photo" srcset="'. $srcset .'" />';
               };
@@ -137,7 +138,7 @@
                 . get_the_date("m/d/y").
                 ' | '. $category[0]->cat_name .'</p>';
               echo '</div> <!-- .text-wrapper -->';
-              echo '</a>';
+              echo '</div><!-- .article-inner -->';
               echo '</div> <!-- .article-wrapper -->';
 
           }; //end while

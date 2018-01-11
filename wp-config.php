@@ -29,31 +29,41 @@ define('WP_MEMORY_LIMIT', '64M');
  * @package WordPress
  */
 
-// Set your environment/url pairs
-$environments = array(
-  'local'       => 'localhost',
-  'staging'     => 'known-development.com',
-  'production'  => 'preservebrands.com'
-);
+ //local
 
-// Get the hostname
-$http_host = $_SERVER['HTTP_HOST'];
-// Loop through $environments to see if there’s a match
-foreach($environments as $environment => $hostname) {
-  if (stripos($http_host, $hostname) !== FALSE) {
-    define('ENVIRONMENT', $environment);
-    break;
-  }
-}
+ define('DB_NAME', 'preserve');
+ define('DB_USER', 'root');
+ define('DB_PASSWORD', 'root');
+ define('DB_HOST', 'localhost');
+ define('DB_CHARSET', 'utf8');
+ define('DB_COLLATE', '');
 
-// Exit if ENVIRONMENT is undefined
-if (!defined('ENVIRONMENT')) exit('No database configured for this host');
-// Location of environment-specific configuration
-$wp_db_config = 'wp-config/wp-db-' . ENVIRONMENT . '.php';
-// Check to see if the configuration file for the environment exists
-if (file_exists(__DIR__ . '/' . $wp_db_config)) { require_once($wp_db_config); } else {
-// Exit if configuration file does not exist
-exit('No database configuration found for this host'); }
+
+// // Set your environment/url pairs
+// $environments = array(
+//   'local'       => 'localhost',
+//   'staging'     => 'known-development.com',
+//   'production'  => 'preservebrands.com'
+// );
+//
+// // Get the hostname
+// $http_host = $_SERVER['HTTP_HOST'];
+// // Loop through $environments to see if there’s a match
+// foreach($environments as $environment => $hostname) {
+//   if (stripos($http_host, $hostname) !== FALSE) {
+//     define('ENVIRONMENT', $environment);
+//     break;
+//   }
+// }
+//
+// // Exit if ENVIRONMENT is undefined
+// if (!defined('ENVIRONMENT')) exit('No database configured for this host');
+// // Location of environment-specific configuration
+// $wp_db_config = 'wp-config/wp-db-' . ENVIRONMENT . '.php';
+// // Check to see if the configuration file for the environment exists
+// if (file_exists(__DIR__ . '/' . $wp_db_config)) { require_once($wp_db_config); } else {
+// // Exit if configuration file does not exist
+// exit('No database configuration found for this host'); }
 
 /**#@+
  * Authentication Unique Keys and Salts.

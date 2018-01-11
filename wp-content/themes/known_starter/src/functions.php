@@ -576,20 +576,23 @@ function load_more_posts(){
 				$author = get_field('post_author');
         $category = get_the_category($p->ID);
 
-				$output .= '<div class="article-wrapper">';
-				$output .= '<a href="'. get_permalink() .'">';
-				if($image){
-					$output .= '<img srcset="'. $srcset .'"/>';
-				};
-				$output .= '<div class="text-wrapper">';
-				$output .= '<h2>'. get_the_title() .'</h2>';
-				if($author){
-					$output .= '<p class="subtitle">By '. get_field('post_author') .' | </p>';
-				};
-				$output .= '<p class="subtitle">'. get_the_date("m/d/y").' | '. $category[0]->cat_name .'</p>';
-				$output .= '</div> <!-- .text-wrapper -->';
-				$output .= '</a>';
-				$output .= '</div> <!-- .article-wrapper -->';
+        $output .= '<div class="article-wrapper">';
+        $output .= '<a href="'. get_permalink() .'"></a>';
+        $output .= '<div class="article-inner">';
+          if($image){
+            $output .= '<img alt="blog post cover photo" srcset="'. $srcset .'" />';
+          };
+          $output .= '<div class="text-wrapper">';
+          $output .= '<h2>'. get_the_title() .'</h2>';
+          if($author){
+            $output .= '<p class="subtitle">By '. get_field('post_author') .' | </p>';
+          };
+          $output .= '<p class="subtitle"> '
+            . get_the_date("m/d/y").
+            ' | '. $category[0]->cat_name .'</p>';
+          $output .= '</div> <!-- .text-wrapper -->';
+          $output .= '</div><!-- .article-inner -->';
+          $output .= '</div> <!-- .article-wrapper -->';
 
         endwhile;
     endif;
