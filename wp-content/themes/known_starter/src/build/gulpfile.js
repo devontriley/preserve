@@ -33,7 +33,6 @@ gulp.task('default', function () {
   gulp.watch('./../sass/**/*.scss', ['sass']);
 });
 
-
 // JS
 
 gulp.task('scripts', function() {
@@ -47,5 +46,11 @@ gulp.task('scripts', function() {
 
 //auto watch
 gulp.task('watchScripts', function() {
+  gulp.watch('./../javascripts/src/*.js', ['scripts'])
+});
+
+// watch scss and js
+gulp.task('watchAll', function(){
+  gulp.watch('./../sass/**/*.scss', ['sass']);
   gulp.watch('./../javascripts/src/*.js', ['scripts'])
 });
