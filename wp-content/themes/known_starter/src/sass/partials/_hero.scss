@@ -44,6 +44,7 @@
     }
 
     .learn-more {
+      display: none;
       position: absolute;
       bottom: 2rem;
       left: 50%;
@@ -73,6 +74,19 @@
       .inner {
         margin: 0 auto;
         max-width: 50rem;
+
+        .hero-cta {
+          display: block;
+          margin: 2rem 0;
+          text-transform: uppercase;
+          font-size: 1.2rem;
+          letter-spacing: .1rem;
+
+          .right-arrow {
+            display: inline-block;
+            fill: $gold; 
+          }
+        }
       }
 
       .plant-divider {

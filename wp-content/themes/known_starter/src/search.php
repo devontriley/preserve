@@ -18,29 +18,29 @@
 
 						//while loop
 						 while ( have_posts() ) : the_post();
-							 $image = get_field('cover_photo');
-							 $srcset = wp_get_attachment_image_srcset(get_field('cover_photo', $p->ID));
-				       $author = get_field('post_author');
-							 $category = get_the_category($p->ID);
+						 $image = get_field('cover_photo');
+						 $srcset = wp_get_attachment_image_srcset(get_field('cover_photo', $p->ID));
+			       $author = get_field('post_author');
+						 $category = get_the_category($p->ID);
 
-							 echo '<div class="article-wrapper">';
-				       echo '<a href="'. get_permalink() .'"></a>';
-				       echo '<div class="article-inner">';
-				       if($image){
-				        echo '<img alt="blog post cover photo" srcset="'. $srcset .'" />';
-				       };
-				       echo '<div class="text-wrapper">';
-				       echo '<h2>'. get_the_title() .'</h2>';
-				       if($author){
-				        echo '<p class="subtitle">By '. get_field('post_author') .' | </p>';
-				       };
-				       echo '<p class="subtitle"> '
-				        . get_the_date("m/d/y").
-				        ' | '. $category[0]->cat_name .'</p>';
-				     	 echo '</div> <!-- .text-wrapper -->';
-				       echo '</div><!-- .article-inner -->';
-				       echo '</div> <!-- .article-wrapper -->';
-							 endwhile;
+						 echo '<div class="article-wrapper">';
+						 echo '<a href="'. get_permalink() .'"></a>';
+						 echo '<div class="inner">';
+						 if($image){
+			                echo '<img alt="blog post cover photo" srcset="'. $srcset .'" />';
+			              };
+						 echo '<div class="text-wrapper">';
+						 echo '<h2>'. get_the_title() .'</h2>';
+						 if($author){
+			                echo '<p class="subtitle">By '. get_field('post_author') .' | </p>';
+			              };
+			              echo '<p class="subtitle">'
+			                . get_the_date("m/d/y").
+			                ' | '. $category[0]->cat_name .'</p>';
+						 echo '</div> <!-- .text-wrapper -->';
+						 echo '</div>';
+						 echo '</div> <!-- .article-wrapper -->';
+						 endwhile;
 					echo '</div> <!-- .grid-wrapper -->';
 					}
 					else {

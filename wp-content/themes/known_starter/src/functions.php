@@ -32,15 +32,22 @@ function shop_hero() {
 }
 
 // remove shop results count
-add_action( 'woocommerce_before_shop_loop', 'remove_shop_results');
-function remove_shop_results() {
-  if( !is_product() ) {
-    remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
-  }
+if( !is_product() ) {
+  remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 }
 
 // remove sale tag
 remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
+
+//add on sale text to product grid
+add_action('woocommerce_before_shop_loop_item', 'test', 10);
+function test() {
+  global $product;
+  if( $product->is_on_sale() ){
+    echo '<p class="on-sale">On Sale!</p>';
+  }
+}
+
 
 // remove sorting dropdown
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
@@ -104,9 +111,11 @@ function remove_breadcrumbs() {
   }
 }
 
+
+//FONTAWESOME X HAPPENS HERE
 add_filter( 'woocommerce_cart_item_remove_link', 'edit_remove_link', 10, 2 );
 function edit_remove_link( $sprintf, $cart_item_key ) {
-  $sprintf = str_replace('&times;', '<i class="fa fa-close"></i>', $sprintf);
+  $sprintf = str_replace('&times;', 'X', $sprintf);
 
   return $sprintf;
 }
@@ -136,6 +145,18 @@ add_action( 'woocommerce_before_main_content', 'back_to_shop' );
 function back_to_shop() {
   if( is_product() ){
     include('components/back-to-shop.php');
+  }
+}
+
+//add project dimensions to product single page
+add_action( 'woocommerce_single_product_summary', 'show_dimensions', 9 );
+
+function show_dimensions() {
+global $product;
+$dimensions = $product->get_dimensions();
+
+if ( ! empty($dimensions) ) {
+  echo '<div class="product-dimensions">' . $product->get_width() . '&quot; x '. $product->get_height() . '&quot;</div>';
   }
 }
 
@@ -220,6 +241,12 @@ function check_product_on_sale() {
   }
 }
 
+
+// add + and - quantity increment buttons to inputs
+add_action( 'wp_enqueue_scripts', 'wcqi_enqueue_polyfill' );
+function wcqi_enqueue_polyfill() {
+    wp_enqueue_script( 'wcqi-number-polyfill' );
+}
 
 
 //// ACF

@@ -8,6 +8,8 @@ if(is_page(82)) {
 } else {
   $header = get_sub_field('header');
   $description = get_sub_field('description');
+  $ctaText = get_sub_field('cta_text');
+  $ctaDestination = get_sub_field('cta_page');
   (is_page(array(49, 139))) ?  $size = 'sm' : $size = 'full';
 }
 $image = get_sub_field('background_image');
@@ -25,8 +27,13 @@ $darkText = get_sub_field('dark_text');
       <?php echo $header ?>
     </h1>
     <p>
-      <?php echo $description ?>
+      <?php echo $description; ?>
     </p>
+    <?php if($ctaText && $ctaDestination){
+      echo '<a class="hero-cta" href="'. get_permalink($ctaDestination) .'">';
+      echo $ctaText;
+      echo '</a><!-- .hero-cta -->';
+    }?>
     <?php if($featured) {
       button('Read Article', get_the_permalink($featured));
     } ?>
