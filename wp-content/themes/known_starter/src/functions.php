@@ -228,7 +228,7 @@ function load_more_products() {
 add_action('wp_ajax_nopriv_load_more_products', 'load_more_products');
 add_action('wp_ajax_load_more_products', 'load_more_products');
 
-// Single Product sale text
+// Single Product sale
 add_action( 'woocommerce_single_product_summary', 'check_product_on_sale', 1 );
 function check_product_on_sale() {
   if( is_product() ) {
