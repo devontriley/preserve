@@ -248,6 +248,17 @@ function wcqi_enqueue_polyfill() {
     wp_enqueue_script( 'wcqi-number-polyfill' );
 }
 
+// bring in gallery images as bxslider
+remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 ); //remove current gallery
+
+add_action('woocommerce_before_single_product_summary', 'product_gallery_bxslider');
+function product_gallery_bxslider() {
+  if( is_product() ){
+    include('components/product-bxslider.php');
+  }
+}
+
+
 
 //// ACF
 
