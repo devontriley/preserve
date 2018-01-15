@@ -26,8 +26,11 @@
 // wp_reset_postdata();
 
 global $post, $product;
-$galleryIds = get_gallery_image_ids($product);
-$mainImage = get_image_id($product);
+// $galleryIds = get_gallery_image_ids($product);
+// $mainImage = get_image_id($product);
+$galleryIds = $product->get_gallery_image_ids();
+
+print_r($galleryIds); 
 
 //print_r($product);
 // echo $mainImage;
