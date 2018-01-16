@@ -2932,6 +2932,8 @@ form.woocommerce-checkout {
     #woocommerce-main div.product .quantity {
       float: none;
       margin-bottom: 2rem; }
+      #woocommerce-main div.product .quantity .input-group-button button {
+        font-size: 1.5rem; }
     #woocommerce-main div.product button[type=submit] {
       display: block;
       float: none;
@@ -3028,11 +3030,10 @@ form.woocommerce-checkout {
       color: inherit; }
     .woocommerce .products ul li.product a .on-sale,
     .woocommerce ul.products li.product a .on-sale {
-      position: absolute;
-      bottom: 28%;
+      position: static;
       left: 50%;
-      -webkit-transform: translateX(-50%);
-              transform: translateX(-50%);
+      display: inline;
+      margin: 0 auto;
       text-transform: uppercase;
       font-size: 1rem;
       color: #b99656; }
@@ -3322,6 +3323,11 @@ section.up-sells h2 {
        object-fit: cover;
     width: 100%;
     height: 100%; }
+    .hero picture img {
+      -o-object-fit: cover;
+         object-fit: cover;
+      width: 100%;
+      height: 100%; }
   .hero > img {
     position: absolute;
     left: 0;
@@ -3388,10 +3394,13 @@ section.up-sells h2 {
         max-width: 50rem; }
         .hero.fullViewport .content .inner .hero-cta {
           display: block;
-          margin: 2rem 0;
+          margin: .5rem 0;
           text-transform: uppercase;
           font-size: 1.2rem;
           letter-spacing: .1rem; }
+          @media screen and (min-width: 768px) {
+            .hero.fullViewport .content .inner .hero-cta {
+              margin: 2rem 0; } }
           .hero.fullViewport .content .inner .hero-cta .right-arrow {
             display: inline-block;
             fill: #b99656; }

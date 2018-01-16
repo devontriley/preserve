@@ -38,11 +38,9 @@ if( !is_product() ) {
   remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 }
 
-//remove category page titles
+//remove category and shop page titles
 add_filter( 'woocommerce_show_page_title', 'hide_page_titles' );
 function hide_page_titles() {
-    if ( is_shop() )  // Exclude Shop page
-    return true;
 }
 
 // remove sale tag

@@ -3,28 +3,27 @@
 global $post, $product;
 $mainImage = $product->get_image_id();
 $galleryIds = $product->get_gallery_image_ids();
-// $allImages = array_unshift($galleryIds, $mainImage);
-//
-// echo($allImages);  // i keep just getting the number 4 here
+
+array_unshift($galleryIds, $mainImage);
+
+print_r($galleryIds);
 
 
 if($mainImage || $galleryIds){
-  echo '<div id="gallery-bxslider">';
-
-  if($mainImage){
-    echo '<div>'. wp_get_attachment_image($mainImage) .'</div>';
-  }
+  echo '<ul id="gallery-bxslider">';
 
   foreach($galleryIds as $id){
-    echo '<div>'. wp_get_attachment_image($id) .'</div>';
+    echo '<li>'. wp_get_attachment_image($id) .'</li>';
   }
+  echo '</ul><!-- #gallery-bxslider-->';
 
-  echo '</div><!-- #gallery-bxslider-->';
 
   echo '<ul id="bxslider-pager">';
-  echo '<li><a href="">'. wp_get_attachment_image($mainImage) .'</a></li>';
+  $indexCount = 0;
+
   foreach($galleryIds as $id){
-    echo '<li><a href="">'. wp_get_attachment_image($id) .'</a></li>';
+    echo '<li data-slideIndex="'. $indexCount .'">'. wp_get_attachment_image($id) .'</li>';
+    $indexCount++;
   }
   echo '</ul><!- #bxslider-pager-->';
 }

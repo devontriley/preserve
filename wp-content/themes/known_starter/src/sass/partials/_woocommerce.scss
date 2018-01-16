@@ -110,6 +110,10 @@
     .quantity {
       float: none;
       margin-bottom: 2rem;
+
+      .input-group-button button {
+        font-size: 1.5rem;
+      }
     }
 
     button[type=submit] {
@@ -215,10 +219,10 @@
         color: inherit;
       }
       .on-sale {
-        position: absolute;
-        bottom: 28%;
+        position: static;
         left: 50%;
-        transform: translateX(-50%);
+        display: inline;
+        margin: 0 auto;
         text-transform: uppercase;
         font-size: 1rem;
         color: $gold;
