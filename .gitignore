@@ -35,7 +35,6 @@
 # ignore everything in the root except the "wp-content" directory.
 /*
 !wp-content/
-!wp-config.php
 !wp-config/
 wp-config/wp-db-local.php
 
