@@ -5,7 +5,7 @@ $mainImage = $product->get_image_id();
 $galleryIds = $product->get_gallery_image_ids();
 array_unshift($galleryIds, $mainImage); //adds main image to gallery array
 
-echo '<div id="product-bxslider">';
+echo '<div id="product-bxslider" class="load-delay">';
 if($mainImage || $galleryIds){
   echo '<ul id="gallery-bxslider">';
 

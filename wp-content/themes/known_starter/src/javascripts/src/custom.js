@@ -263,9 +263,13 @@ var productSlider = $("#gallery-bxslider");
 var productThumbs = $("#bxslider-pager");
 
 $(document).ready(function(){
-    productSlider.bxSlider({
+    var mainSlider = productSlider.bxSlider({
       controls: false,
-      pager: false
+      pager: false,
+      infiniteLoop: true,
+      onSliderLoad: function(){
+        mainSlider.removeClass('load-delay'); 
+      }
     });
   });
 
