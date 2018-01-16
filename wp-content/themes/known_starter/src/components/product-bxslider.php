@@ -1,39 +1,32 @@
 <?php
 
-// $query_images_args = array(
-//     'post_type'      => 'attachment',
-//     'page'           => '',
-//     'post_mime_type' => 'image',
-//     'post_status'    => 'inherit',
-//     'posts_per_page' => - 1,
-// );
-//
-// $query_images = new WP_Query( $query_images_args );
-//
-// //print_r($query_images);
-//
-// if( $query_images->have_posts() ){
-//     echo '<ul class="gallery-bxslider">';
-//     while( $query_images->have_posts() ) {
-//         $query_images->the_post();
-//
-//         foreach( $query_images->posts as $image){
-//             echo '<li>'. wp_get_attachment_url($image->ID) .'</li>';
-//         }
-//     }
-// }
-// echo '</ul><!-- .gallery-bxslider-->';
-// wp_reset_postdata();
-
 global $post, $product;
-// $galleryIds = get_gallery_image_ids($product);
-// $mainImage = get_image_id($product);
+$mainImage = $product->get_image_id();
 $galleryIds = $product->get_gallery_image_ids();
+// $allImages = array_unshift($galleryIds, $mainImage);
+//
+// echo($allImages);  // i keep just getting the number 4 here
 
-print_r($galleryIds); 
 
-//print_r($product);
-// echo $mainImage;
-//print_r($post);
+if($mainImage || $galleryIds){
+  echo '<div id="gallery-bxslider">';
+
+  if($mainImage){
+    echo '<div>'. wp_get_attachment_image($mainImage) .'</div>';
+  }
+
+  foreach($galleryIds as $id){
+    echo '<div>'. wp_get_attachment_image($id) .'</div>';
+  }
+
+  echo '</div><!-- #gallery-bxslider-->';
+
+  echo '<ul id="bxslider-pager">';
+  echo '<li><a href="">'. wp_get_attachment_image($mainImage) .'</a></li>';
+  foreach($galleryIds as $id){
+    echo '<li><a href="">'. wp_get_attachment_image($id) .'</a></li>';
+  }
+  echo '</ul><!- #bxslider-pager-->';
+}
 
 ?>
