@@ -1,5 +1,7 @@
 <?php
 
+require('inc/custom-editor-buttons/buttons.php');
+
 //SEARCH QUERY
 
  add_action( 'pre_get_posts', 'searchPosts' );
