@@ -686,6 +686,8 @@ BLOG SINGLE
       position: relative;
 
       .bx-viewport {
+        height: 45rem !important; 
+
         #blog-bxslider {
           list-style: none;
 
@@ -702,6 +704,16 @@ BLOG SINGLE
               vertical-align: middle;
               max-height: 100%;
               max-width: 100%;
+            }
+
+            .wp-caption-text {
+              display: block;
+              position: absolute;
+              bottom: -50%;
+              text-align: center;
+              width: 100%;
+              text-transform: uppercase;
+              padding: 15px 0;
             }
           }
         }

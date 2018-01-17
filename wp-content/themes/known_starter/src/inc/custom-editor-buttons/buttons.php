@@ -106,12 +106,13 @@ function customGalSlider( $atts ){
       while($images->have_posts()) : $images->the_post();
 
       $image = wp_get_attachment_image_src( get_post_thumbnail_id( $images->post->ID ), 'full');
-      $caption = get_the_excerpt();
+      $caption = get_the_excerpt($images->post->ID);
 
-      $html .= '<li><img src="'. $image[0] .'" /></li>';
+      $html .= '<li><img src="'. $image[0] .'" />';
       if($caption){
         $html .= '<span class="wp-caption-text">'. $caption .'</span>';
       }
+      $html .= '</li>';
       endwhile;
 
       $html .= '</ul><!-- #blog-bxslider-->';

@@ -13,7 +13,7 @@
       ed.addButton('sliderimages', {
                 title : 'Image Gallery Slider',
                 cmd : 'sliderimages',
-                image : url + '/test-icon.png'
+                image : url + '/gallery-slider-btn.jpg'
             });
 
       ed.addCommand('products', function(){
