@@ -70,7 +70,7 @@ function customEditorAddButtons( $plugin_array ) {
 }
 
 function customEditorRegister( $buttons ) {
-  array_push( $buttons, 'products' );
+  array_push( $buttons, 'products', 'sliderimages' );
   return $buttons;
 }
 
