@@ -5147,10 +5147,15 @@ BLOG SINGLE
             .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-viewport #blog-bxslider li .wp-caption-text {
               display: block;
               text-align: center;
-              width: 75%;
               text-transform: uppercase;
-              padding: 2rem 0;
+              padding: 1.5rem;
+              font-size: 1.1rem;
               margin: 0 auto; }
+              @media screen and (min-width: 768px) {
+                .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-viewport #blog-bxslider li .wp-caption-text {
+                  font-size: 1.5rem;
+                  text-align: center;
+                  letter-spacing: .2rem; } }
       .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-controls-direction .bx-prev {
         position: absolute;
         top: 50%;
@@ -5176,12 +5181,11 @@ BLOG SINGLE
         margin-left: -10%; } }
     .content-wrapper figure img {
       width: 100%;
-      height: inherit; }
+      height: auto; }
     .content-wrapper figure .wp-caption-text {
       text-align: left;
       text-transform: uppercase;
-      padding: 15px 0;
-      width: 75%;
+      padding: 1.5rem;
       display: block;
       margin: 0 auto;
       font-size: 1.1rem; }

@@ -698,8 +698,6 @@ BLOG SINGLE
 
           li {
             width: 100%;
-            //height: 40rem;
-            //line-height: calc(40rem - 4rem);
             text-align: center;
             padding: 2rem;
             list-style: none;
@@ -713,10 +711,15 @@ BLOG SINGLE
             .wp-caption-text {
               display: block;
               text-align: center;
-              width: 75%;
               text-transform: uppercase;
-              padding: 2rem 0;
+              padding: 1.5rem;
+              font-size: 1.1rem;
               margin: 0 auto;
+              @media screen and (min-width: 768px){
+                font-size: 1.5rem;
+                text-align: center;
+                letter-spacing: .2rem;
+              }
             }
           }
         }
@@ -754,14 +757,13 @@ BLOG SINGLE
 
     img {
       width: 100%;
-      height: inherit;
+      height: auto;
     }
 
     .wp-caption-text {
       text-align: left;
       text-transform: uppercase;
-      padding: 15px 0;
-      width: 75%;
+      padding: 1.5rem;
       display: block;
       margin: 0 auto;
       font-size: 1.1rem;
