@@ -82,12 +82,12 @@ add_shortcode('gallery-slider', 'customGalSlider');
 function customGalSlider( $atts ){
 
   extract(shortcode_atts(array(
-    'images' => ''
+    'sliderimages' => ''
   ), $atts));
 
-  if( !empty($atts['images'] )){
+  if( !empty($atts['sliderimages'] )){
 
-    $imagesArr = explode(', ', $atts['images']);
+    $imagesArr = explode(', ', $atts['sliderimages']);
     $imagesArr = array_slice($imagesArr, 0, 5);
 
     $args = array(

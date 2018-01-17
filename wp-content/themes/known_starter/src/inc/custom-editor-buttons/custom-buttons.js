@@ -10,9 +10,9 @@
         image : url + '/products-toolbar-btn.jpg'
       });
 
-      ed.addButton('images', {
-        title : 'Slider',
-        cmd : 'images',
+      ed.addButton('sliderimages', {
+        title : 'Image Gallery Slider',
+        cmd : 'sliderimages',
         image : url +  '/gallery-slider-btn.jpg'
       });
 
@@ -23,9 +23,9 @@
         ed.execCommand('mceInsertContent', 0, shortcode);
       });
 
-      ed.addCommand('images', function(){
+      ed.addCommand('sliderimages', function(){
         var ids = prompt('Enter up to five comma separated image ids. These ids may be found in the media library- click on an image and check the number at the end of the URL bar. Eg: 264, 265'),
-            shortcode = '[gallery-slider images="'+ ids +'"]';
+            shortcode = '[gallery-slider sliderimages="'+ ids +'"]';
 
         ed.execCommand('mceInsertContent', 0, shortcode);
       });
