@@ -1,16 +1,16 @@
 <?php
 
-add_shortcode( 'product-grid', 'customProductGrid' );
+add_shortcode( 'product-grid', 'customProductGrid' ); //shortcode name, function name
 
-function customProductGrid( $atts ) {
+function customProductGrid( $atts ) { //the shortcode itself atts is what you can pass in the field
   extract(shortcode_atts(array(
     'products' => ''
   ), $atts));
 
   if( !empty($atts['products'] )) {
 
-    $productsArr = explode(', ', $atts['products']);
-    $productsArr = array_slice($productsArr, 0, 4);
+    $productsArr = explode(', ', $atts['products']); //makes array
+    $productsArr = array_slice($productsArr, 0, 4); //can only get 4, index to start at, length
 
     $args = array(
       'post_type' => 'product',
@@ -54,9 +54,9 @@ function customProductGrid( $atts ) {
     return $html;
 
   }
-}
+} //end shortcode
 
-
+// add buttons
 add_action( 'init', 'customEditorButtons' );
 
 function customEditorButtons() {
@@ -75,7 +75,50 @@ function customEditorRegister( $buttons ) {
 }
 
 
+////////////////// BX SLIDER BLOG GALLERY BUTTON ///////////////////////////////
 
+add_shortcode('gallery-slider', 'customGalSlider');
+
+function customGalSlider( $atts ){
+
+  extract(shortcode_atts(array(
+    'images' => ''
+  ), $atts));
+
+  if( !empty($atts['images'] )){
+
+    $imagesArr = explode(', ', $atts['images']);
+    $imagesArr = array_slice($imagesArr, 0, 5);
+
+    $args = array(
+      'post__in'       => $imagesArr,
+      'post_type'      => 'attachment',
+      'posts_per_page' => 5,
+      'post_status'	   => 'inherit'
+    );
+
+    $images = new WP_Query( $args );
+
+    if( $images->have_posts()):
+      $html = '<div id="blog-bxslider-wrapper">';
+      $html .= '<ul id="blog-bxslider" class="load-delay">';
+
+      while($images->have_posts()) : $images->the_post();
+
+      $image = wp_get_attachment_image_src( get_post_thumbnail_id( $images->post->ID ), 'full');
+
+      $html .= '<li><img src="'. $image[0] .'" /></li>';
+      endwhile;
+
+      $html .= '</ul><!-- #blog-bxslider-->';
+      $html .= '</div><!-- #blog-bxslider-wrapper-->';
+
+    endif;
+    wp_reset_query();
+    return $html;
+  }
+
+}
 
 
 

@@ -2862,9 +2862,9 @@ form.woocommerce-checkout {
     @media (min-width: 992px) {
       #woocommerce-main div.product {
         margin: 8rem auto; } }
-    #woocommerce-main div.product .load-delay ul li img {
+    #woocommerce-main div.product .load-delay li img {
       display: none; }
-    #woocommerce-main div.product .load-delay ul li:first-child img {
+    #woocommerce-main div.product .load-delay li:first-child img {
       display: block; }
     #woocommerce-main div.product #product-bxslider {
       width: 100%;
@@ -2876,14 +2876,21 @@ form.woocommerce-checkout {
         #woocommerce-main div.product #product-bxslider {
           width: 50%;
           display: inline-block; } }
-      #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider li {
-        width: 100%;
-        height: 40rem;
-        line-height: 40rem;
-        text-align: center;
-        padding: 2rem; }
-        #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider li img {
-          vertical-align: middle; }
+      #woocommerce-main div.product #product-bxslider #gallery-bxslider {
+        list-style: none; }
+      #woocommerce-main div.product #product-bxslider .bx-wrapper {
+        border: 1px solid #eee; }
+        #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider {
+          list-style: none; }
+          #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider li {
+            width: 100%;
+            height: 40rem;
+            line-height: calc(40rem - 4rem);
+            text-align: center;
+            padding: 2rem;
+            list-style: none; }
+            #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider li img {
+              vertical-align: middle; }
       #woocommerce-main div.product #product-bxslider #bxslider-pager {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -2894,6 +2901,10 @@ form.woocommerce-checkout {
                 justify-content: center;
         width: 100%;
         padding: 2rem; }
+        #woocommerce-main div.product #product-bxslider #bxslider-pager li {
+          margin: 0 .5rem;
+          padding: 1rem;
+          border: 1px solid #eee; }
     #woocommerce-main div.product .product-dimensions {
       font-style: italic;
       padding: 1rem 0; }
@@ -5103,6 +5114,45 @@ BLOG SINGLE
     @media screen and (min-width: 800px) {
       .content-wrapper:after {
         display: block; } }
+  .content-wrapper .load-delay li img {
+    display: none; }
+  .content-wrapper .load-delay li:first-child img {
+    display: block; }
+  .content-wrapper #blog-bxslider-wrapper {
+    width: calc(100% + 8rem);
+    height: 50rem;
+    display: block;
+    margin-left: -4rem; }
+    .content-wrapper #blog-bxslider-wrapper #blog-bxslider {
+      list-style: none; }
+    .content-wrapper #blog-bxslider-wrapper .bx-wrapper {
+      position: relative; }
+      .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-viewport #blog-bxslider {
+        list-style: none; }
+        .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-viewport #blog-bxslider li {
+          width: 100%;
+          height: 40rem;
+          line-height: calc(40rem - 4rem);
+          text-align: center;
+          padding: 2rem;
+          list-style: none; }
+          .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-viewport #blog-bxslider li img {
+            vertical-align: middle;
+            max-height: 100%;
+            max-width: 100%; }
+      .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-controls-direction .bx-prev {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+        font-size: 3rem; }
+      .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-controls-direction .bx-next {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+        left: 100%;
+        font-size: 3rem; }
   .content-wrapper figure {
     max-width: 900px !important;
     display: block;

@@ -5,9 +5,9 @@ $mainImage = $product->get_image_id();
 $galleryIds = $product->get_gallery_image_ids();
 array_unshift($galleryIds, $mainImage); //adds main image to gallery array
 
-echo '<div id="product-bxslider" class="load-delay">';
+echo '<div id="product-bxslider">';
 if($mainImage || $galleryIds){
-  echo '<ul id="gallery-bxslider">';
+  echo '<ul id="gallery-bxslider" class="load-delay">';
 
   foreach($galleryIds as $id){
     echo '<li>'. wp_get_attachment_image($id, $size='large') .'</li>';
