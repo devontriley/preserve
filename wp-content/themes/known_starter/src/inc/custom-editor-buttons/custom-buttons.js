@@ -11,10 +11,10 @@
       });
 
       ed.addButton('sliderimages', {
-        title : 'Image Gallery Slider',
-        cmd : 'sliderimages',
-        image : url +  '/gallery-slider-btn.jpg'
-      });
+                title : 'Image Gallery Slider',
+                cmd : 'sliderimages',
+                image : url + '/test-icon.png'
+            });
 
       ed.addCommand('products', function(){
         var ids = prompt('Enter up to four comma separated product ids. eg: 12, 35, 7, 78'),

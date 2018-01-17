@@ -70,7 +70,7 @@ function customEditorAddButtons( $plugin_array ) {
 }
 
 function customEditorRegister( $buttons ) {
-  array_push( $buttons, 'products' );
+  array_push( $buttons, 'products', 'sliderimages' );
   return $buttons;
 }
 
@@ -106,8 +106,12 @@ function customGalSlider( $atts ){
       while($images->have_posts()) : $images->the_post();
 
       $image = wp_get_attachment_image_src( get_post_thumbnail_id( $images->post->ID ), 'full');
+      $caption = get_the_excerpt();
 
       $html .= '<li><img src="'. $image[0] .'" /></li>';
+      if($caption){
+        $html .= '<span class="wp-caption-text">'. $caption .'</span>';
+      }
       endwhile;
 
       $html .= '</ul><!-- #blog-bxslider-->';
