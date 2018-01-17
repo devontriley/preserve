@@ -10,7 +10,7 @@
         image : url + '/products-toolbar-btn.jpg'
       });
 
-      ed.addButton('slider', {
+      ed.addButton('images', {
         title : 'Slider',
         cmd : 'images',
         image : url +  '/gallery-slider-btn.jpg'
