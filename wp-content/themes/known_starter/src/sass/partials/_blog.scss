@@ -727,7 +727,9 @@ BLOG SINGLE
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          font-size: 3rem;
+          font-size: 5rem;
+          opacity: .3;
+          transform: translateX(-100%);
         }
 
         .bx-next {
