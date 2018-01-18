@@ -88,12 +88,12 @@ function customGalSlider( $atts ){
   if( !empty($atts['sliderimages'] )){
 
     $imagesArr = explode(', ', $atts['sliderimages']);
-    $imagesArr = array_slice($imagesArr, 0, 20);
+    $imagesArr = array_slice($imagesArr, 0, 5);
 
     $args = array(
       'post__in'       => $imagesArr,
       'post_type'      => 'attachment',
-      'posts_per_page' => 20,
+      'posts_per_page' => 5,
       'post_status'	   => 'inherit'
     );
 
