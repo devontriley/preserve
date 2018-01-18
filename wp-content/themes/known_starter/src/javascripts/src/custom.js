@@ -283,10 +283,10 @@ var mainSlider = productSlider.bxSlider({
 
   //bxslider for blog
 
-  var blogSliders = document.querySelectorAll('.blog-bxslider'), i;
+  var blogSliders = $(document.querySelectorAll('.blog-bxslider'));
 
   for(i = 0, i < blogSliders.length; ++i){
-    blogSliders[i].bxSlider({
+    $(blogSliders[i]).bxSlider({
       pager: false,
       infiniteLoop: true,
       prevText: '<',
