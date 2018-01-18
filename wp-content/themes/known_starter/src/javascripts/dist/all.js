@@ -287,7 +287,7 @@ var mainSlider = productSlider.bxSlider({
 
   var blogSliders = document.querySelectorAll('.blog-bxslider');
 
-  for(i = 0, i < blogSliders.length; ++i){
+  for(var i = 0; i < blogSliders.length; i++){
     $(blogSliders[i]).bxSlider({
       pager: false,
       infiniteLoop: true,
