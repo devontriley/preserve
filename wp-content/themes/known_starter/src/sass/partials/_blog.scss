@@ -690,7 +690,7 @@ BLOG SINGLE
       position: relative;
 
       .bx-viewport {
-        height: auto !important;
+        //height: auto !important;
 
         #blog-bxslider {
           list-style: none;
@@ -737,7 +737,9 @@ BLOG SINGLE
           top: 50%;
           transform: translateY(-50%);
           left: 100%;
-          font-size: 3rem;
+          font-size: 5rem;
+          opacity: .3;
+          transform: translateX(100%);
         }
       }
     }
