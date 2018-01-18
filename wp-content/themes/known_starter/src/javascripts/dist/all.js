@@ -292,10 +292,10 @@ var mainSlider = productSlider.bxSlider({
       pager: false,
       infiniteLoop: true,
       prevText: '<',
-      nextText: '>',
-      onSliderLoad: function(){
-        blogSliders[i].classlist.remove('load-delay');
-      }
+      nextText: '>'
+      // onSliderLoad: function(){
+      //   blogSliders[i].classlist.remove('load-delay');
+      // }
     });
   }
 
