@@ -283,19 +283,28 @@ var mainSlider = productSlider.bxSlider({
 
   //bxslider for blog
 
-  var blogSliders = document.querySelectorAll('.blog-bxslider');
+  // var blogSliders = document.querySelectorAll('.blog-bxslider');
+  //
+  // for(var i = 0; i < blogSliders.length; i++){
+  //   var initSliders = $(blogSliders[i]).bxSlider({
+  //     pager: false,
+  //     infiniteLoop: true,
+  //     prevText: '<',
+  //     nextText: '>'
+  //     // onSliderLoad: function(){
+  //     //   blogSliders[i].classList.remove('load-delay');
+  //     // }
+  //   });
+  // console.log($(blogSliders[i]));
+  // }
 
-  for(var i = 0; i < blogSliders.length; i++){
-    var initSliders = $(blogSliders[i]).bxSlider({
+  $('.blog-bxslider').each(function(ele,index){
+    $(this).bxSlider({
       pager: false,
       infiniteLoop: true,
       prevText: '<',
       nextText: '>'
-      // onSliderLoad: function(){
-      //   blogSliders[i].classList.remove('load-delay');
-      // }
     });
-  console.log($(blogSliders[i])); 
   }
 
   // blogSlider.bxSlider({
