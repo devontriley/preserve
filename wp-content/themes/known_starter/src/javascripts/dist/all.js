@@ -300,7 +300,7 @@ var mainSlider = productSlider.bxSlider({
   // console.log($(blogSliders[i]));
   // }
 
-  $('.blog-bxslider').each(function(ele,index)){
+  $('.blog-bxslider').each(function(ele,index){
     $(this).bxSlider({
       pager: false,
       infiniteLoop: true,
