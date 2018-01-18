@@ -5114,6 +5114,9 @@ BLOG SINGLE
     @media screen and (min-width: 800px) {
       .content-wrapper:after {
         display: block; } }
+  .content-wrapper p img {
+    display: block;
+    margin: 0 auto; }
   .content-wrapper #blog-bxslider-wrapper {
     width: 100%;
     height: 50rem;
