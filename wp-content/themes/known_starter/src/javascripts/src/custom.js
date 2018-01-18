@@ -283,17 +283,17 @@ var mainSlider = productSlider.bxSlider({
 
   //bxslider for blog
 
-  var blogSliders = $(document.querySelectorAll('.blog-bxslider'));
+  var blogSliders = document.querySelectorAll('.blog-bxslider');
 
   for(i = 0, i < blogSliders.length; ++i){
     $(blogSliders[i]).bxSlider({
       pager: false,
       infiniteLoop: true,
       prevText: '<',
-      nextText: '>'
-      // onSliderLoad: function(){
-      //   blogSliders[i].classlist.remove('load-delay');
-      // }
+      nextText: '>',
+      onSliderLoad: function(){
+        blogSliders[i].classlist.remove('load-delay');
+      }
     });
   }
 
