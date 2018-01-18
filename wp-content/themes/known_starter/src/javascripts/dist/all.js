@@ -307,7 +307,7 @@ var mainSlider = productSlider.bxSlider({
       prevText: '<',
       nextText: '>'
     });
-  }
+  }); 
 
   // blogSlider.bxSlider({
   //   pager: false,
