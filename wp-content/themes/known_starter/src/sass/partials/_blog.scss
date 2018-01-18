@@ -690,7 +690,7 @@ BLOG SINGLE
       position: relative;
 
       .bx-viewport {
-        max-height: 50rem; 
+        max-height: 50rem;
 
         #blog-bxslider {
           list-style: none;
@@ -706,7 +706,7 @@ BLOG SINGLE
 
             img {
               vertical-align: middle;
-              max-height: 40rem;
+              max-height: 40rem!important;
               max-width: 100%;
             }
 

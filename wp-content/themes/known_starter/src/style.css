@@ -5138,7 +5138,7 @@ BLOG SINGLE
             list-style: none; }
             .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-viewport #blog-bxslider li img {
               vertical-align: middle;
-              max-height: 40rem;
+              max-height: 40rem !important;
               max-width: 100%; }
             .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-viewport #blog-bxslider li .wp-caption-text {
               display: block;
