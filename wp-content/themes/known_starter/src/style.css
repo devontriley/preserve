@@ -5184,7 +5184,9 @@ BLOG SINGLE
         display: block; }
         @media (min-width: 992px) {
           .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-controls {
-            top: 20rem; } }
+            top: 20rem;
+            left: -4rem;
+            width: calc(100% + 8rem); } }
         .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-controls .bx-controls-direction .bx-prev,
         .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-controls .bx-controls-direction .bx-next {
           position: absolute;

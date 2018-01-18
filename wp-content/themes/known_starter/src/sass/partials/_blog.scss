@@ -753,6 +753,8 @@ BLOG SINGLE
         display: block;
         @media(min-width: 992px) {
           top: 20rem;
+          left: -4rem;
+          width: calc(100% + 8rem);
         }
 
         .bx-controls-direction {
