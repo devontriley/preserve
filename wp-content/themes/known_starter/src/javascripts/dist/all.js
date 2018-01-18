@@ -285,23 +285,29 @@ var mainSlider = productSlider.bxSlider({
 
   //bxslider for blog
 
-  var blogSlider = document.querySelectorAll('.blog-bxslider');
+  var blogSliders = document.querySelectorAll('.blog-bxslider'), i;
 
-  print_r(blogSlider); 
-
-  // for(blogSlider){
-  //
-  // }
-
-  blogSlider.bxSlider({
-    pager: false,
-    infiniteLoop: true,
-    prevText: '<',
-    nextText: '>',
-    onSliderLoad: function(){
-      document.getElementById('blog-bxslider').classList.remove('load-delay');
+  for(i = 0, i < blogSliders.length; ++i){
+    blogSliders[i].bxSlider({
+      pager: false,
+      infiniteLoop: true,
+      prevText: '<',
+      nextText: '>',
+      onSliderLoad: function(){
+        blogSliders[i].classlist.remote('load-delay');
       }
-  });
+    });
+  }
+
+  // blogSlider.bxSlider({
+  //   pager: false,
+  //   infiniteLoop: true,
+  //   prevText: '<',
+  //   nextText: '>',
+  //   onSliderLoad: function(){
+  //     document.getElementById('blog-bxslider').classList.remove('load-delay');
+  //     }
+  // });
 
 // add class to body if mobile detected
 
