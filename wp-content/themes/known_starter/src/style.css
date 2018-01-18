@@ -4294,6 +4294,8 @@ section.up-sells h2 {
       background: #6d5e67; }
   .wysiwyg-content p {
     font-family: "Miller Text", "Times New Roman", Georgia, serif; }
+  .wysiwyg-content img {
+    height: auto; }
 
 .share {
   margin-top: 5rem; }
@@ -5119,15 +5121,15 @@ BLOG SINGLE
     margin: 0 auto; }
   .content-wrapper #blog-bxslider-wrapper {
     width: 100%;
-    height: 50rem;
     display: block;
-    margin-bottom: 4rem; }
+    margin: 4rem 0; }
     @media screen and (min-width: 992px) {
       .content-wrapper #blog-bxslider-wrapper {
         width: calc(100% + 8rem);
         margin-left: -4rem; } }
-    .content-wrapper #blog-bxslider-wrapper #blog-bxslider {
-      list-style: none; }
+    .content-wrapper #blog-bxslider-wrapper .blog-bxslider {
+      list-style: none;
+      margin: 0; }
     .content-wrapper #blog-bxslider-wrapper .bx-wrapper {
       position: relative; }
       .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-viewport .blog-bxslider {
@@ -5135,8 +5137,24 @@ BLOG SINGLE
         .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-viewport .blog-bxslider li {
           width: 100%;
           text-align: center;
-          padding: 2rem;
+          padding: 0 2rem;
           list-style: none; }
+          .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-viewport .blog-bxslider li div {
+            max-height: 40rem;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap; }
+            @media (min-width: 992px) {
+              .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-viewport .blog-bxslider li div {
+                height: 100vh; } }
           .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-viewport .blog-bxslider li img {
             vertical-align: middle;
             max-height: 40rem !important;
@@ -5144,31 +5162,56 @@ BLOG SINGLE
             display: block;
             margin: 0 auto; }
           .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-viewport .blog-bxslider li .wp-caption-text {
+            -webkit-box-flex: 0;
+                -ms-flex: 0 0 100%;
+                    flex: 0 0 100%;
             display: block;
             text-align: center;
-            width: 75%;
             text-transform: uppercase;
-            padding: 2rem 0;
+            padding: 1.5rem;
+            font-size: 1.1rem;
             margin: 0 auto; }
-      .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-controls-direction .bx-prev {
+            @media screen and (min-width: 768px) {
+              .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-viewport .blog-bxslider li .wp-caption-text {
+                font-size: 1.5rem;
+                text-align: center;
+                letter-spacing: .2rem; } }
+      .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-controls {
         position: absolute;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-                transform: translateY(-50%);
-        font-size: 5rem;
-        opacity: .3;
-        -webkit-transform: translateX(-100%);
-                transform: translateX(-100%); }
-      .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-controls-direction .bx-next {
-        position: absolute;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-                transform: translateY(-50%);
-        left: 100%;
-        font-size: 5rem;
-        opacity: .3;
-        -webkit-transform: translateX(100%);
-                transform: translateX(100%); }
+        left: -2rem;
+        top: 10rem;
+        width: calc(100% + 4rem);
+        display: block; }
+        @media (min-width: 992px) {
+          .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-controls {
+            top: 20rem;
+            left: -4rem;
+            width: calc(100% + 8rem); } }
+        .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-controls .bx-controls-direction .bx-prev,
+        .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-controls .bx-controls-direction .bx-next {
+          position: absolute;
+          top: 0;
+          line-height: 1;
+          display: block;
+          opacity: .7; }
+          @media (min-width: 992px) {
+            .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-controls .bx-controls-direction .bx-prev,
+            .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-controls .bx-controls-direction .bx-next {
+              opacity: .3;
+              font-size: 5rem; } }
+          .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-controls .bx-controls-direction .bx-prev:hover,
+          .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-controls .bx-controls-direction .bx-next:hover {
+            opacity: 1; }
+        .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-controls .bx-controls-direction .bx-prev {
+          left: 0; }
+          .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-controls .bx-controls-direction .bx-prev svg {
+            -webkit-transform: rotate(180deg) translateY(100%);
+                    transform: rotate(180deg) translateY(100%); }
+        .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-controls .bx-controls-direction .bx-next {
+          right: 0; }
+          .content-wrapper #blog-bxslider-wrapper .bx-wrapper .bx-controls .bx-controls-direction .bx-next svg {
+            -webkit-transform: translateY(-100%);
+                    transform: translateY(-100%); }
   .content-wrapper figure {
     max-width: 900px !important;
     display: block;
@@ -5181,12 +5224,11 @@ BLOG SINGLE
         margin-left: -10%; } }
     .content-wrapper figure img {
       width: 100%;
-      height: inherit; }
+      height: auto; }
     .content-wrapper figure .wp-caption-text {
       text-align: left;
       text-transform: uppercase;
-      padding: 15px 0;
-      width: 75%;
+      padding: 1.5rem;
       display: block;
       margin: 0 auto;
       font-size: 1.1rem; }

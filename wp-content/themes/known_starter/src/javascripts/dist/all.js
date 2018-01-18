@@ -300,14 +300,17 @@ var mainSlider = productSlider.bxSlider({
   // console.log($(blogSliders[i]));
   // }
 
+  var adaptiveHeight = (window.matchMedia('(min-width: 992px)').matches) ? false : true;
+
   $('.blog-bxslider').each(function(ele,index){
     $(this).bxSlider({
       pager: false,
       infiniteLoop: true,
+      adaptiveHeight: adaptiveHeight,
       prevText: '<',
       nextText: '>'
     });
-  }); 
+  });
 
   // blogSlider.bxSlider({
   //   pager: false,
