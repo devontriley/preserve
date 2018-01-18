@@ -690,7 +690,7 @@ BLOG SINGLE
       position: relative;
 
       .bx-viewport {
-        //height: auto !important;
+        max-height: 50rem; 
 
         #blog-bxslider {
           list-style: none;
