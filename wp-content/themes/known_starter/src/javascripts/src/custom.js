@@ -283,14 +283,26 @@ var mainSlider = productSlider.bxSlider({
 
   //bxslider for blog
 
-  var blogSlider = $("#blog-bxslider");
+  var blogSliders = document.querySelectorAll('.blog-bxslider'), i;
 
-  blogSlider.bxSlider({
-    pager: false,
-    infiniteLoop: true,
-    prevText: '<',
-    nextText: '>',
-    onSliderLoad: function(){
-      document.getElementById('blog-bxslider').classList.remove('load-delay');
+  for(i = 0, i < blogSliders.length; ++i){
+    blogSliders[i].bxSlider({
+      pager: false,
+      infiniteLoop: true,
+      prevText: '<',
+      nextText: '>',
+      onSliderLoad: function(){
+        blogSliders[i].classlist.remove('load-delay');
       }
-  });
+    });
+  }
+
+  // blogSlider.bxSlider({
+  //   pager: false,
+  //   infiniteLoop: true,
+  //   prevText: '<',
+  //   nextText: '>',
+  //   onSliderLoad: function(){
+  //     document.getElementById('blog-bxslider').classList.remove('load-delay');
+  //     }
+  // });

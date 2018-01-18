@@ -88,12 +88,12 @@ function customGalSlider( $atts ){
   if( !empty($atts['sliderimages'] )){
 
     $imagesArr = explode(', ', $atts['sliderimages']);
-    $imagesArr = array_slice($imagesArr, 0, 5);
+    $imagesArr = array_slice($imagesArr, 0, 20);
 
     $args = array(
       'post__in'       => $imagesArr,
       'post_type'      => 'attachment',
-      'posts_per_page' => 5,
+      'posts_per_page' => 20,
       'post_status'	   => 'inherit'
     );
 
@@ -101,7 +101,7 @@ function customGalSlider( $atts ){
 
     if( $images->have_posts()):
       $html = '<div id="blog-bxslider-wrapper">';
-      $html .= '<ul id="blog-bxslider" class="load-delay">';
+      $html .= '<ul class="blog-bxslider load-delay">';
 
       while($images->have_posts()) : $images->the_post();
 
