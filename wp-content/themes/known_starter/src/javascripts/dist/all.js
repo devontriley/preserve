@@ -294,7 +294,7 @@ var mainSlider = productSlider.bxSlider({
       prevText: '<',
       nextText: '>',
       onSliderLoad: function(){
-        blogSliders[i].classlist.remove('load-delay');
+        blogSliders[i].classList.remove('load-delay');
       }
     });
   }
