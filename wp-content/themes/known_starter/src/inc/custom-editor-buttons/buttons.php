@@ -101,7 +101,7 @@ function customGalSlider( $atts ){
 
     if( $images->have_posts()):
       $html = '<div id="blog-bxslider-wrapper">';
-      $html .= '<ul id="blog-bxslider" class="load-delay">';
+      $html .= '<ul class="blog-bxslider load-delay">';
 
       while($images->have_posts()) : $images->the_post();
 

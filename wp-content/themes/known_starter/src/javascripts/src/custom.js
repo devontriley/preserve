@@ -283,7 +283,13 @@ var mainSlider = productSlider.bxSlider({
 
   //bxslider for blog
 
-  var blogSlider = $("#blog-bxslider");
+  var blogSlider = document.querySelectorAll('.blog-bxslider');
+
+  print_r(blogSlider); 
+
+  // for(blogSlider){
+  //
+  // }
 
   blogSlider.bxSlider({
     pager: false,
