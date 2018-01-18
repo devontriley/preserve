@@ -692,7 +692,7 @@ BLOG SINGLE
       .bx-viewport {
         max-height: 50rem;
 
-        #blog-bxslider {
+        .blog-bxslider {
           list-style: none;
 
 
@@ -709,7 +709,7 @@ BLOG SINGLE
               max-height: 40rem!important;
               max-width: 100%;
               display: block;
-              margin: 0 auto; 
+              margin: 0 auto;
             }
 
             .wp-caption-text {
