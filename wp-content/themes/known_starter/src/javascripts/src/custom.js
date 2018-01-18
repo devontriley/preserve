@@ -295,7 +295,7 @@ var mainSlider = productSlider.bxSlider({
       //   blogSliders[i].classList.remove('load-delay');
       // }
     });
-  console.log(initSliders)
+  console.log($(blogSliders[i])); 
   }
 
   // blogSlider.bxSlider({
