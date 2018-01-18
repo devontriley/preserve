@@ -290,10 +290,10 @@ var mainSlider = productSlider.bxSlider({
       pager: false,
       infiniteLoop: true,
       prevText: '<',
-      nextText: '>',
-      onSliderLoad: function(){
-        blogSliders[i].classList.remove('load-delay');
-      }
+      nextText: '>'
+      // onSliderLoad: function(){
+      //   blogSliders[i].classList.remove('load-delay');
+      // }
     });
   console.log(blogSliders[i])
   }
