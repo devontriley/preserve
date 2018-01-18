@@ -288,7 +288,7 @@ var mainSlider = productSlider.bxSlider({
   var blogSliders = document.querySelectorAll('.blog-bxslider');
 
   for(var i = 0; i < blogSliders.length; i++){
-    $(blogSliders[i]).bxSlider({
+    var initSliders = $(blogSliders[i]).bxSlider({
       pager: false,
       infiniteLoop: true,
       prevText: '<',
@@ -297,7 +297,7 @@ var mainSlider = productSlider.bxSlider({
       //   blogSliders[i].classList.remove('load-delay');
       // }
     });
-  console.log(blogSliders[i])
+  console.log(initSliders)
   }
 
   // blogSlider.bxSlider({
