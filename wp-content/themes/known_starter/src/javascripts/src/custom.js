@@ -292,7 +292,7 @@ var mainSlider = productSlider.bxSlider({
       prevText: '<',
       nextText: '>',
       onSliderLoad: function(){
-        blogSliders[i].classlist.remote('load-delay');
+        blogSliders[i].classlist.remove('load-delay');
       }
     });
   }
