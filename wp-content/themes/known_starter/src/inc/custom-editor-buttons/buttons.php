@@ -108,7 +108,7 @@ function customGalSlider( $atts ){
       $image = wp_get_attachment_image_src( get_post_thumbnail_id( $images->post->ID ), 'full');
       $caption = get_the_excerpt($images->post->ID);
 
-      $html .= '<li><img src="'. $image[0] .'" />';
+      $html .= '<li><div><img src="'. $image[0] .'" /></div>';
       if($caption){
         $html .= '<span class="wp-caption-text">'. $caption .'</span>';
       }

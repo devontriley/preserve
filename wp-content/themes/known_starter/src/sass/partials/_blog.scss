@@ -665,7 +665,7 @@ BLOG SINGLE
   p {
     img {
       display: block;
-      margin: 0 auto; 
+      margin: 0 auto;
     }
   }
 
@@ -681,23 +681,22 @@ BLOG SINGLE
 
   #blog-bxslider-wrapper {
     width: 100%;
-    height: 50rem;
     display: block;
-    margin-bottom: 4rem;
+    margin: 4rem 0;
     @media screen and (min-width: 992px){
       width: calc(100% + 8rem);
       margin-left: -4rem;
     }
 
-    #blog-bxslider {
+    .blog-bxslider {
       list-style: none;
+      margin: 0;
     }
 
     .bx-wrapper {
       position: relative;
 
       .bx-viewport {
-        max-height: 50rem;
 
         .blog-bxslider {
           list-style: none;
@@ -706,18 +705,30 @@ BLOG SINGLE
           li {
             width: 100%;
             text-align: center;
-            padding: 2rem;
+            padding: 0 2rem;
             list-style: none;
+
+            div {
+              max-height: 40rem;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-wrap: wrap;
+              @media(min-width: 992px) {
+                height: 100vh;
+              }
+            }
 
             img {
               vertical-align: middle;
-              max-height: 40rem!important;
+              max-height: 40rem !important;
               max-width: 100%;
               display: block;
               margin: 0 auto;
             }
 
             .wp-caption-text {
+              flex: 0 0 100%;
               display: block;
               text-align: center;
               text-transform: uppercase;
@@ -734,24 +745,50 @@ BLOG SINGLE
         }
       }
 
-      .bx-controls-direction {
-        .bx-prev {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          font-size: 5rem;
-          opacity: .3;
-          transform: translateX(-100%);
+      .bx-controls {
+        position: absolute;
+        left: -2rem;
+        top: 10rem;
+        width: calc(100% + 4rem);
+        display: block;
+        @media(min-width: 992px) {
+          top: 20rem;
         }
 
-        .bx-next {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          left: 100%;
-          font-size: 5rem;
-          opacity: .3;
-          transform: translateX(100%);
+        .bx-controls-direction {
+
+          .bx-prev,
+          .bx-next {
+            position: absolute;
+            top: 0;
+            line-height: 1;
+            display: block;
+            opacity: .7;
+            @media(min-width: 992px) {
+              opacity: .3;
+              font-size: 5rem;
+            }
+
+            &:hover {
+              opacity: 1;
+            }
+          }
+
+          .bx-prev {
+            left: 0;
+
+            svg {
+              transform: rotate(180deg) translateY(100%);
+            }
+          }
+
+          .bx-next {
+            right: 0;
+
+            svg {
+              transform: translateY(-100%);
+            }
+          }
         }
       }
     }
