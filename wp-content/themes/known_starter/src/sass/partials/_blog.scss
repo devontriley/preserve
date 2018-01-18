@@ -662,15 +662,22 @@ BLOG SINGLE
     }
   }
 
-  //post gallery bxslider
-  .load-delay {
-    li img {
-      display: none;
-    }
-     li:first-child img {
+  p {
+    img {
       display: block;
+      margin: 0 auto; 
     }
   }
+
+  //post gallery bxslider
+  // .load-delay {
+  //   li img {
+  //     display: none;
+  //   }
+  //    li:first-child img {
+  //     display: block;
+  //   }
+  // }
 
   #blog-bxslider-wrapper {
     width: 100%;
@@ -690,9 +697,9 @@ BLOG SINGLE
       position: relative;
 
       .bx-viewport {
-        height: auto !important;
+        max-height: 50rem;
 
-        #blog-bxslider {
+        .blog-bxslider {
           list-style: none;
 
 
@@ -704,8 +711,10 @@ BLOG SINGLE
 
             img {
               vertical-align: middle;
-              max-height: 40rem;
+              max-height: 40rem!important;
               max-width: 100%;
+              display: block;
+              margin: 0 auto;
             }
 
             .wp-caption-text {
@@ -730,7 +739,9 @@ BLOG SINGLE
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          font-size: 3rem;
+          font-size: 5rem;
+          opacity: .3;
+          transform: translateX(-100%);
         }
 
         .bx-next {
@@ -738,7 +749,9 @@ BLOG SINGLE
           top: 50%;
           transform: translateY(-50%);
           left: 100%;
-          font-size: 3rem;
+          font-size: 5rem;
+          opacity: .3;
+          transform: translateX(100%);
         }
       }
     }
