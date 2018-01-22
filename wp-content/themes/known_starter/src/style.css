@@ -3688,16 +3688,18 @@ section.up-sells h2 {
   @media (min-width: 1024px) {
     #primary-nav ul.menu {
       display: inline-block;
-      font-size: 1.2rem; }
+      font-size: 1.1rem; }
       #primary-nav ul.menu > li {
-        padding: 0 1rem; }
+        padding: 0 .5rem; }
     #primary-nav .btn {
       display: inline-block; }
     #primary-nav .hamburger {
       display: none; } }
   @media (min-width: 1366px) {
     #primary-nav ul.menu {
-      font-size: 1.3rem; } }
+      font-size: 1.3rem; }
+      #primary-nav ul.menu > li {
+        padding: 0 1rem; } }
 
 .simple-content {
   padding: 10vw 3rem;

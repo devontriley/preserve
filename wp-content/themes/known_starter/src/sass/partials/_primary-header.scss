@@ -237,10 +237,10 @@
   @media(min-width: 1024px) {
     ul.menu {
       display: inline-block;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
 
       & > li {
-        padding: 0 1rem;
+        padding: 0 .5rem;
       }
     }
 
@@ -256,6 +256,9 @@
   @media(min-width: 1366px) {
     ul.menu {
       font-size: 1.3rem;
+      & > li {
+        padding: 0 1rem;
+      }
     }
   }
 }
