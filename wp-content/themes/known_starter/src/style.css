@@ -3687,13 +3687,17 @@ section.up-sells h2 {
       fill: #b99656; }
   @media (min-width: 1024px) {
     #primary-nav ul.menu {
-      display: inline-block; }
+      display: inline-block;
+      font-size: 1.2rem; }
       #primary-nav ul.menu > li {
         padding: 0 1rem; }
     #primary-nav .btn {
       display: inline-block; }
     #primary-nav .hamburger {
       display: none; } }
+  @media (min-width: 1366px) {
+    #primary-nav ul.menu {
+      font-size: 1.3rem; } }
 
 .simple-content {
   padding: 10vw 3rem;
