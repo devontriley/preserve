@@ -173,7 +173,7 @@
 
   .social {
     display: none;
-    @media(min-width: 1366px) {
+    @media(min-width: 1024px) {
       display: block;
     }
 
@@ -234,7 +234,7 @@
     }
   }
 
-  @media(min-width: 1366px) {
+  @media(min-width: 1024px) {
     ul.menu {
       display: inline-block;
 

@@ -57,7 +57,7 @@
     @include transform(translateX(0));
   }
 
-  @media(min-width:1366px) {
+  @media(min-width:1024) {
     & {
       display: none;
     }

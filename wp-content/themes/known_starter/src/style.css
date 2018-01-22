@@ -3645,7 +3645,7 @@ section.up-sells h2 {
     display: none; }
   #primary-nav .social {
     display: none; }
-    @media (min-width: 1366px) {
+    @media (min-width: 1024px) {
       #primary-nav .social {
         display: block; } }
     #primary-nav .social a {
@@ -3685,7 +3685,7 @@ section.up-sells h2 {
         display: none; }
     #primary-nav .hamburger svg:hover {
       fill: #b99656; }
-  @media (min-width: 1366px) {
+  @media (min-width: 1024px) {
     #primary-nav ul.menu {
       display: inline-block; }
       #primary-nav ul.menu > li {
@@ -4030,7 +4030,7 @@ section.up-sells h2 {
   .mobile-nav-active #mobile-nav {
     -webkit-transform: translateX(0);
     transform: translateX(0); }
-  @media (min-width: 1366px) {
+  @media (min-width: 1024) {
     #mobile-nav {
       display: none; } }
 
