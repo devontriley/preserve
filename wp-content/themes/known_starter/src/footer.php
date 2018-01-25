@@ -1,5 +1,5 @@
 <?php
-if( class_exists('woocommerce') ) :
+//if( class_exists('woocommerce') ) :
 
 	if( is_cart() || is_checkout() ) : ?>
 
@@ -62,7 +62,7 @@ if( class_exists('woocommerce') ) :
 
 <?php
 	endif;
-endif;
+//endif;
 ?>
 
 <?php //include('components/newsletter-modal.php'); ?>
