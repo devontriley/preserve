@@ -1,4 +1,7 @@
-<?php if( is_cart() || is_checkout() ) { ?>
+<?php
+if( class_exists('woocommerce') ) :
+
+	if( is_cart() || is_checkout() ) : ?>
 
 	<div id="cart-footer">
 		<div class="inner">
@@ -17,9 +20,9 @@
 		</div>
 	</div>
 
-<?php } else { ?>
+<?php else : ?>
 
-<?php include('components/newsletter-signup.php'); ?>
+<?php if(!is_page('shop')) include('components/newsletter-signup.php'); ?>
 
 <div id="primary-footer">
 	<div class="logo">
@@ -57,7 +60,12 @@
 	</p>
 </div>
 
-<?php } ?>
+<?php
+	endif;
+endif;
+?>
+
+<?php //include('components/newsletter-modal.php'); ?>
 
 <?php wp_footer(); ?>
 

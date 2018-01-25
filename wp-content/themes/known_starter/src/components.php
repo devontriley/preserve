@@ -51,6 +51,9 @@ if(have_rows('components')) :
       case 'full_width_image':
         include('components/full-width-image.php');
         break;
+      case 'recent_posts':
+        include('components/recent-posts.php');
+        break;
     }
 
   endwhile;

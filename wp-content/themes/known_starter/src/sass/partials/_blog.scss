@@ -473,13 +473,21 @@ BLOG GRID
   .related-header {
     text-align: center;
 
-    &:after {
-    content: "";
-    display: block;
-    margin: 1rem auto;
-    width: 25%;
-    border-top: 1px solid $gold;}
+    .image {
+      margin-bottom: 1rem;
+    }
 
+    h2 {
+      display: inline-block;
+
+      &:after {
+        content: "";
+        display: block;
+        margin: 1rem auto;
+        width: 25%;
+        border-top: 1px solid $gold;
+      }
+    }
   }
 
   #grid-wrapper {

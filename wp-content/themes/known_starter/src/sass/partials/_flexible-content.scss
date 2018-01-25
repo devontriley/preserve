@@ -8,6 +8,24 @@
     padding: 15rem $margin-horizontal-base;
   }
 
+  #primary-header + & {
+    margin-top: 0 !important;
+    margin-bottom: 5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    @media(min-width: 1024px) {
+      margin-bottom: 10rem;
+      padding-top: 10rem;
+      padding-bottom: 10rem;
+    }
+
+    .image {
+      img {
+        max-width: 20rem;
+      }
+    }
+  }
+
   &.grey-bg {
     background: #f9f9f9;
   }
@@ -69,6 +87,10 @@
         max-width: 50%;
         padding: 0 5rem;
         text-align: left;
+      }
+
+      *:first-child {
+        margin-top: 0;
       }
 
       h2:after {

@@ -7,13 +7,6 @@ $nav = wp_nav_menu(array(
 ?>
 
 <div id="primary-header">
-  <div id="primary-logo">
-    <a href="<?php bloginfo('url'); ?>/">
-      <svg width="101" viewBox="0 0 101 50">
-  			<use xlink:href="#logo-horiz"></use>
-  		</svg>
-    </a>
-  </div>
   <nav id="primary-nav">
     <?php echo $nav; ?>
     <div class="social">
@@ -54,4 +47,14 @@ $nav = wp_nav_menu(array(
       </a>
     </div>
   </nav>
+
+  <div id="primary-logo">
+    <a href="<?php bloginfo('url'); ?>/">
+      <svg width="101" viewBox="0 0 101 50">
+  			<use xlink:href="#logo-horiz"></use>
+  		</svg>
+    </a>
+  </div>
+
+  <a href="<?php bloginfo('url'); ?>/shop" class="shop">Shop</a>
 </div>

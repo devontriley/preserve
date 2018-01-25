@@ -183,5 +183,68 @@ function headerState()
 		firstGFormLoad = true;
 	});
 
+	// Display footer newsletter signup if the modal cookie is set
+	// This avoids conflicts with multiple mailchimp forms on one page
+	var form = '<div id="mc_embed_signup"><form action="//preservebrands.us16.list-manage.com/subscribe/post?u=7df2ba034c9d88245475dc567&amp;id=58c6176cc6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate><div class="mc-field-group"><input type="email" value="" name="EMAIL" placeholder="example@email.com" class="required email" id="mce-EMAIL"></div><div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_7df2ba034c9d88245475dc567_58c6176cc6" tabindex="-1" value=""></div><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"><div id="mce-responses" class="clear"><div class="response" id="mce-error-response" style="display:none"></div><div class="response" id="mce-success-response" style="display:none"></div></div></form></div>';
+
+	if (document.cookie.replace(/(?:(?:^|.*;\s*)newsletterModal\s*\=\s*([^;]*).*$)|^.*$/, "$1") === "true") {
+		$('#footer-newsletter-signup').append(form);
+	} else {
+		// $('#newsletter-modal-container').append(form);
+    //
+		// if(!$('.page-template-page-shop-coming-soon').length) {
+		// 	var NewsletterModal = new Modal('#newsletter-modal');
+		// 	NewsletterModal.showModal();
+		// }
+	}
+
+	var script = document.createElement('script');
+	script.src = '//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js';
+	document.head.appendChild(script);
+	script.onload = function() {
+		window.fnames = new Array();
+		window.ftypes = new Array();
+			fnames[0]='EMAIL';
+			ftypes[0]='email';
+		var $mcj = jQuery.noConflict(true);
+	}
+
+
+	/*
+	 *
+	 * Modal
+	 *
+	*/
+
+	class Modal {
+		constructor(id) {
+			this.modalID = id;
+
+			this.createCookie();
+
+			$('#modal-close, .modal-bg').click(this.closeModal.bind(this));
+		}
+
+		createCookie() {
+			var date = new Date();
+			var expires = '';
+			date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
+			expires = "; expires=" + date.toGMTString();
+
+		  if (document.cookie.replace(/(?:(?:^|.*;\s*)newsletterModal\s*\=\s*([^;]*).*$)|^.*$/, "$1") !== "true") {
+		    document.cookie = "newsletterModal=true" + expires;
+		  }
+		}
+
+		showModal() {
+			$('body').addClass('modal-active');
+			$(this.modalID).show();
+		}
+
+		closeModal() {
+			$('body').removeClass('modal-active');
+			$(this.modalID).hide();
+		}
+	}
 
 })(jQuery);
