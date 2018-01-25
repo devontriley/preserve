@@ -22,7 +22,7 @@ elseif(is_page('Inspiration')){
   }
 }
 
-elseif(class_exists('woocommerce') && is_shop() || is_product_category()){
+elseif(class_exists('woocommerce') && (is_shop() || is_product_category())){
   $headerGraphic = get_field('header_graphic', 752);
   $header = get_field('header', 752);
   $bodyCopy = get_field('body_copy', 752);
