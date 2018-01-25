@@ -22,7 +22,7 @@ if( class_exists('woocommerce') ) :
 
 <?php else : ?>
 
-<?php if(!is_page('shop')) include('components/newsletter-signup.php'); ?>
+<?php if(!is_page('shop-coming-soon')){ include('components/newsletter-signup.php'); } ?>
 
 <div id="primary-footer">
 	<div class="logo">
