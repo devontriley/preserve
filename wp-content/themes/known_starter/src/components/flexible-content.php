@@ -105,7 +105,7 @@ else {
           </div>
         <?php endif; endif; ?>
 
-        <?php if( is_product() ) { button( 'Learn More', get_bloginfo('url').'/tees-not-trees' ); } ?>
+        <?php if(class_exists('woocommerce') && is_product() ) { button( 'Learn More', get_bloginfo('url').'/tees-not-trees' ); } ?>
       </div>
 
     </div>
