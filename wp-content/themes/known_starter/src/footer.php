@@ -65,7 +65,7 @@
 //endif;
 ?>
 
-<?php //include('components/newsletter-modal.php'); ?>
+<?php include('components/newsletter-modal.php'); ?>
 
 <?php wp_footer(); ?>
 

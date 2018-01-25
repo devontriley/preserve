@@ -507,69 +507,142 @@ function headerState()
 		firstGFormLoad = true;
 	});
 
-	// Display footer newsletter signup if the modal cookie is set
-	// This avoids conflicts with multiple mailchimp forms on one page
-	// var form = '<div id="mc_embed_signup"><form action="//preservebrands.us16.list-manage.com/subscribe/post?u=7df2ba034c9d88245475dc567&amp;id=58c6176cc6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate><div class="mc-field-group"><input type="email" value="" name="EMAIL" placeholder="example@email.com" class="required email" id="mce-EMAIL"></div><div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_7df2ba034c9d88245475dc567_58c6176cc6" tabindex="-1" value=""></div><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"><div id="mce-responses" class="clear"><div class="response" id="mce-error-response" style="display:none"></div><div class="response" id="mce-success-response" style="display:none"></div></div></form></div>';
-	// $('#footer-newsletter-signup').append(form);
-  //
-	// if (document.cookie.replace(/(?:(?:^|.*;\s*)newsletterModal\s*\=\s*([^;]*).*$)|^.*$/, "$1") === "true") {
-  //
-	// } else {
-	// 	// $('#newsletter-modal-container').append(form);
-  //   //
-	// 	// if(!$('.page-template-page-shop-coming-soon').length) {
-	// 	// 	var NewsletterModal = new Modal('#newsletter-modal');
-	// 	// 	NewsletterModal.showModal();
-	// 	// }
-	// }
-  //
-	// var script = document.createElement('script');
-	// script.src = '//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js';
-	// document.head.appendChild(script);
-	// script.onload = function() {
-	// 	window.fnames = new Array();
-	// 	window.ftypes = new Array();
-	// 		fnames[0]='EMAIL';
-	// 		ftypes[0]='email';
-	// 	var $mcj = jQuery.noConflict(true);
-	// }
-
-
 	/*
 	 *
 	 * Modal
 	 *
 	*/
 
-	// class Modal {
-	// 	constructor(id) {
-	// 		this.modalID = id;
-  //
-	// 		this.createCookie();
-  //
-	// 		$('#modal-close, .modal-bg').click(this.closeModal.bind(this));
-	// 	}
-  //
-	// 	createCookie() {
-	// 		var date = new Date();
-	// 		var expires = '';
-	// 		date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
-	// 		expires = "; expires=" + date.toGMTString();
-  //
-	// 	  if (document.cookie.replace(/(?:(?:^|.*;\s*)newsletterModal\s*\=\s*([^;]*).*$)|^.*$/, "$1") !== "true") {
-	// 	    document.cookie = "newsletterModal=true" + expires;
-	// 	  }
-	// 	}
-  //
-	// 	showModal() {
-	// 		$('body').addClass('modal-active');
-	// 		$(this.modalID).show();
-	// 	}
-  //
-	// 	closeModal() {
-	// 		$('body').removeClass('modal-active');
-	// 		$(this.modalID).hide();
-	// 	}
-	// }
+	class Modal {
+		constructor(id) {
+			this.modalID = id;
+
+			this.createCookie();
+
+			addMailchimpScripts('#newsletter-modal-container');
+
+			this.showModal();
+
+			$('#modal-close, .modal-bg').click(this.closeModal.bind(this));
+		}
+
+		createCookie() {
+			var date = new Date();
+			var expires = '';
+			date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
+			expires = ";path=/;expires=" + date.toGMTString();
+
+		  if (document.cookie.replace(/(?:(?:^|.*;\s*)newsletterModal\s*\=\s*([^;]*).*$)|^.*$/, "$1") !== "true") {
+		    document.cookie = "newsletterModal=true" + expires;
+		  }
+		}
+
+		showModal() {
+			setTimeout(function(){
+				$('body').addClass('modal-active');
+				$(this.modalID).show();
+			}.bind(this), 5000);
+		}
+
+		closeModal() {
+			$('body').removeClass('modal-active');
+			$(this.modalID).hide();
+		}
+	}
+
+	// Display footer newsletter signup if the modal cookie is set
+	// This avoids conflicts with multiple mailchimp forms on one page
+
+	if (document.cookie.replace(/(?:(?:^|.*;\s*)newsletterModal\s*\=\s*([^;]*).*$)|^.*$/, "$1") === "true") {
+		if(!$('.page-template-page-shop-coming-soon').length) {
+			$('.newsletter-signup').addClass('active');
+			addMailchimpScripts('#footer-newsletter-signup');
+		}
+	} else {
+		if(!$('.page-template-page-shop-coming-soon').length) {
+			var NewsletterModal = new Modal('#newsletter-modal');
+		}
+	}
+
+	// Inserts mailchimp form and scripts
+	function addMailchimpScripts(container) {
+		var formFields = '<div class="mc-field-group"><input type="email" value="" name="EMAIL" placeholder="example@email.com" class="required email" id="mce-EMAIL"></div><div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_7df2ba034c9d88245475dc567_58c6176cc6" tabindex="-1" value=""></div><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"><div id="mce-responses" class="clear"><div class="response" id="mce-error-response" style="display:none"></div><div class="response" id="mce-success-response" style="display:none"></div></div>';
+
+		var container = document.querySelector(container);
+		var form = document.createElement('div');
+		var formEle = document.createElement('form');
+		var formInputWrapper = document.createElement('div');
+		var formInput = document.createElement('input');
+		var formSubmit = document.createElement('input');
+		var formResponses = document.createElement('div');
+		var formResponseErr = document.createElement('div');
+		var formResponseSucc = document.createElement('div');
+
+		form.id = 'mc_embed_signup';
+
+		formEle.id = 'mc-embedded-subscribe-form';
+		formEle.action = '//preservebrands.us16.list-manage.com/subscribe/post?u=7df2ba034c9d88245475dc567&amp;id=58c6176cc6';
+		formEle.method = 'post';
+		formEle.classList.add('validate');
+		formEle.target = '_blank';
+		formEle.name = 'mc-embedded-subscribe-form';
+		formEle.noValidate;
+
+		formInputWrapper.classList.add('mc-field-group');
+
+		formInput.type = 'email';
+		formInput.name = 'EMAIL';
+		formInput.id = 'mce-EMAIL';
+		formInput.placeholder = 'Example@email.com';
+		formInput.classList.add('required');
+		formInput.classList.add('email');
+
+		formSubmit.type = 'submit';
+		formSubmit.name = 'subscribe';
+		formSubmit.id = 'mc-embedded-subscribe';
+		formSubmit.classList.add('button');
+
+		formResponses.id = 'mce-responses';
+		formResponseErr.id = 'mce-error-response';
+		formResponseErr.classList.add('response');
+		formResponseErr.style.display = 'none';
+		formResponseSucc.id = 'mce-success-response';
+		formResponseSucc.classList.add('response');
+		formResponseSucc.style.display = 'none';
+
+		formInputWrapper.appendChild(formInput);
+		formEle.appendChild(formInputWrapper);
+		formEle.appendChild(formSubmit);
+		formResponses.appendChild(formResponseErr);
+		formResponses.appendChild(formResponseSucc);
+		formEle.appendChild(formResponses);
+		form.appendChild(formEle);
+		container.appendChild(form);
+
+		var script = document.createElement('script');
+		//script.src = '//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js';
+		script.src = blogURL + '/wp-content/themes/known_starter/src/mc-validate.js';
+		document.head.appendChild(script);
+		script.onload = function() {
+			window.fnames = new Array();
+			window.ftypes = new Array();
+				fnames[0]='EMAIL';
+				ftypes[0]='email';
+			var $mcj = jQuery.noConflict(true);
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 })(jQuery);

@@ -79,8 +79,7 @@ else {
         <?php } ?>
 
 
-        <?php
-          if(is_page('shop-coming-soon')) : ?>
+        <?php if(is_page('shop-coming-soon')) : ?>
           <div id="notify-me">
             <div class="newsletter-signup">
               <p>Notify me when the shop goes live:</p>
@@ -98,7 +97,9 @@ else {
                   </div>
               </form>
             </div>
-            <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+            <!-- <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script> -->
+            <script type='text/javascript' src='<?php bloginfo('template_directory'); ?>/mc-validate.js'></script>
+            <script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
             </div>
             </div>
           </div>

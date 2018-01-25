@@ -1,12 +1,16 @@
 .newsletter-signup {
+  display: none;
   padding: 5rem $margin-horizontal-base;
-  @include flexbox();
   @include justify-content(center);
   @media(min-width: 768px) {
     padding: 10rem $margin-horizontal-base;
   }
   @media(min-width: 1440px) {
     padding: 15rem $margin-horizontal-base;
+  }
+
+  &.active {
+    @include flexbox();
   }
 
   // This should get moved somewhere maybe
@@ -30,8 +34,7 @@
     input[type=email],
     input[type=submit] {
       font-family: $font-family-base;
-      text-transform: uppercase;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       letter-spacing: .1rem;
       height: 4rem;
       @media(min-width: 768px) {
@@ -52,10 +55,14 @@
       font-weight: 700;
       color: $gold;
       outline: none;
+      text-transform: uppercase;
+      &:hover {
+        color: $text-color;
+      }
     }
 
     #mce-responses {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: #888;
       text-align: center;
       margin-top: 1rem;

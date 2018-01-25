@@ -18,6 +18,10 @@
       padding-top: 10rem;
       padding-bottom: 10rem;
     }
+    @media(min-width: 1366px) {
+      padding-top: 18rem;
+      padding-bottom: 18rem;
+    }
 
     .image {
       img {

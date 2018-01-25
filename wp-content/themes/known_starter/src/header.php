@@ -19,7 +19,11 @@
       return check;
     };
     var mobileDetected = window.mobilecheck();
-    </script>
+  </script>
+
+	<script type="text/javascript">
+	var blogURL = '<?php echo get_bloginfo('url'); ?>';
+	</script>
 
 	<?php wp_head(); ?>
 

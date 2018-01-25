@@ -3615,6 +3615,9 @@ section.up-sells h2 {
         #primary-nav ul.menu > li a:hover,
         #primary-nav ul.menu + li a:hover {
           color: #b99656; }
+      #primary-nav ul.menu > li.current-menu-item a,
+      #primary-nav ul.menu + li.current-menu-item a {
+        color: #b99656; }
       #primary-nav ul.menu > li.no-link > a,
       #primary-nav ul.menu + li.no-link > a {
         cursor: default; }
@@ -3811,10 +3814,8 @@ section.up-sells h2 {
     margin-top: 3rem; }
 
 .newsletter-signup {
+  display: none;
   padding: 5rem 3rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -moz-justify-content: center;
   -ms-justify-content: center;
   -webkit-box-pack: center;
@@ -3826,6 +3827,10 @@ section.up-sells h2 {
   @media (min-width: 1440px) {
     .newsletter-signup {
       padding: 15rem 3rem; } }
+  .newsletter-signup.active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
   #notify-me .newsletter-signup {
     padding: 0 !important;
     display: block !important; }
@@ -3841,8 +3846,7 @@ section.up-sells h2 {
     #notify-me .newsletter-signup input[type=email],
     #notify-me .newsletter-signup input[type=submit] {
       font-family: "Termina", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      text-transform: uppercase;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       letter-spacing: .1rem;
       height: 4rem; }
       @media (min-width: 768px) {
@@ -3858,9 +3862,12 @@ section.up-sells h2 {
     #notify-me .newsletter-signup input[type=submit] {
       font-weight: 700;
       color: #b99656;
-      outline: none; }
+      outline: none;
+      text-transform: uppercase; }
+      #notify-me .newsletter-signup input[type=submit]:hover {
+        color: #6d5e67; }
     #notify-me .newsletter-signup #mce-responses {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: #888;
       text-align: center;
       margin-top: 1rem;
@@ -5542,6 +5549,10 @@ SEARCH
         margin-bottom: 10rem;
         padding-top: 10rem;
         padding-bottom: 10rem; } }
+    @media (min-width: 1366px) {
+      #primary-header + .flexible-content {
+        padding-top: 18rem;
+        padding-bottom: 18rem; } }
     #primary-header + .flexible-content .image img {
       max-width: 20rem; }
   .flexible-content.grey-bg {
@@ -5783,8 +5794,7 @@ body.modal-active {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      border-radius: 0 0 .6rem .6rem;
-      overflow: hidden; }
+      border-radius: 0 0 .6rem .6rem; }
       .modal .inner form .mc-field-group {
         -webkit-box-flex: 1;
             -ms-flex: 1;
@@ -5829,8 +5839,12 @@ body.modal-active {
         text-transform: uppercase;
         letter-spacing: .1rem;
         font-size: 1rem;
-        display: inline-block; }
+        display: inline-block;
+        -webkit-transition: all 300ms ease;
+        transition: all 300ms ease; }
         @media (min-width: 1024px) {
           .modal .inner form input[type=submit] {
             padding: 0 4rem;
             font-size: 1.2rem; } }
+        .modal .inner form input[type=submit]:hover {
+          background-color: #6d5e67; }
