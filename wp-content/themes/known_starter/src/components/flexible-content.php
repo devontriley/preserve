@@ -80,7 +80,6 @@ else {
 
 
         <?php
-        if(class_exists('woocommerce')) :
           if(is_page('shop')) : ?>
           <div id="notify-me">
             <div class="newsletter-signup">
@@ -103,7 +102,7 @@ else {
             </div>
             </div>
           </div>
-        <?php endif; endif; ?>
+        <?php endif; ?>
 
         <?php if(class_exists('woocommerce') && is_product() ) { button( 'Learn More', get_bloginfo('url').'/tees-not-trees' ); } ?>
       </div>
