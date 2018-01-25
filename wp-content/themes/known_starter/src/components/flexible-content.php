@@ -80,7 +80,7 @@ else {
 
 
         <?php
-          if(is_page('shop')) : ?>
+          if(is_page('shop-coming-soon')) : ?>
           <div id="notify-me">
             <div class="newsletter-signup">
               <p>Notify me when the shop goes live:</p>
