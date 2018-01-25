@@ -56,5 +56,5 @@ $nav = wp_nav_menu(array(
     </a>
   </div>
 
-  <a href="<?php bloginfo('url'); ?>/shop" class="shop">Shop</a>
+  <a href="<?php bloginfo('url'); ?>/shop-coming-soon" class="shop">Shop</a>
 </div>
