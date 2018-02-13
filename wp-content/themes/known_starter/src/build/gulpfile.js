@@ -27,7 +27,14 @@ gulp.task('sass', function () {
       .pipe(gulp.dest('./../'));
 });
 
+
+//watch for the changes, tells us where to watch
+gulp.task('default', function () {
+  gulp.watch('./../sass/**/*.scss', ['sass']);
+});
+
 // JS
+
 gulp.task('scripts', function() {
   return gulp.src([
     './bower_components/jquery/dist/jquery.min.js',
@@ -37,8 +44,13 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('./../javascripts/dist/'));
 });
 
+//auto watch
+gulp.task('watchScripts', function() {
+  gulp.watch('./../javascripts/src/*.js', ['scripts'])
+});
+
 // watch scss and js
-gulp.task('default', function(){
+gulp.task('watchAll', function(){
   gulp.watch('./../sass/**/*.scss', ['sass']);
   gulp.watch('./../javascripts/src/*.js', ['scripts'])
 });
