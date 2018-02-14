@@ -23,10 +23,12 @@ elseif(is_page('Inspiration')){
 }
 
 elseif(class_exists('woocommerce') && (is_shop() || is_product_category())){
-  $headerGraphic = get_field('header_graphic', 752);
-  $header = get_field('header', 752);
-  $bodyCopy = get_field('body_copy', 752);
-  $greyBG = get_field('grey_background', 752);
+  $shopID = intVal(get_option('woocommerce_shop_page_id'));
+  
+  $headerGraphic = get_field('header_graphic', $shopID);
+  $header = get_field('header', $shopID);
+  $bodyCopy = get_field('body_copy', $shopID);
+  $greyBG = get_field('grey_background', $shopID);
 }
 
 elseif (is_category()) {

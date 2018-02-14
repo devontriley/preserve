@@ -14,6 +14,14 @@ body {
   }
 }
 
+.default-wysiwyg {
+  max-width: 110rem;
+  margin: 3rem auto;
+  @media(min-width: 1366px) {
+    margin: 10rem auto;
+  }
+}
+
 h1 {
   font-size: 2rem;
   font-weight: 400;

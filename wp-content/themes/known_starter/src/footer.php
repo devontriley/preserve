@@ -1,9 +1,9 @@
 <?php
-//if( class_exists('woocommerce') ) :
+if( class_exists('woocommerce') ) :
 
-	//if( is_cart() || is_checkout() ) : ?>
+	if( is_cart() || is_checkout() ) : ?>
 
-	<!-- <div id="cart-footer">
+	<div id="cart-footer">
 		<div class="inner">
 			<div class="logo">
 				<svg viewBox="0 0 101 29">
@@ -18,11 +18,14 @@
 				<a href="<?php bloginfo('url'); ?>/contact">CONTACT US</a>
 			</div>
 		</div>
-	</div> -->
+	</div>
 
-<?php //else : ?>
+<?php else : ?>
 
-<?php if(!is_page('shop-coming-soon')){ include('components/newsletter-signup.php'); } ?>
+<?php
+if(!is_page(['shop-coming-soon', 'shop', 'cart', 'checkout']) && !is_wc_endpoint_url('order-received')){
+	include('components/newsletter-signup.php');
+} ?>
 
 <div id="primary-footer">
 	<div class="logo">
@@ -61,11 +64,14 @@
 </div>
 
 <?php
-	//endif;
-//endif;
+	endif;
+endif;
 ?>
 
-<?php include('components/newsletter-modal.php'); ?>
+<?php
+if(!is_page(['shop-coming-soon', 'shop', 'cart', 'checkout']) && !is_wc_endpoint_url('order-received')){
+	include('components/newsletter-modal.php');
+} ?>
 
 <?php wp_footer(); ?>
 

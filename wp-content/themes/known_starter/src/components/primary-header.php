@@ -9,7 +9,8 @@ $nav = wp_nav_menu(array(
 <div id="primary-header">
   <nav id="primary-nav">
     <?php echo $nav; ?>
-    <div class="social">
+    <?php include('/wp-content/themes/known_starter/src/inc/header-cart.php'); ?>
+    <!-- <div class="social">
       <a href="https://twitter.com/preserve01" target="_blank">
   			<svg width="22" viewBox="0 0 30 25">
   				<use xlink:href="#twitter-icon"></use>
@@ -30,7 +31,7 @@ $nav = wp_nav_menu(array(
   				<use xlink:href="#instagram-icon"></use>
   			</svg>
   		</a>
-    </div>
+    </div> -->
     <div class="hamburger">
       <a href="#">
         <svg viewBox="0 0 20 12">
@@ -55,6 +56,8 @@ $nav = wp_nav_menu(array(
   		</svg>
     </a>
   </div>
+
+  <?php include('/wp-content/themes/known_starter/src/inc/header-cart.php'); ?>
 
   <a href="<?php bloginfo('url'); ?>/shop-coming-soon" class="shop">Shop</a>
 </div>

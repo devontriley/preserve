@@ -10,11 +10,12 @@
 
   #primary-header + & {
     margin-top: 0 !important;
+    margin-bottom: 0 !important;
     margin-bottom: 5rem;
     padding-top: 5rem;
     padding-bottom: 5rem;
     @media(min-width: 1024px) {
-      margin-bottom: 10rem;
+      //margin-bottom: 10rem;
       padding-top: 10rem;
       padding-bottom: 10rem;
     }

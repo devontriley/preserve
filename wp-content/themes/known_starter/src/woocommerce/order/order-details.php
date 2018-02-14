@@ -59,9 +59,10 @@ if ( $show_downloads ) {
             </tr>
           </tbody>
         </table>
-      </div>
+      </div><!-- .col -->
 
       <div class="col">
+				<table class="woocommerce-table shop_table">
         <?php
   				foreach ( $order_items as $item_id => $item ) {
   					$product = apply_filters( 'woocommerce_order_item_product', $item->get_product(), $item );
@@ -76,8 +77,9 @@ if ( $show_downloads ) {
   					) );
   				}
   			?>
+				</table>
         <?php do_action( 'woocommerce_order_items_table', $order ); ?>
-      </div>
+      </div><!-- .col -->
     </div>
   </div>
 
@@ -95,7 +97,5 @@ if ( $show_customer_details ) {
   <img src="<?php bloginfo('template_directory'); ?>/img/shop/preserve_brands-order_confirmation-floral.png" />
   <h2>Get Inspired!</h2>
   <p>Exicted about getting your Preserve products? Head on over to our blog to get some inspiration for your gift giving!<p>
-    <a href="#" class="btn">Preserve Inspiration</a>
-</div>
-
-<?
+    <a href="<?php bloginfo('url');?>/inspiration" class="btn outline"><span>Preserve Inspiration</span><svg class="right-arrow" height="10" viewBox="0 0 5.41 10"><use href="#right-arrow"></use></svg></a>
+</div><!-- #get-inspired -->

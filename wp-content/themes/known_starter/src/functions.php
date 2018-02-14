@@ -120,7 +120,6 @@ if( class_exists('woocommerce') ) :
     }
   }
 
-
   //FONTAWESOME X HAPPENS HERE
   add_filter( 'woocommerce_cart_item_remove_link', 'edit_remove_link', 10, 2 );
   function edit_remove_link( $sprintf, $cart_item_key ) {

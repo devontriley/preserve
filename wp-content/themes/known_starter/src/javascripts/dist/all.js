@@ -519,7 +519,9 @@ function headerState()
 
 			this.createCookie();
 
-			addMailchimpScripts('#newsletter-modal-container');
+			if($('#newsletter-modal').length) {
+				addMailchimpScripts('#newsletter-modal-container');
+			}
 
 			this.showModal();
 
@@ -552,15 +554,16 @@ function headerState()
 
 	// Display footer newsletter signup if the modal cookie is set
 	// This avoids conflicts with multiple mailchimp forms on one page
-
-	if (document.cookie.replace(/(?:(?:^|.*;\s*)newsletterModal\s*\=\s*([^;]*).*$)|^.*$/, "$1") === "true") {
-		if(!$('.page-template-page-shop-coming-soon').length) {
-			$('.newsletter-signup').addClass('active');
-			addMailchimpScripts('#footer-newsletter-signup');
-		}
-	} else {
-		if(!$('.page-template-page-shop-coming-soon').length) {
-			var NewsletterModal = new Modal('#newsletter-modal');
+	if($('#newsletter-modal').length) {
+		if (document.cookie.replace(/(?:(?:^|.*;\s*)newsletterModal\s*\=\s*([^;]*).*$)|^.*$/, "$1") === "true") {
+			if(!$('.page-template-page-shop-coming-soon').length) {
+				$('.newsletter-signup').addClass('active');
+				addMailchimpScripts('#footer-newsletter-signup');
+			}
+		} else {
+			if(!$('.page-template-page-shop-coming-soon').length) {
+				var NewsletterModal = new Modal('#newsletter-modal');
+			}
 		}
 	}
 
@@ -631,18 +634,6 @@ function headerState()
 			var $mcj = jQuery.noConflict(true);
 		}
 	}
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 })(jQuery);

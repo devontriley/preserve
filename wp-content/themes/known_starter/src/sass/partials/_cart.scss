@@ -40,6 +40,10 @@
     h2 {
       font-weight: 700;
       font-size: 1.6rem;
+      padding: 0 1.2rem;
+      @media(min-width: 768px) {
+        padding: 0;
+      }
     }
 
     tr:nth-child(odd) {
@@ -61,6 +65,11 @@
       line-height: 4rem;
       padding: 0;
       transition: all 300ms ease;
+      margin: 0 auto;
+      width: calc(100% - 2.4rem);
+      @media(min-width: 768px) {
+        width: auto;
+      }
 
       &:hover {
         background-color: $gold;

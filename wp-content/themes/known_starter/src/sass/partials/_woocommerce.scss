@@ -452,7 +452,9 @@ section.up-sells {
           @media(min-width: 768px) {
             flex: 0 0 50%;
             max-width: 50%;
-            margin: 0 2rem;
+            margin: 0;
+            padding: 0 2rem;
+            box-sizing: border-box;
           }
 
           table {
@@ -494,6 +496,51 @@ section.up-sells {
     a {
       line-height: 100% !important;
       padding: .5rem 0;
+    }
+  }
+}
+
+#cart-footer {
+  background: $text-color;
+  color: #fff;
+  padding: 2rem 0;
+  text-align: center;
+  @media(min-width: 768px) {
+    text-align: left;
+  }
+
+  .inner {
+    padding: 0 3rem;
+    @media(min-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .logo {
+    margin-bottom: 3rem;
+    @media(min-width: 768px) {
+      margin-bottom: 0;
+    }
+
+    svg {
+      width: 20rem;
+      fill: #fff;
+      vertical-align: bottom;
+    }
+  }
+
+  .cards {
+    margin-bottom: 3rem;
+    @media(min-width: 768px) {
+      margin-bottom: 0;
+    }
+  }
+
+  .contact {
+    a {
+      color: #fff;
     }
   }
 }
