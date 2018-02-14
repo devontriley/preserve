@@ -2,7 +2,7 @@
 
 <?php
 if(class_exists('woocommerce')){
-  if( is_cart() ) {
+  if( is_cart() || is_checkout() ) {
     if(have_posts()) : while(have_posts()) : the_post();
 
       the_content();
