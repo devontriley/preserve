@@ -148,6 +148,11 @@ if( class_exists('woocommerce') ) :
     }
   }
 
+  add_action( 'woocommerce_product_query', 'all_products_query' );
+  function all_products_query($q){
+      $q->set( 'posts_per_page', -1 );
+  }
+
   // add back to shop on product single
   add_action( 'woocommerce_before_main_content', 'back_to_shop' );
   function back_to_shop() {
