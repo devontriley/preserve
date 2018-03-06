@@ -3069,9 +3069,9 @@ form.woocommerce-checkout {
       .woocommerce .products ul li.product,
       .woocommerce ul.products li.product {
         -webkit-box-flex: 0;
-            -ms-flex: 0 0 30%;
-                flex: 0 0 30%;
-        max-width: 30%; } }
+            -ms-flex: 0 0 33.33%;
+                flex: 0 0 33.33%;
+        max-width: 33.33%; } }
     .woocommerce .products ul li.product:hover,
     .woocommerce ul.products li.product:hover {
       -webkit-box-shadow: 0 0 2rem 1rem rgba(0, 0, 0, 0.05);
