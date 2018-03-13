@@ -176,6 +176,10 @@
         background: #b99656;
         border-color: #b99656;
         color: #fff;
+
+        svg {
+          fill: #fff;
+        }
       }
 
       &:focus {
