@@ -32,8 +32,6 @@ if(!$image){ $image = get_field('background_image'); }
 if(!$mobileImage){ $mobileImage = get_field('mobile_image'); }
 ?>
 
-TESTING
-
 <div class="hero <?php if($fullViewport){ echo 'fullViewport'; } ?>" <?php if($mobileImage === null){ echo 'style="background-image: url('.$image.');"'; }?>>
   <div class="content">
     <div class="inner">
