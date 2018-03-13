@@ -3627,9 +3627,6 @@ section.up-sells h2 {
   display: none !important;
   fill: #6d5e67;
   margin-right: 1rem; }
-  @media (min-width: 1024px) {
-    .cart-count {
-      display: none; } }
   .cart-count a {
     fill: #6d5e67; }
   .cart-count svg {
