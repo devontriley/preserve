@@ -28,6 +28,12 @@
       justify-content: center;
     }
 
+    @media(min-width: 992px) {
+      & > .flexible-content {
+        flex: 0 0 100%;
+      }
+    }
+
     //bxslider
     .load-delay {
       li img {
