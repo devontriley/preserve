@@ -171,7 +171,7 @@ if( class_exists('woocommerce') ) :
   }
 
   // Single product custom icon details
-  add_action( 'woocommerce_after_main_content', 'custom_detail_icons', 10 );
+  add_action( 'woocommerce_after_single_product_summary', 'custom_detail_icons', 16 );
   function custom_detail_icons() {
     if( is_product() ) {
       include('components/custom-detail-icons.php');
