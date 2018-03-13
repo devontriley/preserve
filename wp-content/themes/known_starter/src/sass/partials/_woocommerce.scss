@@ -316,6 +316,9 @@
   border-bottom: .1rem solid #eee;
   padding: 3rem 0;
   margin: 8rem auto 0 auto;
+  @media(min-width: 992px) {
+    flex: 0 0 100%;
+  }
 
   .inner {
     display: flex;

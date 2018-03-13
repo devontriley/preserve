@@ -3149,6 +3149,11 @@ form.woocommerce-checkout {
   border-bottom: .1rem solid #eee;
   padding: 3rem 0;
   margin: 8rem auto 0 auto; }
+  @media (min-width: 992px) {
+    #detail-icons {
+      -webkit-box-flex: 0;
+          -ms-flex: 0 0 100%;
+              flex: 0 0 100%; } }
   #detail-icons .inner {
     display: -webkit-box;
     display: -ms-flexbox;
