@@ -266,6 +266,10 @@
     align-items: flex-start;
   }
 
+  &:before {
+    display: none;
+  }
+
   li.product {
     padding: 3rem;
     margin: 0;
