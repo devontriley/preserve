@@ -5654,14 +5654,6 @@ SEARCH
     margin-bottom: 5rem;
     padding-top: 5rem;
     padding-bottom: 5rem; }
-    @media (min-width: 1024px) {
-      #primary-header + .flexible-content {
-        padding-top: 10rem;
-        padding-bottom: 10rem; } }
-    @media (min-width: 1366px) {
-      #primary-header + .flexible-content {
-        padding-top: 18rem;
-        padding-bottom: 18rem; } }
     #primary-header + .flexible-content .image img {
       max-width: 20rem; }
   .flexible-content.grey-bg {
