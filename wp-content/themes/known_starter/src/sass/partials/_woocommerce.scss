@@ -325,6 +325,8 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-end;
+    max-width: 77rem;
+    margin: 0 auto;
     @media(min-width: 768px) {
       justify-content: center;
     }
@@ -332,13 +334,13 @@
 
   .item {
     text-align: center;
-    margin: 0 3rem 2rem 3rem;
-    flex: 0 0 calc(50% - 6rem);
-    max-width: calc(50% - 6rem);
+    margin: 0 2rem 2rem 2rem;
+    flex: 0 0 calc(50% - 4rem);
+    max-width: calc(50% - 4rem);
     @media(min-width: 768px) {
-      flex: 0 0 calc(20% - 6rem);
+      flex: 0 0 calc(20% - 4rem);
       max-width: none;
-      margin: 0 3rem;
+      margin: 0 2rem;
     }
 
     img {
