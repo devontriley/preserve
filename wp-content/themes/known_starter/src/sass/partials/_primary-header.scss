@@ -52,8 +52,9 @@
 .cart-count {
   fill: $text-color;
   margin-right: 1rem;
+  display: block;
   @media(min-width: 1024px) {
-
+    display: none;
   }
 
   a {
@@ -84,6 +85,7 @@
   }
 
   .cart-count {
+    display: none;
     @media(min-width: 1024px) {
       display: block;
       margin: 0 0 0 1rem;
