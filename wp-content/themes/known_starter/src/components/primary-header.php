@@ -8,6 +8,7 @@ $nav = wp_nav_menu(array(
 
 <div id="primary-header">
   <nav id="primary-nav">
+      TESTING TESTING
     <?php echo $nav; ?>
     <?php //include('/preserve/wp-content/themes/known_starter/src/inc/header-cart.php'); ?>
     <!-- <div class="social">
