@@ -40,7 +40,10 @@
       max-width: 50rem;
       display: block;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 0 2rem 2rem 2rem;
+      @media(min-width: 768px) {
+        padding: 2rem;
+      }
       @media screen and (min-width: 992px){
         width: 50%;
         display: inline-block;
