@@ -10,7 +10,7 @@ $nav = wp_nav_menu(array(
   <nav id="primary-nav">
     <?php echo $nav; ?>
 
-    <?php include('/preserve/wp-content/themes/known_starter/src/inc/header-cart.php'); ?>
+    <?php get_template_part('header-cart'); ?>
 
     <!-- <div class="social">
       <a href="https://twitter.com/preserve01" target="_blank">
@@ -59,7 +59,7 @@ $nav = wp_nav_menu(array(
     </a>
   </div>
 
-  <?php include('/preserve/wp-content/themes/known_starter/src/inc/header-cart.php'); ?>
+    <?php get_template_part('header-cart'); ?>
 
   <a href="<?php bloginfo('url'); ?>/shop-coming-soon" class="shop">Shop</a>
 </div>
