@@ -188,7 +188,7 @@ if( class_exists('woocommerce') ) :
   }
 
   // Single product tees not trees
-  add_action( 'woocommerce_after_main_content', 'tees_not_trees' );
+  add_action( 'woocommerce_after_single_product_summary', 'tees_not_trees', 17 );
   function tees_not_trees() {
     if( is_product() ) {
       $teesNotTrees = true;
