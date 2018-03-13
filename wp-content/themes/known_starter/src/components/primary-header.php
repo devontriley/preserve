@@ -9,28 +9,6 @@ $nav = wp_nav_menu(array(
 <div id="primary-header">
   <nav id="primary-nav">
     <?php echo $nav; ?>
-    <!-- <div class="social">
-      <a href="https://twitter.com/preserve01" target="_blank">
-  			<svg width="22" viewBox="0 0 30 25">
-  				<use xlink:href="#twitter-icon"></use>
-  			</svg>
-  		</a>
-      <a href="https://www.facebook.com/preservebrands/" target="_blank">
-  			<svg width="22" viewBox="0 0 30 30">
-  				<use xlink:href="#facebook-icon"></use>
-  			</svg>
-  		</a>
-      <a href="https://www.pinterest.com/preservebrands/" target="_blank">
-  			<svg width="22" viewBox="0 0 30 29">
-  				<use xlink:href="#pinterest-icon"></use>
-  			</svg>
-  		</a>
-      <a href="https://www.instagram.com/preservebrands/" target="_blank">
-  			<svg width="22" viewBox="0 0 30 29">
-  				<use xlink:href="#instagram-icon"></use>
-  			</svg>
-  		</a>
-    </div> -->
     <div class="hamburger">
       <a href="#">
         <svg viewBox="0 0 20 12">
