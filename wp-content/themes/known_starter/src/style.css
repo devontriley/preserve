@@ -2954,6 +2954,8 @@ form.woocommerce-checkout {
           -webkit-box-flex: 0;
               -ms-flex: 0 0 7rem;
                   flex: 0 0 7rem; }
+    #woocommerce-main div.product div.summary {
+      max-width: 51.5rem; }
     #woocommerce-main div.product .product-dimensions {
       font-style: italic;
       padding: 1rem 0; }
