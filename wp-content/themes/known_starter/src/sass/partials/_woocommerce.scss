@@ -266,8 +266,9 @@
     align-items: flex-start;
   }
 
-  &:before {
-    display: none;
+  &:before,
+  &:after {
+    display: none!important;
   }
 
   li.product {
