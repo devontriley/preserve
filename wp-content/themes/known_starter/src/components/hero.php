@@ -41,8 +41,8 @@ if(!$mobileImage){ $mobileImage = get_field('mobile_image'); }
         <img src="<?php bloginfo('template_directory');?>/img/plant_hero.png" class="plant-divider" />
       <?php } ?>
       <?php echo $description ?>
-      <?php if(is_home()){ ?>
-        <a class="hero-cta" href="<?php bloginfo('url'); ?>/shop">
+      <?php if(is_front_page()){ ?>
+        <a class="hero-cta" href="<?php echo get_bloginfo('url'); ?>/shop">
             Shop exclusive products
             <svg class="right-arrow" height="10" viewBox="0 0 5.41 10">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#right-arrow"></use>
