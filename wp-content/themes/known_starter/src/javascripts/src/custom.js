@@ -287,6 +287,8 @@ var mainSlider = productSlider.bxSlider({
 
     $('.blog-bxslider').each(function(ele,index){
         $(this).bxSlider({
+            mode: 'fade',
+            speed: 0,
             pager: false,
             controls: true,
             infiniteLoop: true,
