@@ -264,6 +264,11 @@ if(document.getElementById('load-btn')){
 var productSlider = $("#gallery-bxslider");
 var productThumbs = $("#bxslider-pager");
 
+function changeActiveThumb(thumb) {
+    thumb.siblings('li').removeClass('active');
+    thumb.addClass('active');
+}
+
 var mainSlider = productSlider.bxSlider({
     controls: true,
     pager: false,
@@ -275,14 +280,10 @@ var mainSlider = productSlider.bxSlider({
         document.getElementById('gallery-bxslider').classList.remove('load-delay');
     },
     onSlideAfter: function(slide) {
+        console.log('change');
         changeActiveThumb(slide);
     }
 });
-
-function changeActiveThumb(thumb) {
-    thumb.siblings('li').removeClass('active');
-    thumb.addClass('active');
-}
 
 function linkSlider(productSlider, productThumbs){
 productThumbs.on("click", "li", function(e){
