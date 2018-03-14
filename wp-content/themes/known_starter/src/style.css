@@ -2968,13 +2968,17 @@ form.woocommerce-checkout {
           pointer-event: none; }
           #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-prev {
             position: absolute;
-            left: 0;
+            left: -1rem;
             top: 0;
+            -webkit-transform: translateX(-100%);
+                    transform: translateX(-100%);
             pointer-events: auto; }
           #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-next {
             position: absolute;
-            right: 0;
+            right: -1rem;
             top: 0;
+            -webkit-transform: translateX(100%);
+                    transform: translateX(100%);
             pointer-event: auto; }
       #woocommerce-main div.product #product-bxslider #bxslider-pager {
         display: -webkit-box;

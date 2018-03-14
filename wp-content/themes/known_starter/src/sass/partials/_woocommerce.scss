@@ -102,16 +102,24 @@
 
           .bx-prev {
             position: absolute;
-            left: 0;
+            left: -1rem;
             top: 0;
+            transform: translateX(-100%);
             pointer-events: auto;
+            font-size: 3rem;
+            color: #aaa;
+            line-height: 1;
           }
 
           .bx-next {
             position: absolute;
-            right: 0;
+            right: -1rem;
             top: 0;
+            transform: translateX(100%);
             pointer-event: auto;
+            font-size: 3rem;
+            color: #aaa;
+            line-height: 1;
           }
         }
       }
