@@ -263,13 +263,15 @@ var productSlider = $("#gallery-bxslider");
 var productThumbs = $("#bxslider-pager");
 
 var mainSlider = productSlider.bxSlider({
-  controls: false,
-  pager: false,
-  infiniteLoop: true,
-  onSliderLoad: function(){
-    document.getElementById('gallery-bxslider').classList.remove('load-delay');
+    controls: true,
+    pager: false,
+    mode: 'fade',
+    speed: 0,
+    infiniteLoop: true,
+    onSliderLoad: function(){
+        document.getElementById('gallery-bxslider').classList.remove('load-delay');
     }
-  });
+});
 
   function linkSlider(productSlider, productThumbs){
     productThumbs.on("click", "li", function(event){
@@ -283,14 +285,39 @@ var mainSlider = productSlider.bxSlider({
 
   //bxslider for blog
 
-    var adaptiveHeight = (!window.matchMedia('(min-width: 992px)').matches);
+  // var blogSliders = document.querySelectorAll('.blog-bxslider');
+  //
+  // for(var i = 0; i < blogSliders.length; i++){
+  //   var initSliders = $(blogSliders[i]).bxSlider({
+  //     pager: false,
+  //     infiniteLoop: true,
+  //     prevText: '<',
+  //     nextText: '>'
+  //     // onSliderLoad: function(){
+  //     //   blogSliders[i].classList.remove('load-delay');
+  //     // }
+  //   });
+  // console.log($(blogSliders[i]));
+  // }
 
-    $('.blog-bxslider').each(function(ele,index){
-        $(this).bxSlider({
-            mode: 'fade',
-            speed: 0,
-            pager: false,
-            controls: true,
-            infiniteLoop: true
-        });
+  var adaptiveHeight = (!window.matchMedia('(min-width: 992px)').matches);
+
+  $('.blog-bxslider').each(function(ele,index){
+    $(this).bxSlider({
+      pager: false,
+      infiniteLoop: true,
+      adaptiveHeight: adaptiveHeight,
+      prevText: '<',
+      nextText: '>'
     });
+  });
+
+  // blogSlider.bxSlider({
+  //   pager: false,
+  //   infiniteLoop: true,
+  //   prevText: '<',
+  //   nextText: '>',
+  //   onSliderLoad: function(){
+  //     document.getElementById('blog-bxslider').classList.remove('load-delay');
+  //     }
+  // });
