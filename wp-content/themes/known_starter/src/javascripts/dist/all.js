@@ -267,7 +267,6 @@ var productThumbs = $("#bxslider-pager");
 var mainSlider = productSlider.bxSlider({
     controls: true,
     pager: false,
-    mode: 'fade',
     speed: 0,
     infiniteLoop: true,
     onSliderLoad: function(){
