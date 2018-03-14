@@ -275,10 +275,11 @@ var mainSlider = productSlider.bxSlider({
 });
 
   function linkSlider(productSlider, productThumbs){
-    productThumbs.on("click", "li", function(event){
-      event.preventDefault();
-      var newIndex = $(this).attr("data-slideIndex");
-      productSlider.goToSlide(newIndex);
+    productThumbs.on("click", "li", function(e){
+      e.preventDefault();
+      $(this).siblings('li').removeClass('active');
+      $(this).addClass('active');
+      productSlider.goToSlide($(this).attr("data-slideIndex"););
     })
   }
 
