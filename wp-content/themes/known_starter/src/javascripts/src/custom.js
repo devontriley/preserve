@@ -278,7 +278,7 @@ var mainSlider = productSlider.bxSlider({
         document.getElementById('gallery-bxslider').classList.remove('load-delay');
     },
     onSlideAfter: function(slide) {
-        console.log('change');
+        console.log(slide);
         changeActiveThumb(slide);
     }
 });
