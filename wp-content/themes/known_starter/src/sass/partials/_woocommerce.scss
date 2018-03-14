@@ -58,6 +58,7 @@
       display: block;
       margin: 0 auto;
       padding: 0 2rem 2rem 2rem;
+      position: relative;
       @media(min-width: 768px) {
         padding: 2rem;
       }
@@ -72,6 +73,8 @@
       }
 
       .bx-wrapper {
+        position: relative;
+
         .bx-viewport {
           height: auto !important;
 
@@ -87,6 +90,28 @@
                 vertical-align: middle;
               }
             }
+          }
+        }
+
+        .bx-controls {
+          position: absolute;
+          left: 0;
+          top: 50%;
+          width: 100%;
+          pointer-event: none;
+
+          .bx-prev {
+            position: absolute;
+            left: 0;
+            top: 0;
+            pointer-events: auto;
+          }
+
+          .bx-next {
+            position: absolute;
+            right: 0;
+            top: 0;
+            pointer-event: auto;
           }
         }
       }

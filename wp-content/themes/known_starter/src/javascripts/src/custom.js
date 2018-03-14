@@ -267,6 +267,8 @@ var mainSlider = productSlider.bxSlider({
     pager: false,
     speed: 0,
     infiniteLoop: true,
+    prevText: '<',
+    nextText: '>',
     onSliderLoad: function(){
         document.getElementById('gallery-bxslider').classList.remove('load-delay');
     }
