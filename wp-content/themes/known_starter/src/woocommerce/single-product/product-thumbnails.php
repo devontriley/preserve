@@ -12,6 +12,8 @@ if ( $attachment_ids && has_post_thumbnail() ) {
 
   echo '<div class="thumbnails-wrapper">';
 
+    $i = 0;
+
 	foreach ( $attachment_ids as $attachment_id ) {
 		$full_size_image = wp_get_attachment_image_src( $attachment_id, 'full' );
 		$thumbnail       = wp_get_attachment_image_src( $attachment_id, 'shop_thumbnail' );
@@ -24,11 +26,13 @@ if ( $attachment_ids && has_post_thumbnail() ) {
 			'data-large_image_height' => $full_size_image[2],
 		);
 
-		$html  = '<div data-thumb="' . esc_url( $thumbnail[0] ) . '" class="woocommerce-product-gallery__image">';
+		$html  = '<div data-thumb="' . esc_url( $thumbnail[0] ) . '" class="woocommerce-product-gallery__image '. ($i === 1) ? 'active' : '' .'">';
 		$html .= wp_get_attachment_image( $attachment_id, 'shop_single', false, $attributes );
  		$html .= '</div>';
 
 		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $attachment_id );
+
+		$i++;
 	}
 
   echo '</div>';
