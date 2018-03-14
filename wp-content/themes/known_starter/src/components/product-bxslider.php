@@ -19,7 +19,7 @@ if($mainImage || $galleryIds){
   $indexCount = 0;
 
   foreach($galleryIds as $id){
-    echo '<li class="" data-slideIndex="'. $indexCount .'">'. wp_get_attachment_image($id) .'</li>';
+    echo '<li class="'. ($indexCount === 0) ? 'active' : '' .'" data-slideIndex="'. $indexCount .'">'. wp_get_attachment_image($id) .'</li>';
     $indexCount++;
   }
   echo '</ul><!- #bxslider-pager-->';
