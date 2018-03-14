@@ -26,7 +26,7 @@ if ( $attachment_ids && has_post_thumbnail() ) {
 			'data-large_image_height' => $full_size_image[2],
 		);
 
-		$html  = '<div data-thumb="' . esc_url( $thumbnail[0] ) . '" class="woocommerce-product-gallery__image '. ($i === 1) ? 'active' : '' .'">';
+		$html  = '<div data-thumb="' . esc_url( $thumbnail[0] ) . '" class="woocommerce-product-gallery__image '. ($i == 0) ? 'active' : '' .'">';
 		$html .= wp_get_attachment_image( $attachment_id, 'shop_single', false, $attributes );
  		$html .= '</div>';
 
