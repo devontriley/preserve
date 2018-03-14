@@ -17,7 +17,11 @@
     }
   }
 
-  // Single Product
+  /**
+   * Single Product
+   *
+   */
+
   div.product {
     margin: 5rem auto;
     padding: 0 2rem;
@@ -34,7 +38,11 @@
       }
     }
 
-    //bxslider
+    /**
+     * Product Image Slider
+     *
+     */
+
     .load-delay {
       li img {
         display: none;
@@ -71,15 +79,10 @@
             li {
               width: 100%;
               text-align: center;
-              padding: 2rem;
               list-style: none;
 
               img {
                 vertical-align: middle;
-                max-width: 100%;
-                max-height: 100%;
-                width: 100%;
-                object-fit: contain;
               }
             }
           }
