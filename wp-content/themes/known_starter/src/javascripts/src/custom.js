@@ -279,7 +279,7 @@ var mainSlider = productSlider.bxSlider({
       e.preventDefault();
       $(this).siblings('li').removeClass('active');
       $(this).addClass('active');
-      productSlider.goToSlide($(this).attr("data-slideIndex"););
+      productSlider.goToSlide($(this).attr("data-slideIndex"));
     })
   }
 
