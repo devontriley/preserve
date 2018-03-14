@@ -57,7 +57,6 @@ if( class_exists('woocommerce') ) :
     }
   }
 
-
   // remove sorting dropdown
   remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
   remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
