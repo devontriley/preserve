@@ -2948,7 +2948,7 @@ form.woocommerce-checkout {
       #woocommerce-main div.product #product-bxslider #gallery-bxslider {
         list-style: none; }
       #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport {
-        height: auto; }
+        height: auto !important; }
         #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider {
           list-style: none; }
           #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider li {
