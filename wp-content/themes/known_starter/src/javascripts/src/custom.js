@@ -291,9 +291,6 @@ var mainSlider = productSlider.bxSlider({
             speed: 0,
             pager: false,
             controls: true,
-            infiniteLoop: true,
-            adaptiveHeight: adaptiveHeight,
-            prevText: '<',
-            nextText: '>'
+            infiniteLoop: true
         });
     });
