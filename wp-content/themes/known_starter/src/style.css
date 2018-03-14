@@ -2934,7 +2934,8 @@ form.woocommerce-checkout {
       max-width: 50rem;
       display: block;
       margin: 0 auto;
-      padding: 0 2rem 2rem 2rem; }
+      padding: 0 2rem 2rem 2rem;
+      position: relative; }
       @media (min-width: 768px) {
         #woocommerce-main div.product #product-bxslider {
           padding: 2rem; } }
@@ -2947,16 +2948,34 @@ form.woocommerce-checkout {
           max-width: 51.5rem; } }
       #woocommerce-main div.product #product-bxslider #gallery-bxslider {
         list-style: none; }
-      #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport {
-        height: auto !important; }
-        #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider {
-          list-style: none; }
-          #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider li {
-            width: 100%;
-            text-align: center;
+      #woocommerce-main div.product #product-bxslider .bx-wrapper {
+        position: relative; }
+        #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport {
+          height: auto !important; }
+          #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider {
             list-style: none; }
-            #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider li img {
-              vertical-align: middle; }
+            #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider li {
+              width: 100%;
+              text-align: center;
+              list-style: none; }
+              #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider li img {
+                vertical-align: middle; }
+        #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls {
+          position: absolute;
+          left: 0;
+          top: 50%;
+          width: 100%;
+          pointer-event: none; }
+          #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-prev {
+            position: absolute;
+            left: 0;
+            top: 0;
+            pointer-events: auto; }
+          #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-next {
+            position: absolute;
+            right: 0;
+            top: 0;
+            pointer-event: auto; }
       #woocommerce-main div.product #product-bxslider #bxslider-pager {
         display: -webkit-box;
         display: -ms-flexbox;
