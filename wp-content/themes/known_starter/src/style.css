@@ -2947,14 +2947,16 @@ form.woocommerce-checkout {
           max-width: 51.5rem; } }
       #woocommerce-main div.product #product-bxslider #gallery-bxslider {
         list-style: none; }
-      #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider {
-        list-style: none; }
-        #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider li {
-          width: 100%;
-          text-align: center;
+      #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport {
+        height: auto; }
+        #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider {
           list-style: none; }
-          #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider li img {
-            vertical-align: middle; }
+          #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider li {
+            width: 100%;
+            text-align: center;
+            list-style: none; }
+            #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider li img {
+              vertical-align: middle; }
       #woocommerce-main div.product #product-bxslider #bxslider-pager {
         display: -webkit-box;
         display: -ms-flexbox;
