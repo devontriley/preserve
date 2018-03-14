@@ -2972,14 +2972,20 @@ form.woocommerce-checkout {
             top: 0;
             -webkit-transform: translateX(-100%);
                     transform: translateX(-100%);
-            pointer-events: auto; }
+            pointer-events: auto;
+            font-size: 3rem;
+            color: #aaa;
+            line-height: 1; }
           #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-next {
             position: absolute;
             right: -1rem;
             top: 0;
             -webkit-transform: translateX(100%);
                     transform: translateX(100%);
-            pointer-event: auto; }
+            pointer-event: auto;
+            font-size: 3rem;
+            color: #aaa;
+            line-height: 1; }
       #woocommerce-main div.product #product-bxslider #bxslider-pager {
         display: -webkit-box;
         display: -ms-flexbox;
