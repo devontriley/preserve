@@ -3002,6 +3002,8 @@ form.woocommerce-checkout {
           -webkit-box-flex: 0;
               -ms-flex: 0 0 7rem;
                   flex: 0 0 7rem; }
+          #woocommerce-main div.product #product-bxslider #bxslider-pager li.active {
+            border-color: #b99656; }
     #woocommerce-main div.product div.summary {
       max-width: 51.5rem; }
       @media (min-width: 992px) {

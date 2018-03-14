@@ -136,9 +136,13 @@
           padding: 1rem;
           border: 1px solid #eee;
           flex: 0 0 7rem;
+
+          &.active {
+            border-color: $gold;
           }
         }
       }
+    }
 
     div.summary {
       max-width: 51.5rem;
