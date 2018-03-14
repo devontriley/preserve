@@ -2966,7 +2966,8 @@ form.woocommerce-checkout {
           top: 50%;
           width: 100%;
           pointer-event: none; }
-          #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-prev {
+          #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-prev,
+          #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-next {
             position: absolute;
             left: -1rem;
             top: 0;
@@ -2974,18 +2975,16 @@ form.woocommerce-checkout {
                     transform: translateX(-100%);
             pointer-events: auto;
             font-size: 3rem;
-            color: #aaa;
+            color: #ccc;
             line-height: 1; }
+            #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-prev:hover,
+            #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-next:hover {
+              color: #b99656; }
           #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-next {
-            position: absolute;
+            left: auto;
             right: -1rem;
-            top: 0;
             -webkit-transform: translateX(100%);
-                    transform: translateX(100%);
-            pointer-event: auto;
-            font-size: 3rem;
-            color: #aaa;
-            line-height: 1; }
+                    transform: translateX(100%); }
       #woocommerce-main div.product #product-bxslider #bxslider-pager {
         display: -webkit-box;
         display: -ms-flexbox;
