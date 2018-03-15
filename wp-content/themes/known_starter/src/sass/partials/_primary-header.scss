@@ -50,9 +50,9 @@
 }
 
 .cart-count {
-  display: none !important;
   fill: $text-color;
   margin-right: 1rem;
+  display: block;
   @media(min-width: 1024px) {
     display: none;
   }

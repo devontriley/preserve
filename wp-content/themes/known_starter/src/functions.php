@@ -57,7 +57,6 @@ if( class_exists('woocommerce') ) :
     }
   }
 
-
   // remove sorting dropdown
   remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
   remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
@@ -112,13 +111,32 @@ if( class_exists('woocommerce') ) :
     echo '<h1>Checkout</h1>';
   }
 
-  // remove breadbrumbs
-  add_action( 'woocommerce_before_main_content', 'remove_breadcrumbs');
-  function remove_breadcrumbs() {
-    if( is_shop() || is_product_category() || is_product() ) {
-      remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
-    }
-  }
+/**
+ *
+ * Change number of related products on product page
+ * Set your own value for 'posts_per_page'
+ *
+ */
+function woo_related_products_limit() {
+    global $product;
+
+    $args['posts_per_page'] = 3;
+    return $args;
+}
+add_filter( 'woocommerce_output_related_products_args', 'jk_related_products_args' );
+function jk_related_products_args( $args ) {
+    $args['posts_per_page'] = 3; // 4 related products
+    $args['columns'] = 1; // arranged in 2 columns
+    return $args;
+}
+
+//REMOVE SKU DISPLAY ON PRODUCT PAGE
+add_filter( 'wc_product_sku_enabled', '__return_false' );
+
+//REMOVE CATEGORY DISPLAY ON PRODUCT PAGE
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+
+
 
   //FONTAWESOME X HAPPENS HERE
   add_filter( 'woocommerce_cart_item_remove_link', 'edit_remove_link', 10, 2 );
@@ -176,7 +194,7 @@ if( class_exists('woocommerce') ) :
   }
 
   // Single product custom icon details
-  add_action( 'woocommerce_after_main_content', 'custom_detail_icons', 10 );
+  add_action( 'woocommerce_after_single_product_summary', 'custom_detail_icons', 16 );
   function custom_detail_icons() {
     if( is_product() ) {
       include('components/custom-detail-icons.php');
@@ -193,7 +211,7 @@ if( class_exists('woocommerce') ) :
   }
 
   // Single product tees not trees
-  add_action( 'woocommerce_after_main_content', 'tees_not_trees' );
+  add_action( 'woocommerce_after_single_product_summary', 'tees_not_trees', 17 );
   function tees_not_trees() {
     if( is_product() ) {
       $teesNotTrees = true;
