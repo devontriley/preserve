@@ -71,6 +71,16 @@
             }
           }
         }
+
+        .bx-controls {
+          .bx-prev {
+            left: 0;
+          }
+
+          .bx-next {
+            right: 0;
+          }
+        }
       }
 
       #bxslider-pager {
@@ -496,4 +506,9 @@ section.up-sells {
       padding: .5rem 0;
     }
   }
+}
+
+//cart and checkout footer
+#cart-footer {
+  margin: 0 -3rem;
 }
