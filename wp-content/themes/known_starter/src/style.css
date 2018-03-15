@@ -2954,14 +2954,6 @@ form.woocommerce-checkout {
           height: auto !important; }
           #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider {
             list-style: none; }
-<<<<<<< HEAD
-            #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider li img {
-              vertical-align: middle; }
-        #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-prev {
-          left: 0; }
-        #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-next {
-          right: 0; }
-=======
             #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-viewport #gallery-bxslider li {
               width: 100%;
               text-align: center;
@@ -2977,7 +2969,7 @@ form.woocommerce-checkout {
           #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-prev,
           #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-next {
             position: absolute;
-            left: -1rem;
+            left: 0;
             top: 0;
             -webkit-transform: translateX(-100%);
                     transform: translateX(-100%);
@@ -2990,10 +2982,9 @@ form.woocommerce-checkout {
               color: #b99656; }
           #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-next {
             left: auto;
-            right: -1rem;
+            right: 0;
             -webkit-transform: translateX(100%);
                     transform: translateX(100%); }
->>>>>>> cb22af4383a8c609822407c169b3974f10c5eee2
       #woocommerce-main div.product #product-bxslider #bxslider-pager {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -3340,13 +3331,11 @@ section.up-sells h2 {
   padding: .5rem 0; }
 
 #cart-footer {
-<<<<<<< HEAD
-  margin: 0 -3rem; }
-=======
   background: #6d5e67;
   color: #fff;
   padding: 2rem 0;
-  text-align: center; }
+  text-align: center;
+  margin: 0 -3rem; }
   @media (min-width: 768px) {
     #cart-footer {
       text-align: left; } }
@@ -3379,7 +3368,6 @@ section.up-sells h2 {
         margin-bottom: 0; } }
   #cart-footer .contact a {
     color: #fff; }
->>>>>>> cb22af4383a8c609822407c169b3974f10c5eee2
 
 .woocommerce table.shop_table {
   border: none;
