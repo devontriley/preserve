@@ -3013,7 +3013,7 @@ form.woocommerce-checkout {
                   flex: 0 0 50%; } }
     #woocommerce-main div.product .product-dimensions {
       font-style: italic;
-      padding: 1rem 0; }
+      margin-bottom: 1em; }
     #woocommerce-main div.product .woocommerce-product-details__short-description {
       font-family: "Miller Text", "Times New Roman", Georgia, serif;
       margin-bottom: 3rem; }
