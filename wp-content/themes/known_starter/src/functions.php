@@ -111,7 +111,6 @@ if( class_exists('woocommerce') ) :
     echo '<h1>Checkout</h1>';
   }
 
-<<<<<<< HEAD
 /**
  *
  * Change number of related products on product page
@@ -138,15 +137,6 @@ add_filter( 'wc_product_sku_enabled', '__return_false' );
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 
 
-=======
-  // remove breadbrumbs
-  add_action( 'woocommerce_before_main_content', 'remove_breadcrumbs');
-  function remove_breadcrumbs() {
-    if( is_shop() || is_product_category() || is_product() ) {
-      remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
-    }
-  }
->>>>>>> cb22af4383a8c609822407c169b3974f10c5eee2
 
   //FONTAWESOME X HAPPENS HERE
   add_filter( 'woocommerce_cart_item_remove_link', 'edit_remove_link', 10, 2 );
