@@ -174,14 +174,6 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
       $q->set( 'posts_per_page', -1 );
   }
 
-  // add back to shop on product single
-  add_action( 'woocommerce_before_main_content', 'back_to_shop' );
-  function back_to_shop() {
-    if( is_product() ){
-      include('components/back-to-shop.php');
-    }
-  }
-
   //add project dimensions to product single page
   add_action( 'woocommerce_before_add_to_cart_form', 'show_dimensions', 9 );
 
