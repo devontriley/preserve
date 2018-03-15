@@ -174,7 +174,6 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
       $q->set( 'posts_per_page', -1 );
   }
 
-<<<<<<< HEAD
   //add project dimensions to product single page
   add_action( 'woocommerce_before_add_to_cart_form', 'show_dimensions', 9 );
 =======
