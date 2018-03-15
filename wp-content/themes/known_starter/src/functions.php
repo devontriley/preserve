@@ -93,6 +93,9 @@ if( class_exists('woocommerce') ) :
   //   return $args;
   // }
 
+  remove_action( 'woocommerce_before_cart', 'woocommerce_breadcrumb', 10 );
+  remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+
   // cart open div
   add_action( 'woocommerce_before_cart', 'cart_open_container', 20 );
   function cart_open_container() {
@@ -225,7 +228,27 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
     echo '<img id="loader-gif" alt="loading" src="'. get_bloginfo('template_directory') .'/img/blog/loading_spinner.gif"/>';
   }
 
+  // Remove shop pagination
+  remove_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 10 );
+
+  function add_query_vars_filter($vars){
+    $vars[] = "prod_cat";
+    return $vars;
+  }
+  add_filter( 'query_vars', 'add_query_vars_filter' );
+
+  function products_by_cat($query) {
+      if(!is_admin() && is_shop() && $query->is_main_query()) {
+          $cat = get_query_var('prod_cat');
+          if($cat) {
+              $query->set('product_cat', $cat);
+          }
+      }
+  }
+  add_action('pre_get_posts', 'products_by_cat');
+
   // include woocommerce ajax function
+  // TODO: only load ~12 products and lazy load the rest
   function load_more_products() {
     $catID = $_POST['catID'];
 

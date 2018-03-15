@@ -8,21 +8,24 @@ $args = array(
   'title_li' => ''
 );
 
+$queryCat = get_query_var('prod_cat');
 $shopCategories = get_categories($args);
-$active = is_shop() ? 'active' : '';
 
 if($shopCategories){
 
   echo '<div class="page-nav-bar"><div class="inner">';
 
-  echo '<div><a href="'. get_bloginfo('url') .'/shop" class="'. $active .'" data-cat="0">All</a></div>';
+  echo '<div><a href="'. get_bloginfo('url') .'/shop" class="'. (!$queryCat ? 'active' : '') .'" data-cat="0" data-slug="all">All</a></div>';
 
   foreach($shopCategories as $c){
 
+    $active = false;
     $catLink = get_term_link( $c->term_id );
-    $active = ($termCat === $c->term_id) ? 'active' : '';
+    if(($queryCat && $queryCat === $c->slug) || ($termCat === $c->term_id)) {
+      $active = true;
+    }
 
-    echo '<div><a href="'. $catLink .'" class="'. $active .'" data-cat="'. $c->term_id .'">'. $c->name .'</a></div>';
+    echo '<div><a href="'. $catLink .'" class="'. ($active ? 'active' : '')  .'" data-cat="'. $c->term_id .'" data-slug="'. $c->slug .'">'. $c->name .'</a></div>';
 
   }
 

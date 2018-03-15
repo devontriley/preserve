@@ -4,22 +4,27 @@ var shopCategories = document.querySelector('#woocommerce-main .page-nav-bar');
 var productGrid = document.querySelector('#woocommerce-main ul.products');
 var loader = document.getElementById('loader-gif');
 
+function getMatches(string, regex, index) {
+    index || (index = 1); // default to the first capturing group
+    var matches = [];
+    var match;
+    while (match = regex.exec(string)) {
+        matches.push(match[index]);
+    }
+    return matches;
+}
+
 if(shopCategories) {
   shopCategories.addEventListener('click', function(e){
     e.preventDefault();
     if(e.target.tagName === 'A' && !e.target.classList.contains('active')) {
       var catID = e.target.dataset.cat;
       var cats = shopCategories.querySelectorAll('a');
+      var dataSlug = e.target.dataset.slug;
 
       productGrid.innerHTML = '';
 
       loader.style.display = 'block';
-
-      for(var i = 0; i < cats.length; i++) {
-        cats[i].classList.remove('active');
-      }
-
-      e.target.classList.add('active');
 
       $.ajax(
         {
@@ -34,6 +39,19 @@ if(shopCategories) {
             console.log(xhr, status, error);
           },
           success : function(data, status, xhr){
+              for(var i = 0; i < cats.length; i++) {
+                  cats[i].classList.remove('active');
+              }
+
+              e.target.classList.add('active');
+
+              var url = 'http://'+window.location.hostname+window.location.pathname+'?prod_cat='+dataSlug;
+              if (typeof (history.pushState) != "undefined") {
+                  var obj = { Title: dataSlug, Url: url };
+                  history.pushState(obj, obj.Title, obj.Url);
+              } else {
+                  console.log("Browser does not support HTML5.");
+              }
             productGrid.innerHTML = data;
             loader.style.display = 'none';
           }
