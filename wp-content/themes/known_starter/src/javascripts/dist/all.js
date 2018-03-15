@@ -215,7 +215,17 @@ function closeSearchbar(){
   console.log('close');
 }
 
+// header border bottom on scroll
+$(window).scroll(function() {
+    var scroll = $(window).scrollTop();
+    var header = $("#primary-header");
 
+    if (scroll >= 200) {
+        header.addClass("scroll");
+    } else {
+        header.removeClass("scroll");
+    }
+});
 
 
 
