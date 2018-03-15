@@ -16,6 +16,10 @@
     height: 9rem;
   }
 
+  &.scroll {
+    border-bottom: 1px solid #eee; 
+  }
+
   .shop {
     display: none;
     @media(min-width: 768px) {

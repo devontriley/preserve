@@ -3248,7 +3248,8 @@ form.woocommerce-checkout {
         max-width: none;
         margin: 0 2rem; } }
     #detail-icons .item .img-wrapper {
-      height: 81px; }
+      height: 81px;
+      line-height: 81px; }
       #detail-icons .item .img-wrapper img {
         -webkit-transform: scale(0.7);
                 transform: scale(0.7);
@@ -3702,6 +3703,8 @@ section.up-sells h2 {
   @media (min-width: 768px) {
     #primary-header {
       height: 9rem; } }
+  #primary-header.scroll {
+    border-bottom: 1px solid #eee; }
   #primary-header .shop {
     display: none; }
     @media (min-width: 768px) {
