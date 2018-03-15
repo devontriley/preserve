@@ -212,7 +212,6 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
       $woocommerce_specs = $_POST['_specifications'];
       if(!empty($woocommerce_specs))
           update_post_meta($post_id, '_specifications', esc_attr($woocommerce_specs));
->>>>>>> 22762d208368a70bcee1b226ef9200955af84d67
 
       $woocommerce_process = $_POST['_process'];
       if(!empty($woocommerce_process))
