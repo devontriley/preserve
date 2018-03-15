@@ -1,4 +1,7 @@
-<?php if( is_cart() || is_checkout() ) { ?>
+<?php
+if( class_exists('woocommerce') ) :
+
+	if( is_cart() || is_checkout() ) : ?>
 
 	<div id="cart-footer">
 		<div class="inner">
@@ -17,9 +20,12 @@
 		</div>
 	</div>
 
-<?php } else { ?>
+<?php else : ?>
 
-<?php include('components/newsletter-signup.php'); ?>
+<?php
+if(!is_page(['shop-coming-soon', 'shop', 'cart', 'checkout']) && !is_wc_endpoint_url('order-received')){
+	include('components/newsletter-signup.php');
+} ?>
 
 <div id="primary-footer">
 	<div class="logo">
@@ -57,19 +63,17 @@
 	</p>
 </div>
 
-<?php } ?>
+<?php
+	endif;
+endif;
+?>
+
+<?php
+if(!is_page(['shop-coming-soon', 'shop', 'cart', 'checkout']) && !is_wc_endpoint_url('order-received')){
+	include('components/newsletter-modal.php');
+} ?>
 
 <?php wp_footer(); ?>
-
-<!-- analytics -->
-<script>
-(function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){
-(f[s].q=f[s].q||[]).push(arguments)},f[s].l=1*new Date();h=i.createElement(r),
-l=i.getElementsByTagName(r)[0];h.async=1;h.src=e;l.parentNode.insertBefore(h,l)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-XXXXXXXX-XX', 'yourdomain.com');
-ga('send', 'pageview');
-</script>
 
 </body>
 </html>

@@ -52,9 +52,16 @@
       </g>
     </symbol>
 
-    <svg id="right-arrow" viewBox="0 0 5.82 10">
+    <symbol id="right-arrow" viewBox="0 0 5.82 10">
       <polygon points="5 4.18 5 4.18 0.82 0 0 0.82 4.18 5 0 9.18 0.82 10 5 5.82 5.82 5 5 4.18"/>
-    </svg>
+    </symbol>
+
+    <symbol id="close-icon" viewBox="0 0 16 15">
+      <g transform="translate(8.365461, 8.091618) rotate(-45.000000) translate(-8.365461, -8.091618) translate(-1.634539, -3.019493)" stroke="#979797">
+        <path d="M19.9641872,10.3986785 L0.700084039,10.3986785"></path>
+        <path d="M10.365407,0.799898344 L10.365407,20.0640015"></path>
+      </g>
+    </symbol>
 
   </svg>
 </div>

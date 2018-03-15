@@ -1,6 +1,6 @@
 <?php
 $menu = wp_nav_menu(array(
-  'menu' => 'primary-nav',
+  'menu' => 'mobile-nav',
   'container' => '',
   'echo' => false,
   'items_wrap' => '<ul>%3$s</ul>'

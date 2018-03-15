@@ -1,7 +1,7 @@
 #mobile-nav {
   position: fixed;
   z-index: 100;
-  right: 0;
+  left: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
@@ -9,15 +9,18 @@
   @include flexbox();
   @include justify-content(center);
   @include align-items(center);
-  @include transform(translateX(100%));
+  @include transform(translateX(-100%));
   @include transition(transform 500ms cubic-bezier(0.645, 0.045, 0.355, 1));
+  @media(min-width:1024px) {
+    display: none;
+  }
 
   nav {
     font-size: 1.4rem;
     text-align: center;
     text-transform: uppercase;
     @media(min-width: 768px) {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
     }
   }
 
@@ -29,7 +32,7 @@
 
   li {
     margin-bottom: 1.5rem;
-    @media(min-width: 768px) {
+    @media(min-width: 1024px) {
       margin-bottom: 3rem;
     }
   }
@@ -43,7 +46,7 @@
 
     li:first-child {
       margin-top: 1.5rem;
-      @media(min-width: 768px) {
+      @media(min-width: 1024px) {
         margin-top: 3rem;
       }
     }
@@ -55,11 +58,5 @@
 
   .mobile-nav-active & {
     @include transform(translateX(0));
-  }
-
-  @media(min-width:1366px) {
-    & {
-      display: none;
-    }
   }
 }

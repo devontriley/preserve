@@ -484,13 +484,21 @@ BLOG GRID
   .related-header {
     text-align: center;
 
-    &:after {
-    content: "";
-    display: block;
-    margin: 1rem auto;
-    width: 25%;
-    border-top: 1px solid $gold;}
+    .image {
+      margin-bottom: 1rem;
+    }
 
+    h2 {
+      display: inline-block;
+
+      &:after {
+        content: "";
+        display: block;
+        margin: 1rem auto;
+        width: 25%;
+        border-top: 1px solid $gold;
+      }
+    }
   }
 
   #grid-wrapper {
@@ -679,8 +687,11 @@ BLOG SINGLE
       display: block;
       margin: 0 auto;
       height: auto;
+<<<<<<< HEAD
       width: auto;
       max-width: 100%;
+=======
+>>>>>>> cb22af4383a8c609822407c169b3974f10c5eee2
     }
   }
 

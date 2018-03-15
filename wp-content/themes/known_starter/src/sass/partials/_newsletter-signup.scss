@@ -1,12 +1,91 @@
 .newsletter-signup {
+  display: none;
   padding: 5rem $margin-horizontal-base;
-  @include flexbox();
   @include justify-content(center);
   @media(min-width: 768px) {
     padding: 10rem $margin-horizontal-base;
   }
   @media(min-width: 1440px) {
     padding: 15rem $margin-horizontal-base;
+  }
+
+  &.active {
+    @include flexbox();
+  }
+
+  // This should get moved somewhere maybe
+  #notify-me & {
+    padding: 0 !important;
+    display: block !important;
+
+    form {
+      border: none;
+      padding-bottom: 1rem;
+      @media(min-width: 768px) {
+        border-bottom: .1rem solid #cbcbcb;
+      }
+
+      & > div {
+        margin-bottom: 1rem;
+      }
+    }
+
+    p,
+    input[type=email],
+    input[type=submit] {
+      font-family: $font-family-base;
+      font-size: 1.3rem;
+      letter-spacing: .1rem;
+      height: 4rem;
+      @media(min-width: 768px) {
+        height: auto;
+      }
+    }
+
+    p {
+      margin-bottom: 2.5em;
+    }
+
+    input[type=email] {
+      color: $text-color;
+      border-color: #cbcbcb;
+    }
+
+    input[type=submit] {
+      font-weight: 700;
+      color: $gold;
+      outline: none;
+      text-transform: uppercase;
+      &:hover {
+        color: $text-color;
+      }
+    }
+
+    #mce-responses {
+      font-size: 1.3rem;
+      color: #888;
+      text-align: center;
+      margin-top: 1rem;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      @media(min-width: 768px) {
+        text-align: left;
+      }
+    }
+
+    #mc_embed_signup div.mce_inline_error {
+      background: none;
+      padding: 0;
+      transform: none;
+      color: #888;
+      left: 0;
+      top: calc(100% + 1rem);
+      font-size: 1.2rem;
+      @media(min-width: 768px) {
+        text-align: left;
+      }
+    }
   }
 
   .content {
@@ -22,25 +101,38 @@
 
   #mc_embed_signup div.mce_inline_error {
     position: absolute;
-    left: 50%;
-    top: 100%;
-    background: $gold;
+    left: 0;
+    top: calc(100% + 2rem);
     border: none;
-    font-size: 1.4rem;
+    background: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
     font-weight: 400;
-    padding: 1.3rem 2.5rem;
-    font-family: $font-family-sans;
+    font-family: $font-family-base;
     white-space: nowrap;
-    @include transform(translateX(-50%));
+    width: 100%;
+    padding: 0;
+    color: $text-color;
   }
 
   #mce-responses {
-    max-width: 60rem;
-    font-family: $font-family-sans;
-    font-size: 1.5rem;
+    font-family: $font-family-base;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
     line-height: 1.5em;
     color: #777;
     @include flex(0 0 100%);
+    position: absolute;
+    left: 0;
+    top: calc(100% + 2rem);
+    width: 100%;
+    text-align: center;
+    @media(min-width: 1024px) {
+      text-align: left;
+      font-size: 1.2rem;
+    }
   }
 
   form {
@@ -71,7 +163,7 @@
       margin: 0;
       padding: 0;
       outline: none;
-      border-bottom: 2px solid #cbcbcb;
+      border-bottom: 1px solid #cbcbcb;
       background: none;
       font-family: $font-family-base;
       text-align: center;
