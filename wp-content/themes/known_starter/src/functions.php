@@ -174,25 +174,67 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
       $q->set( 'posts_per_page', -1 );
   }
 
+  // Product Custom Fields
+  function woo_add_custom_general_fields() {
+      global $woocommerce, $post;
+      echo '<div class="options_group">';
+
+      woocommerce_wp_text_input(array(
+          'id' => '_specifications',
+          'label' => __('Specifications', 'woocommerce'),
+          'placeholder' => 'Specifications',
+          'desc_tip' => false
+      ));
+
+      woocommerce_wp_text_input(array(
+          'id' => '_process',
+          'label' => __('Handmade Process', 'woocommerce'),
+          'placeholder' => 'Process',
+          'desc_tip' => false
+      ));
+
+      woocommerce_wp_text_input(array(
+          'id' => '_color',
+          'label' => __('Color', 'woocommerce'),
+          'placeholder' => 'Color',
+          'desc_tip' => false
+      ));
+
+      echo '</div>';
+  }
+  add_action('woocommerce_product_options_general_product_data', 'woo_add_custom_general_fields');
+
+  function woo_add_custom_general_fields_save($post_id) {
+      // Dimensions
+      $woocommerce_specs = $_POST['_specifications'];
+      if(!empty($woocommerce_specs))
+          update_post_meta($post_id, '_specifications', esc_attr($woocommerce_specs));
+
+      $woocommerce_process = $_POST['_process'];
+      if(!empty($woocommerce_process))
+          update_post_meta($post_id, '_process', esc_attr($woocommerce_process));
+
+      $woocommerce_color = $_POST['_color'];
+      if(!empty($woocommerce_color))
+          update_post_meta($post_id, '_color', esc_attr($woocommerce_color));
+  }
+  add_action('woocommerce_process_product_meta', 'woo_add_custom_general_fields_save');
+
+    //add specifications to product single page
+    function show_specifications() {
+        global $product;
+        $specs = get_post_meta($product->get_id(), '_specifications', true);
+        if (!empty($specs)) {
+            echo '<div class="product-dimensions">'. $specs .'</div>';
+        }
+    }
+    add_action( 'woocommerce_before_add_to_cart_form', 'show_specifications', 9 );
+
   // add back to shop on product single
   add_action( 'woocommerce_before_main_content', 'back_to_shop' );
   function back_to_shop() {
     if( is_product() ){
       include('components/back-to-shop.php');
-    }
-  }
-
-  //add project dimensions to product single page
-  add_action( 'woocommerce_before_add_to_cart_form', 'show_dimensions', 9 );
-
-  function show_dimensions() {
-  global $product;
-  $dimensions = $product->get_dimensions();
-
-  //var_dump($dimensions);
-
-  if ( ! empty($dimensions) ) {
-    echo '<div class="product-dimensions">' . $product->get_width() . '&quot; x '. $product->get_height() . '&quot;</div>';
     }
   }
 
@@ -536,7 +578,7 @@ function remove_admin_bar()
 }
 
 // Remove thumbnail width and height dimensions that prevent fluid images in the_thumbnail
-function remove_thumbnail_dimensions( $html )
+function remove_thumbnail_specifications( $html )
 {
     $html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
     return $html;
@@ -614,7 +656,7 @@ add_filter('body_class', 'add_slug_to_body_class'); // Add slug to body class (S
 add_filter('wp_nav_menu_args', 'my_wp_nav_menu_args'); // Remove surrounding <div> from WP Navigation
 add_filter('excerpt_more', 'html5_blank_view_article'); // Add 'View Article' button instead of [...] for Excerpts
 add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
-add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
+add_filter('post_thumbnail_html', 'remove_thumbnail_specifications', 10); // Remove width and height dynamic attributes to thumbnails
 add_filter('post_thumbnail_html', 'remove_width_attribute', 10 ); // Remove width and height dynamic attributes to post images
 add_filter('image_send_to_editor', 'remove_width_attribute', 10 ); // Remove width and height dynamic attributes to post images
 
