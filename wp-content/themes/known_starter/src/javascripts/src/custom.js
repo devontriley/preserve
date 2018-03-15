@@ -1,5 +1,15 @@
 // Woocommerce
 
+// add loader to the add to cart button on product page
+$( '.single_add_to_cart_button' ).on( 'click', function(){
+    $(this).addClass('loading');
+});
+
+// add loader to the proceed to checkout button on cart page
+$( '.checkout-button' ).on( 'click', function(){
+    $(this).addClass('loading');
+});
+
 var shopCategories = document.querySelector('#woocommerce-main .page-nav-bar');
 var productGrid = document.querySelector('#woocommerce-main ul.products');
 var loader = document.getElementById('loader-gif');
@@ -277,9 +287,10 @@ var mainSlider = productSlider.bxSlider({
     onSliderLoad: function(){
         document.getElementById('gallery-bxslider').classList.remove('load-delay');
     },
-    onSlideAfter: function(slide) {
-        console.log(slide, $slide, $(slide));
-        changeActiveThumb($(slide[0]));
+    onSlideAfter: function(slide, oldIndex, newIndex) {
+        var thumb = $('#bxslider-pager li:eq(' + newIndex + ')');
+        thumb.siblings('li').removeClass('active');
+        thumb.addClass('active');
     }
 });
 
@@ -289,6 +300,8 @@ productThumbs.on("click", "li", function(e){
   changeActiveThumb($(this));
   productSlider.goToSlide($(this).attr("data-slideIndex"));
 })
+
+
 }
 
   linkSlider(productSlider, productThumbs);
@@ -331,3 +344,4 @@ productThumbs.on("click", "li", function(e){
   //     document.getElementById('blog-bxslider').classList.remove('load-delay');
   //     }
   // });
+

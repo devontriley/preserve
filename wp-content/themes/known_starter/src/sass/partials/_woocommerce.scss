@@ -389,14 +389,20 @@
     margin: 0 2rem 2rem 2rem;
     flex: 0 0 calc(50% - 4rem);
     max-width: calc(50% - 4rem);
+    align-items: flex-start;
     @media(min-width: 768px) {
       flex: 0 0 calc(20% - 4rem);
       max-width: none;
       margin: 0 2rem;
     }
 
-    img {
-      transform: scale(.7);
+    .img-wrapper {
+      height: 81px;
+
+      img {
+        transform: scale(.7);
+        vertical-align: middle;
+      }
     }
 
     p {
@@ -404,6 +410,7 @@
       font-size: 1.6rem;
       font-family: $font-family-sans;
       margin: 0;
+      height: 72px;
     }
   }
 }

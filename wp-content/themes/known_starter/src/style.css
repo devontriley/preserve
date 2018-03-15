@@ -3220,7 +3220,10 @@ form.woocommerce-checkout {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 calc(50% - 4rem);
             flex: 0 0 calc(50% - 4rem);
-    max-width: calc(50% - 4rem); }
+    max-width: calc(50% - 4rem);
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start; }
     @media (min-width: 768px) {
       #detail-icons .item {
         -webkit-box-flex: 0;
@@ -3228,14 +3231,18 @@ form.woocommerce-checkout {
                 flex: 0 0 calc(20% - 4rem);
         max-width: none;
         margin: 0 2rem; } }
-    #detail-icons .item img {
-      -webkit-transform: scale(0.7);
-              transform: scale(0.7); }
+    #detail-icons .item .img-wrapper {
+      height: 81px; }
+      #detail-icons .item .img-wrapper img {
+        -webkit-transform: scale(0.7);
+                transform: scale(0.7);
+        vertical-align: middle; }
     #detail-icons .item p {
       line-height: 1.5em;
       font-size: 1.6rem;
       font-family: "Miller Text", "Times New Roman", Georgia, serif;
-      margin: 0; }
+      margin: 0;
+      height: 72px; }
 
 section.up-sells h2 {
   text-align: center;
