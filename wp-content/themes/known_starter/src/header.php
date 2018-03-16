@@ -62,3 +62,8 @@
 		<?php include('inc/master-svg.php'); ?>
 		<?php include('components/mobile-nav.php'); ?>
 		<?php include('components/primary-header.php'); ?>
+        <?php
+            if( is_product() ){
+                include('components/back-to-shop.php');
+            }
+        ?>
