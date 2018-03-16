@@ -226,8 +226,10 @@
         -webkit-appearance: none;
       }
 
-      .input-group-field {
-        box-shadow: none !important;
+      input[type=text] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
       }
     }
 
