@@ -2981,6 +2981,17 @@ form.woocommerce-checkout {
             font-size: 3rem;
             color: #ccc;
             line-height: 1; }
+            #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-prev svg,
+            #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-next svg {
+              fill: #b99656; }
+            #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-prev .left-bxslider-arrow,
+            #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-next .left-bxslider-arrow {
+              -webkit-transform: rotate(180deg);
+                      transform: rotate(180deg);
+              margin-right: 1rem; }
+            #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-prev .right-bxslider-arrow,
+            #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-next .right-bxslider-arrow {
+              margin-left: 1rem; }
             #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-prev:hover,
             #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-next:hover {
               color: #b99656; }

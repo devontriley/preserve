@@ -310,8 +310,8 @@ var mainSlider = productSlider.bxSlider({
     pager: false,
     speed: 0,
     infiniteLoop: true,
-    prevText: '<',
-    nextText: '>',
+    prevText: '<svg class="left-bxslider-arrow" height="30" viewBox="0 0 5.41 10"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#right-arrow"></use></svg>',
+    nextText: '<svg class="right-bxslider-arrow" height="30" viewBox="0 0 5.41 10"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#right-arrow"></use></svg>',
     onSliderLoad: function(){
         document.getElementById('gallery-bxslider').classList.remove('load-delay');
     },

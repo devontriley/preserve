@@ -116,6 +116,19 @@
             color: #ccc;
             line-height: 1;
 
+            svg {
+              fill: $gold;
+            }
+
+            .left-bxslider-arrow {
+              transform: rotate(180deg);
+              margin-right: 1rem;
+            }
+
+            .right-bxslider-arrow {
+              margin-left: 1rem;
+            }
+
             &:hover {
               color: $gold;
             }
