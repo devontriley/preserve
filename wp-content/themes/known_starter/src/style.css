@@ -3098,7 +3098,9 @@ form.woocommerce-checkout {
     color: #b99656; }
   #back-to-shop a svg,
   .woocommerce .woocommerce-breadcrumb a svg {
-    fill: #b99656; }
+    fill: #b99656;
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg); }
   #back-to-shop span,
   .woocommerce .woocommerce-breadcrumb span {
     color: #b99656; }
