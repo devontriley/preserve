@@ -339,6 +339,15 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
     }
   }
 
+    // Remove some billing info fields
+    function custom_override_checkout_fields( $fields ) {
+        $fields['billing']['billing_email']['class'] = array('form-row-wide');
+        unset($fields['billing']['billing_company']);
+        unset($fields['billing']['billing_phone']);
+        return $fields;
+    }
+    add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+
 
   // bring in gallery images as bxslider
   remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 ); //remove current gallery
