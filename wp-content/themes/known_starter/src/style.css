@@ -3065,7 +3065,8 @@ form.woocommerce-checkout {
         font-size: 1.5rem;
         -webkit-appearance: none; }
       #woocommerce-main div.product .quantity .input-group-field {
-        -webkit-appearance: none; }
+        -webkit-box-shadow: none !important;
+                box-shadow: none !important; }
     #woocommerce-main div.product button[type=submit] {
       display: block;
       float: none;
