@@ -354,6 +354,7 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
     }
   }
 
+
 endif; // if( class_exists('woocommerce') )
 
 

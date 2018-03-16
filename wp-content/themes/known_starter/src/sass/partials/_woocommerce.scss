@@ -24,7 +24,12 @@
 
   div.product {
     margin: 5rem auto;
-    padding: 0 2rem;
+    padding: 6rem 2rem 0;
+    position: relative;
+    @media screen and (min-wdith: 768px){
+      padding: 0 2rem;
+    }
+
     @media(min-width: 992px) {
       margin: 8rem auto;
       display: flex;
@@ -148,6 +153,18 @@
       max-width: 51.5rem;
       @media(min-width: 992px) {
         flex: 0 0 50%;
+      }
+
+      .product_title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-align: center;
+
+        @media screen and (min-width: 768px){
+          position: relative;
+          text-align: left;
+        }
       }
     }
 
