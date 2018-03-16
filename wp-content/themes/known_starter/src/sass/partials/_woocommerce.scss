@@ -225,6 +225,10 @@
         font-size: 1.5rem;
         -webkit-appearance: none;
       }
+
+      .input-group-field input-text {
+        -webkit-appearance: none;
+      }
     }
 
     button[type=submit] {
