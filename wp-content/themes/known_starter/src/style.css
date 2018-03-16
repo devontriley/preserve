@@ -3083,13 +3083,16 @@ form.woocommerce-checkout {
 .woocommerce .woocommerce-breadcrumb {
   text-align: center;
   padding: 3rem 2rem;
-  margin: 0 -3rem;
   text-transform: uppercase;
   font-weight: 600;
   font-size: 1.2rem;
   letter-spacing: .1rem;
   border-bottom: .1rem solid #eee;
   border-top: .1rem solid #eee; }
+  @media screen and (min-width: 768px) {
+    #back-to-shop,
+    .woocommerce .woocommerce-breadcrumb {
+      margin: 0 -3rem; } }
   #back-to-shop a:hover,
   .woocommerce .woocommerce-breadcrumb a:hover {
     color: #b99656; }
