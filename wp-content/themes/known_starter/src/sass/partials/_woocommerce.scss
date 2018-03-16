@@ -225,12 +225,12 @@
         font-size: 1.5rem;
         -webkit-appearance: none;
       }
-    }
 
-    input[type=text] {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
+      input {
+        -webkit-appearance: none !important;
+        -moz-appearance: none;
+        appearance: none !important;
+      }
     }
 
     button[type=submit] {
