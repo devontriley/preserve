@@ -3067,7 +3067,8 @@ form.woocommerce-checkout {
       #woocommerce-main div.product .quantity input {
         -webkit-appearance: none !important;
         -moz-appearance: none;
-        appearance: none !important; }
+        appearance: none !important;
+        border-radius: none !important; }
     #woocommerce-main div.product button[type=submit] {
       display: block;
       float: none;
