@@ -3395,25 +3395,28 @@ section.up-sells h2 {
   margin: 5rem auto;
   text-align: center; }
 
-.woocommerce-cart .cart_item {
+.woocommerce-cart .shop_table td {
+  padding: 2.5rem; }
+
+.woocommerce-cart .shop_table .cart_item {
   position: relative; }
-  .woocommerce-cart .cart_item .product-remove {
+  .woocommerce-cart .shop_table .cart_item .product-remove {
     position: absolute;
     top: 0; }
     @media screen and (min-width: 768px) {
-      .woocommerce-cart .cart_item .product-remove {
+      .woocommerce-cart .shop_table .cart_item .product-remove {
         position: relative;
         bottom: unset; } }
-    .woocommerce-cart .cart_item .product-remove a {
+    .woocommerce-cart .shop_table .cart_item .product-remove a {
       line-height: 100% !important;
       padding: .5rem 0; }
-  .woocommerce-cart .cart_item .product-name {
+  .woocommerce-cart .shop_table .cart_item .product-name {
     padding-left: 5rem; }
     @media screen and (min-width: 768px) {
-      .woocommerce-cart .cart_item .product-name {
+      .woocommerce-cart .shop_table .cart_item .product-name {
         padding-left: unset; } }
 
-.woocommerce-cart .input-group .input-group-button {
+.woocommerce-cart .shop_table .input-group .input-group-button {
   display: none; }
 
 #cart-footer {
@@ -3458,6 +3461,20 @@ section.up-sells h2 {
 .woocommerce-checkout .cart_item .product-name img {
   width: 80px;
   margin-right: 1rem; }
+
+.woocommerce #payment #place_order, .woocommerce-page #payment #place_order {
+  border: 0.1rem solid #6d5e67;
+  background: transparent;
+  color: #6d5e67;
+  border-radius: 0;
+  text-transform: uppercase;
+  padding: 2rem 4rem;
+  -webkit-transition: all ease .3s;
+  transition: all ease .3s; }
+  .woocommerce #payment #place_order:hover, .woocommerce-page #payment #place_order:hover {
+    background-color: #b99656;
+    border-color: #b99656;
+    color: #fff; }
 
 .woocommerce table.shop_table {
   border: none;

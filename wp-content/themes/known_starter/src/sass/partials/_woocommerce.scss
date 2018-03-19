@@ -603,36 +603,42 @@ section.up-sells {
 
 //cart page {
 .woocommerce-cart {
-  .cart_item {
-    position: relative;
+  .shop_table {
+    td {
+      padding: 2.5rem;
+    }
 
-    .product-remove {
-      position: absolute;
-      top: 0;
+    .cart_item {
+      position: relative;
 
-      @media screen and (min-width: 768px){
-        position: relative;
-        bottom: unset;
+      .product-remove {
+        position: absolute;
+        top: 0;
+
+        @media screen and (min-width: 768px){
+          position: relative;
+          bottom: unset;
+        }
+
+        a {
+          line-height: 100% !important;
+          padding: .5rem 0;
+        }
       }
 
-      a {
-        line-height: 100% !important;
-        padding: .5rem 0;
+      .product-name {
+        padding-left: 5rem;
+
+        @media screen and (min-width: 768px){
+          padding-left: unset
+        }
       }
     }
 
-    .product-name {
-      padding-left: 5rem;
-
-      @media screen and (min-width: 768px){
-        padding-left: unset
+    .input-group {
+      .input-group-button {
+        display: none;
       }
-    }
-  }
-
-  .input-group {
-    .input-group-button {
-      display: none;
     }
   }
 }
@@ -690,4 +696,20 @@ section.up-sells {
 .woocommerce-checkout .cart_item .product-name img {
   width: 80px;
   margin-right: 1rem;
+}
+
+.woocommerce #payment #place_order, .woocommerce-page #payment #place_order {
+  border: 0.1rem solid #6d5e67;
+  background: transparent;
+  color: #6d5e67;
+  border-radius: 0;
+  text-transform: uppercase;
+  padding: 2rem 4rem;
+  transition: all ease .3s;
+
+  &:hover {
+    background-color: $gold;
+    border-color: $gold;
+    color: #fff;
+  }
 }
