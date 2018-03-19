@@ -23,8 +23,8 @@
    */
 
   div.product {
-    margin: 5rem auto;
-    padding: 6rem 2rem 0;
+    margin: 4rem auto;
+    padding: 2rem 2rem 0;
     position: relative;
     @media screen and (min-wdith: 768px){
       padding: 0 2rem;
@@ -40,6 +40,14 @@
     @media(min-width: 992px) {
       & > .flexible-content {
         flex: 0 0 100%;
+      }
+    }
+
+    #mobile_title {
+      display: block;
+
+      @media screen and (min-width: 768px){
+        display: none;
       }
     }
 
@@ -174,14 +182,12 @@
       }
 
       .product_title {
-        position: absolute;
-        top: 0;
-        left: 0;
-        text-align: center;
+        display: none;
 
         @media screen and (min-width: 768px){
           position: relative;
           text-align: left;
+          display: block; 
         }
       }
     }

@@ -347,11 +347,17 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
   // bring in gallery images as bxslider
   remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 ); //remove current gallery
 
-  add_action('woocommerce_before_single_product_summary', 'product_gallery_bxslider');
+  add_action('woocommerce_before_single_product_summary', 'product_gallery_bxslider', 20);
   function product_gallery_bxslider() {
     if( is_product() ){
       include('components/product-bxslider.php');
     }
+  }
+
+
+  add_action('woocommerce_before_single_product_summary', 'product_mobile_title', 5);
+  function product_mobile_title(){
+      echo '<h1 class="product_title" id="mobile_title">'. get_the_title() .'</h1>';
   }
 
 
