@@ -3455,6 +3455,10 @@ section.up-sells h2 {
   #cart-footer .contact a {
     color: #fff; }
 
+.checkout .cart-item .product-name img {
+  width: 80px;
+  margin-right: 1rem; }
+
 .woocommerce table.shop_table {
   border: none;
   font-size: 1.4rem; }
