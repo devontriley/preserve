@@ -57,7 +57,7 @@ if(shopCategories) {
 
               e.target.classList.add('active');
 
-              var url = 'http://'+window.location.hostname+window.location.pathname+'?prod_cat='+dataSlug;
+              var url = window.location.origin+window.location.pathname+'?prod_cat='+dataSlug;
               if (typeof (history.pushState) != "undefined") {
                   var obj = { Title: dataSlug, Url: url };
                   history.pushState(obj, obj.Title, obj.Url);
