@@ -635,51 +635,53 @@ section.up-sells {
       display: none;
     }
   }
+}
 
-  #cart-footer {
-    background: #6d5e67;
-    color: #fff;
-    padding: 2rem 0;
-    text-align: center;
+
+// FOOTER
+
+#cart-footer {
+  background: #6d5e67;
+  color: #fff;
+  padding: 2rem 0;
+  text-align: center;
+  @media(min-width: 768px) {
+    text-align: left;
+    margin: 0 -3rem;
+  }
+
+  .inner {
+    padding: 0 3rem;
     @media(min-width: 768px) {
-      text-align: left;
-      margin: 0 -3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .logo {
+    margin-bottom: 3rem;
+    @media(min-width: 768px) {
+      margin-bottom: 0;
     }
 
-    .inner {
-      padding: 0 3rem;
-      @media(min-width: 768px) {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+    svg {
+      width: 20rem;
+      fill: #fff;
+      vertical-align: bottom;
     }
+  }
 
-    .logo {
-      margin-bottom: 3rem;
-      @media(min-width: 768px) {
-        margin-bottom: 0;
-      }
-
-      svg {
-        width: 20rem;
-        fill: #fff;
-        vertical-align: bottom;
-      }
+  .cards {
+    margin-bottom: 3rem;
+    @media(min-width: 768px) {
+      margin-bottom: 0;
     }
+  }
 
-    .cards {
-      margin-bottom: 3rem;
-      @media(min-width: 768px) {
-        margin-bottom: 0;
-      }
-    }
-
-    .contact {
-      a {
-        color: #fff;
-      }
+  .contact {
+    a {
+      color: #fff;
     }
   }
 }
-
