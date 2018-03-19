@@ -117,7 +117,12 @@
             line-height: 1;
 
             svg {
-              fill: $gold;
+              fill: #6d5e67;
+              transition: all ease .3s;
+
+              &:hover {
+                fill: $gold;
+              }
             }
 
             .left-bxslider-arrow {

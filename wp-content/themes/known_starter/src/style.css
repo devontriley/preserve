@@ -2983,7 +2983,12 @@ form.woocommerce-checkout {
             line-height: 1; }
             #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-prev svg,
             #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-next svg {
-              fill: #b99656; }
+              fill: #6d5e67;
+              -webkit-transition: all ease .3s;
+              transition: all ease .3s; }
+              #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-prev svg:hover,
+              #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-next svg:hover {
+                fill: #b99656; }
             #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-prev .left-bxslider-arrow,
             #woocommerce-main div.product #product-bxslider .bx-wrapper .bx-controls .bx-next .left-bxslider-arrow {
               -webkit-transform: rotate(180deg);
