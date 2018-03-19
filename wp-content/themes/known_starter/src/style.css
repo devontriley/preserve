@@ -3395,9 +3395,6 @@ section.up-sells h2 {
   margin: 5rem auto;
   text-align: center; }
 
-.woocommerce-cart .shop_table td {
-  padding: 2.5rem; }
-
 .woocommerce-cart .shop_table .cart_item {
   position: relative; }
   .woocommerce-cart .shop_table .cart_item .product-remove {
@@ -3478,6 +3475,9 @@ section.up-sells h2 {
 
 .select2-container--default .select2-results__option--highlighted[aria-selected], .select2-container--default .select2-results__option--highlighted[data-selected] {
   background-color: #6c5d66; }
+
+.woocommerce-order-received .shop_table td {
+  padding: 2.5rem; }
 
 .woocommerce table.shop_table {
   border: none;

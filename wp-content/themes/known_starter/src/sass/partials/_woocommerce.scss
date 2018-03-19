@@ -604,10 +604,6 @@ section.up-sells {
 //cart page {
 .woocommerce-cart {
   .shop_table {
-    td {
-      padding: 2.5rem;
-    }
-
     .cart_item {
       position: relative;
 
@@ -716,4 +712,14 @@ section.up-sells {
 
 .select2-container--default .select2-results__option--highlighted[aria-selected], .select2-container--default .select2-results__option--highlighted[data-selected] {
   background-color: #6c5d66;
+}
+
+
+// order received
+.woocommerce-order-received {
+  .shop_table {
+    td {
+      padding: 2.5rem;
+    }
+  }
 }
