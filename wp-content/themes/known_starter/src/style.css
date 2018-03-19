@@ -3477,7 +3477,7 @@ section.up-sells h2 {
   background-color: #6c5d66; }
 
 .woocommerce-order-received .shop_table td {
-  padding: 2.5rem; }
+  padding: 2.5rem !important; }
 
 .woocommerce table.shop_table {
   border: none;
