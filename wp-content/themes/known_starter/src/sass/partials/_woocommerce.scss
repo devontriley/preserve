@@ -602,7 +602,7 @@ section.up-sells {
 
     .product-remove {
       position: absolute;
-      bottom: -30px;
+      top: 0;
 
       @media screen and (min-width: 768px){
         position: relative;
@@ -612,6 +612,14 @@ section.up-sells {
       a {
         line-height: 100% !important;
         padding: .5rem 0;
+      }
+    }
+
+    .product-name {
+      padding-left: 5rem;
+
+      @media screen and (min-width: 768px){
+        padding-left: unset
       }
     }
   }

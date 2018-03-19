@@ -3396,7 +3396,7 @@ section.up-sells h2 {
   position: relative; }
   .woocommerce-cart .cart_item .product-remove {
     position: absolute;
-    bottom: -30px; }
+    top: 0; }
     @media screen and (min-width: 768px) {
       .woocommerce-cart .cart_item .product-remove {
         position: relative;
@@ -3404,6 +3404,11 @@ section.up-sells h2 {
     .woocommerce-cart .cart_item .product-remove a {
       line-height: 100% !important;
       padding: .5rem 0; }
+  .woocommerce-cart .cart_item .product-name {
+    padding-left: 5rem; }
+    @media screen and (min-width: 768px) {
+      .woocommerce-cart .cart_item .product-name {
+        padding-left: unset; } }
 
 .woocommerce-cart .input-group .input-group-button {
   display: none; }
