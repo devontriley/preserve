@@ -292,16 +292,18 @@
 #back-to-shop,
 .woocommerce .woocommerce-breadcrumb {
   text-align: center;
-  padding: 3rem 2rem;
+  padding: 1.5rem 2rem;
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1rem;
   letter-spacing: .1rem;
   border-bottom: .1rem solid #eee;
   border-top: .1rem solid #eee;
 
   @media screen and (min-width: 768px){
     margin: 0 -3rem;
+    padding: 3rem 2rem;
+    font-size: 1.2rem;
   }
 
   a{
