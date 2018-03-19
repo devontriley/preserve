@@ -3457,7 +3457,8 @@ section.up-sells h2 {
 
 .woocommerce-checkout .cart_item .product-name img {
   width: 80px;
-  margin-right: 1rem; }
+  margin-bottom: 1rem;
+  display: block; }
 
 .woocommerce #payment #place_order, .woocommerce-page #payment #place_order {
   border: 0.1rem solid #6d5e67;
