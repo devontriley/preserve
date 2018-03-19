@@ -3476,6 +3476,9 @@ section.up-sells h2 {
     border-color: #b99656;
     color: #fff; }
 
+.select2-container--default .select2-results__option--highlighted[aria-selected], .select2-container--default .select2-results__option--highlighted[data-selected] {
+  background-color: #6c5d66; }
+
 .woocommerce table.shop_table {
   border: none;
   font-size: 1.4rem; }
