@@ -596,67 +596,76 @@ section.up-sells {
 }
 
 //cart page {
-.cart_item {
-  position: relative;
+.woocommerce-cart {
+  .cart_item {
+    position: relative;
 
-  .product-remove {
-    position: absolute;
-    bottom: -30px;
+    .product-remove {
+      position: absolute;
+      bottom: -30px;
 
-    @media screen and (min-width: 768px){
-      position: relative;
-      bottom: unset;
+      @media screen and (min-width: 768px){
+        position: relative;
+        bottom: unset;
+      }
+
+      a {
+        line-height: 100% !important;
+        padding: .5rem 0;
+      }
+    }
+  }
+
+  .input-group {
+    .input-group-button {
+      display: none;
+    }
+  }
+
+  #cart-footer {
+    background: #6d5e67;
+    color: #fff;
+    padding: 2rem 0;
+    text-align: center;
+    @media(min-width: 768px) {
+      text-align: left;
+      margin: 0 -3rem;
     }
 
-    a {
-      line-height: 100% !important;
-      padding: .5rem 0;
+    .inner {
+      padding: 0 3rem;
+      @media(min-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .logo {
+      margin-bottom: 3rem;
+      @media(min-width: 768px) {
+        margin-bottom: 0;
+      }
+
+      svg {
+        width: 20rem;
+        fill: #fff;
+        vertical-align: bottom;
+      }
+    }
+
+    .cards {
+      margin-bottom: 3rem;
+      @media(min-width: 768px) {
+        margin-bottom: 0;
+      }
+    }
+
+    .contact {
+      a {
+        color: #fff;
+      }
     }
   }
 }
 
-#cart-footer {
-  background: #6d5e67;
-  color: #fff;
-  padding: 2rem 0;
-  text-align: center;
-  @media(min-width: 768px) {
-    text-align: left;
-    margin: 0 -3rem;
-  }
-
-  .inner {
-    padding: 0 3rem;
-    @media(min-width: 768px) {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  }
-
-  .logo {
-    margin-bottom: 3rem;
-    @media(min-width: 768px) {
-      margin-bottom: 0;
-    }
-
-    svg {
-      width: 20rem;
-      fill: #fff;
-      vertical-align: bottom;
-    }
-  }
-
-  .cards {
-    margin-bottom: 3rem;
-    @media(min-width: 768px) {
-      margin-bottom: 0;
-    }
-  }
-
-  .contact {
-    a {
-      color: #fff;
-    }
-  }
-}
