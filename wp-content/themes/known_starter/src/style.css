@@ -3824,7 +3824,7 @@ section.up-sells h2 {
 .cart-count {
   fill: #6d5e67;
   margin-right: 1rem;
-  display: none; }
+  display: block; }
   @media (min-width: 1024px) {
     .cart-count {
       display: none; } }
@@ -3884,7 +3884,7 @@ section.up-sells h2 {
     display: none; }
     @media (min-width: 1024px) {
       #primary-nav .cart-count {
-        display: none;
+        display: block;
         margin: 0 0 0 1rem; } }
   #primary-nav .btn {
     border-color: #fff;
