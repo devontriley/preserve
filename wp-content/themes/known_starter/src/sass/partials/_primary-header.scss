@@ -91,7 +91,7 @@
   .cart-count {
     display: none;
     @media(min-width: 1024px) {
-      display: block;
+      display: none; // change back to block when shop is open
       margin: 0 0 0 1rem;
     }
   }
