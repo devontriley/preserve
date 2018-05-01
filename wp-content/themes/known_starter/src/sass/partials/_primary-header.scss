@@ -61,6 +61,13 @@
     display: none;
   }
 
+  body.logged-in .cart-count {
+    display: block;
+    @media(min-width: 1024px) {
+      display: block;
+    }
+  }
+
   a {
     fill: $text-color;
   }
