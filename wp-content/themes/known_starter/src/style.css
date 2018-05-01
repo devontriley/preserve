@@ -3828,11 +3828,6 @@ section.up-sells h2 {
   @media (min-width: 1024px) {
     .cart-count {
       display: none; } }
-  body.logged-in .cart-count {
-    display: block; }
-    @media (min-width: 1024px) {
-      body.logged-in .cart-count {
-        display: block; } }
   .cart-count a {
     fill: #6d5e67; }
   .cart-count svg {
@@ -3891,6 +3886,11 @@ section.up-sells h2 {
       #primary-nav .cart-count {
         display: none;
         margin: 0 0 0 1rem; } }
+    body.logged-in #primary-nav .cart-count {
+      display: block; }
+      @media (min-width: 1024px) {
+        body.logged-in #primary-nav .cart-count {
+          display: block; } }
   #primary-nav .btn {
     border-color: #fff;
     color: #fff; }

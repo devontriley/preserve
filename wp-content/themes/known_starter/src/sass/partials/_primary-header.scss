@@ -61,13 +61,6 @@
     display: none;
   }
 
-  body.logged-in & {
-    display: block;
-    @media(min-width: 1024px) {
-      display: block;
-    }
-  }
-
   a {
     fill: $text-color;
   }
@@ -100,6 +93,13 @@
     @media(min-width: 1024px) {
       display: none; // change back to block when shop is open
       margin: 0 0 0 1rem;
+    }
+
+    body.logged-in & {
+      display: block;
+      @media(min-width: 1024px) {
+        display: block;
+      }
     }
   }
 
