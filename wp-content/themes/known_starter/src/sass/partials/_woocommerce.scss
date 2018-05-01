@@ -604,6 +604,11 @@ section.up-sells {
 
 //cart page {
 .woocommerce-cart {
+
+  .cart-wrapper {
+    padding: 0 2rem;
+  }
+
   .shop_table {
     .cart_item {
       position: relative;

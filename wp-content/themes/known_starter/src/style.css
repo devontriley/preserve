@@ -3397,6 +3397,9 @@ section.up-sells h2 {
   margin: 5rem auto;
   text-align: center; }
 
+.woocommerce-cart .cart-wrapper {
+  padding: 0 2rem; }
+
 .woocommerce-cart .shop_table .cart_item {
   position: relative; }
   .woocommerce-cart .shop_table .cart_item .product-remove {
