@@ -157,13 +157,14 @@
 
       #bxslider-pager {
         display: flex;
+        flex-wrap: wrap;
         list-style: none;
         justify-content: center;
         width: 100%;
         padding: 2rem;
 
         li {
-          margin: 0 .5rem;
+          margin: .5rem;
           padding: 1rem;
           border: 1px solid #eee;
           flex: 0 0 7rem;
