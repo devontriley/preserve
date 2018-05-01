@@ -23,8 +23,13 @@
    */
 
   div.product {
-    margin: 5rem auto;
-    padding: 0 2rem;
+    margin: 4rem auto;
+    padding: 2rem 2rem 0;
+    position: relative;
+    @media screen and (min-wdith: 768px){
+      padding: 0 2rem;
+    }
+
     @media(min-width: 992px) {
       margin: 8rem auto;
       display: flex;
@@ -35,6 +40,14 @@
     @media(min-width: 992px) {
       & > .flexible-content {
         flex: 0 0 100%;
+      }
+    }
+
+    #mobile_title {
+      display: block;
+
+      @media screen and (min-width: 768px){
+        display: none;
       }
     }
 
@@ -111,6 +124,24 @@
             color: #ccc;
             line-height: 1;
 
+            svg {
+              fill: #6d5e67;
+              transition: all ease .3s;
+
+              &:hover {
+                fill: $gold;
+              }
+            }
+
+            .left-bxslider-arrow {
+              transform: rotate(180deg);
+              margin-right: 1rem;
+            }
+
+            .right-bxslider-arrow {
+              margin-left: 1rem;
+            }
+
             &:hover {
               color: $gold;
             }
@@ -148,6 +179,16 @@
       max-width: 51.5rem;
       @media(min-width: 992px) {
         flex: 0 0 50%;
+      }
+
+      .product_title {
+        display: none;
+
+        @media screen and (min-width: 768px){
+          position: relative;
+          text-align: left;
+          display: block;
+        }
       }
     }
 
@@ -206,6 +247,14 @@
 
       .input-group-button button {
         font-size: 1.5rem;
+        -webkit-appearance: none;
+      }
+
+      input {
+        -webkit-appearance: none !important;
+        -moz-appearance: none;
+        appearance: none !important;
+        border-radius: 0 !important;
       }
     }
 
@@ -254,14 +303,19 @@
 #back-to-shop,
 .woocommerce .woocommerce-breadcrumb {
   text-align: center;
-  padding: 3rem 2rem;
-  margin: 0;
+  padding: 1.5rem 2rem;
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1rem;
   letter-spacing: .1rem;
   border-bottom: .1rem solid #eee;
   border-top: .1rem solid #eee;
+
+  @media screen and (min-width: 768px){
+    margin: 0 -3rem;
+    padding: 3rem 2rem;
+    font-size: 1.2rem;
+  }
 
   a{
     &:hover {
@@ -270,6 +324,7 @@
 
     svg {
       fill: $gold;
+      transform: rotate(180deg);
     }
   }
 
@@ -547,23 +602,54 @@ section.up-sells {
 }
 
 //cart page {
-.cart_item {
-  .product-remove {
-    a {
-      line-height: 100% !important;
-      padding: .5rem 0;
+.woocommerce-cart {
+  .shop_table {
+    .cart_item {
+      position: relative;
+
+      .product-remove {
+        position: absolute;
+        top: 0;
+
+        @media screen and (min-width: 768px){
+          position: relative;
+          bottom: unset;
+        }
+
+        a {
+          line-height: 100% !important;
+          padding: .5rem 0;
+        }
+      }
+
+      .product-name {
+        padding-left: 5rem;
+
+        @media screen and (min-width: 768px){
+          padding-left: unset
+        }
+      }
+    }
+
+    .input-group {
+      .input-group-button {
+        display: none;
+      }
     }
   }
 }
+
+
+// FOOTER
 
 #cart-footer {
   background: #6d5e67;
   color: #fff;
   padding: 2rem 0;
   text-align: center;
-  margin: 0 -3rem;
   @media(min-width: 768px) {
     text-align: left;
+    margin: 0 -3rem;
   }
 
   .inner {
@@ -598,6 +684,43 @@ section.up-sells {
   .contact {
     a {
       color: #fff;
+    }
+  }
+}
+
+//checkout
+.woocommerce-checkout .cart_item .product-name img {
+  width: 80px;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.woocommerce #payment #place_order, .woocommerce-page #payment #place_order {
+  border: 0.1rem solid #6d5e67;
+  background: transparent;
+  color: #6d5e67;
+  border-radius: 0;
+  text-transform: uppercase;
+  padding: 2rem 4rem;
+  transition: all ease .3s;
+
+  &:hover {
+    background-color: $gold;
+    border-color: $gold;
+    color: #fff;
+  }
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected], .select2-container--default .select2-results__option--highlighted[data-selected] {
+  background-color: #6c5d66;
+}
+
+
+// order received page
+.woocommerce-order-received {
+  .shop_table {
+    td {
+      padding: 2.5rem !important;
     }
   }
 }

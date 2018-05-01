@@ -35,6 +35,9 @@
 	ga('send', 'pageview');
 	</script>
 
+    <!-- google analytics -->
+    <meta name="google-site-verification" content="ggSHJH_TLI3j8GWc-ZC2IaRmJhI36Te4Otc0ONuoWWw" />
+
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112982199-1"></script>
 	<script>
@@ -62,3 +65,8 @@
 		<?php include('inc/master-svg.php'); ?>
 		<?php include('components/mobile-nav.php'); ?>
 		<?php include('components/primary-header.php'); ?>
+        <?php
+            if( is_product() ){
+                include('components/back-to-shop.php');
+            }
+        ?>

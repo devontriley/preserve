@@ -43,3 +43,4 @@ $loggedInMenu = wp_nav_menu(array(
     </div>
   </nav>
 </div>
+

@@ -55,7 +55,7 @@ if(shopCategories) {
 
               e.target.classList.add('active');
 
-              var url = 'http://'+window.location.hostname+window.location.pathname+'?prod_cat='+dataSlug;
+              var url = window.location.origin+window.location.pathname+'?prod_cat='+dataSlug;
               if (typeof (history.pushState) != "undefined") {
                   var obj = { Title: dataSlug, Url: url };
                   history.pushState(obj, obj.Title, obj.Url);
@@ -310,8 +310,8 @@ var mainSlider = productSlider.bxSlider({
     pager: false,
     speed: 0,
     infiniteLoop: true,
-    prevText: '<',
-    nextText: '>',
+    prevText: '<svg class="left-bxslider-arrow" height="30" viewBox="0 0 5.41 10"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#right-arrow"></use></svg>',
+    nextText: '<svg class="right-bxslider-arrow" height="30" viewBox="0 0 5.41 10"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#right-arrow"></use></svg>',
     onSliderLoad: function(){
         document.getElementById('gallery-bxslider').classList.remove('load-delay');
     },

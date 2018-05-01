@@ -174,6 +174,9 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
       $q->set( 'posts_per_page', -1 );
   }
 
+//  //add project dimensions to product single page
+//  add_action( 'woocommerce_before_add_to_cart_form', 'show_dimensions', 9 );
+
   // Product Custom Fields
   function woo_add_custom_general_fields() {
       global $woocommerce, $post;
@@ -229,14 +232,6 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
         }
     }
     add_action( 'woocommerce_before_add_to_cart_form', 'show_specifications', 9 );
-
-  // add back to shop on product single
-  add_action( 'woocommerce_before_main_content', 'back_to_shop' );
-  function back_to_shop() {
-    if( is_product() ){
-      include('components/back-to-shop.php');
-    }
-  }
 
   // Single product custom icon details
   add_action( 'woocommerce_after_single_product_summary', 'custom_detail_icons', 16 );
@@ -352,12 +347,19 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
   // bring in gallery images as bxslider
   remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 ); //remove current gallery
 
-  add_action('woocommerce_before_single_product_summary', 'product_gallery_bxslider');
+  add_action('woocommerce_before_single_product_summary', 'product_gallery_bxslider', 20);
   function product_gallery_bxslider() {
     if( is_product() ){
       include('components/product-bxslider.php');
     }
   }
+
+
+  add_action('woocommerce_before_single_product_summary', 'product_mobile_title', 5);
+  function product_mobile_title(){
+      echo '<h1 class="product_title" id="mobile_title">'. get_the_title() .'</h1>';
+  }
+
 
 endif; // if( class_exists('woocommerce') )
 
