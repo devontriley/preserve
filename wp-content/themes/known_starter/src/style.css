@@ -3830,6 +3830,11 @@ section.up-sells h2 {
   @media (min-width: 1024px) {
     .cart-count {
       display: none; } }
+  body.logged-in .cart-count {
+    display: block; }
+    @media (min-width: 1024px) {
+      body.logged-in .cart-count {
+        display: none; } }
   .cart-count a {
     fill: #6d5e67; }
   .cart-count svg {
@@ -3889,7 +3894,7 @@ section.up-sells h2 {
         display: none;
         margin: 0 0 0 1rem; } }
     body.logged-in #primary-nav .cart-count {
-      display: block; }
+      display: none; }
       @media (min-width: 1024px) {
         body.logged-in #primary-nav .cart-count {
           display: block; } }

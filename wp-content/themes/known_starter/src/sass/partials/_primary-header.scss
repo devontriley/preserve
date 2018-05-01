@@ -61,6 +61,13 @@
     display: none;
   }
 
+  body.logged-in & {
+    display: block;
+    @media(min-width: 1024px) {
+      display: none;
+    }
+  }
+
   a {
     fill: $text-color;
   }
@@ -96,7 +103,7 @@
     }
 
     body.logged-in & {
-      display: block;
+      display: none;
       @media(min-width: 1024px) {
         display: block;
       }
