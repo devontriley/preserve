@@ -61,7 +61,7 @@
     display: none;
   }
 
-  body.logged-in .cart-count {
+  body.logged-in & {
     display: block;
     @media(min-width: 1024px) {
       display: block;
